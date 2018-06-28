@@ -30,19 +30,19 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridViewMedicines = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.medicinesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.desktopDoctorDatabaseDataSet = new DesktopDoctor.DesktopDoctorDatabaseDataSet();
             this.btnGoToDoctors = new System.Windows.Forms.Button();
             this.btnAddMedicine = new System.Windows.Forms.Button();
             this.btnChangeMedicine = new System.Windows.Forms.Button();
             this.btnRemoveMedicine = new System.Windows.Forms.Button();
-            this.desktopDoctorDatabaseDataSet = new DesktopDoctor.DesktopDoctorDatabaseDataSet();
-            this.medicinesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.medicinesTableAdapter = new DesktopDoctor.DesktopDoctorDatabaseDataSetTableAdapters.MedicinesTableAdapter();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMedicines)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.desktopDoctorDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicinesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.desktopDoctorDatabaseDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewMedicines
@@ -62,6 +62,35 @@
             this.dataGridViewMedicines.Name = "dataGridViewMedicines";
             this.dataGridViewMedicines.Size = new System.Drawing.Size(719, 357);
             this.dataGridViewMedicines.TabIndex = 2;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            // 
+            // medicinesBindingSource
+            // 
+            this.medicinesBindingSource.DataMember = "Medicines";
+            this.medicinesBindingSource.DataSource = this.desktopDoctorDatabaseDataSet;
+            // 
+            // desktopDoctorDatabaseDataSet
+            // 
+            this.desktopDoctorDatabaseDataSet.DataSetName = "DesktopDoctorDatabaseDataSet";
+            this.desktopDoctorDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnGoToDoctors
             // 
@@ -101,38 +130,9 @@
             this.btnRemoveMedicine.Text = "Удалить";
             this.btnRemoveMedicine.UseVisualStyleBackColor = true;
             // 
-            // desktopDoctorDatabaseDataSet
-            // 
-            this.desktopDoctorDatabaseDataSet.DataSetName = "DesktopDoctorDatabaseDataSet";
-            this.desktopDoctorDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // medicinesBindingSource
-            // 
-            this.medicinesBindingSource.DataMember = "Medicines";
-            this.medicinesBindingSource.DataSource = this.desktopDoctorDatabaseDataSet;
-            // 
             // medicinesTableAdapter
             // 
             this.medicinesTableAdapter.ClearBeforeFill = true;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
             // 
             // MedicinesForm
             // 
@@ -148,11 +148,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MedicinesForm";
             this.Text = "MedicinesForm";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MedicinesForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMedicines)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.desktopDoctorDatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicinesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.desktopDoctorDatabaseDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
