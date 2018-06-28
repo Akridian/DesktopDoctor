@@ -94,6 +94,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DesktopDatabase.edmx</DependentUpon>
     </Compile>
+    <Compile Include="DesktopDoctorDatabaseDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DesktopDoctorDatabaseDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Employee.cs">
       <DependentUpon>DesktopDatabase.tt</DependentUpon>
     </Compile>
@@ -174,6 +179,17 @@
     </EntityDeploy>
     <None Include="DesktopDatabase.edmx.diagram">
       <DependentUpon>DesktopDatabase.edmx</DependentUpon>
+    </None>
+    <None Include="DesktopDoctorDatabaseDataSet.xsc">
+      <DependentUpon>DesktopDoctorDatabaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DesktopDoctorDatabaseDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DesktopDoctorDatabaseDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DesktopDoctorDatabaseDataSet.xss">
+      <DependentUpon>DesktopDoctorDatabaseDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
