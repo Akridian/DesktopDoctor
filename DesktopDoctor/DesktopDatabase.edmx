@@ -1,0 +1,847 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище DesktopDoctorDatabaseModel" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Accounts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmployeeId" Type="int" Nullable="false" />
+          <Property Name="SecurityLevelId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Complaints">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fename" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Medicines">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Patients">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fename" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="50" />
+          <Property Name="Birthdate" Type="date" Nullable="false" />
+          <Property Name="Gender" Type="bit" Nullable="false" />
+          <Property Name="SNILS" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Policy" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Procedures">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="FilePath" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ReceprionsProcedures">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ReceptionId" Type="int" Nullable="false" />
+          <Property Name="ProcedureId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Receptions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="EmployeeId" Type="int" Nullable="false" />
+          <Property Name="PatientId" Type="int" Nullable="false" />
+          <Property Name="Temperature" Type="float" />
+          <Property Name="Pressure" Type="int" />
+          <Property Name="Diagnosis" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ReceptionsComplaints">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ReceptionId" Type="int" Nullable="false" />
+          <Property Name="ComplaintId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ReceptionsMedicines">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ReceptionId" Type="int" Nullable="false" />
+          <Property Name="MedicineId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ReceptionsRecommendations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ReceptionId" Type="int" Nullable="false" />
+          <Property Name="RecommendationId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Recommendations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="SecurityLevels">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Accounts_Employees">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Accounts_SecurityLevels">
+          <End Role="SecurityLevels" Type="Self.SecurityLevels" Multiplicity="1" />
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SecurityLevels">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="SecurityLevelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReceprionsProcedures_Procedures">
+          <End Role="Procedures" Type="Self.Procedures" Multiplicity="1" />
+          <End Role="ReceprionsProcedures" Type="Self.ReceprionsProcedures" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Procedures">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReceprionsProcedures">
+              <PropertyRef Name="ProcedureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReceprionsProcedures_Receptions">
+          <End Role="Receptions" Type="Self.Receptions" Multiplicity="1" />
+          <End Role="ReceprionsProcedures" Type="Self.ReceprionsProcedures" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Receptions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReceprionsProcedures">
+              <PropertyRef Name="ReceptionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Receptions_Employees">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+          <End Role="Receptions" Type="Self.Receptions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Receptions">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Receptions_Patients">
+          <End Role="Patients" Type="Self.Patients" Multiplicity="1" />
+          <End Role="Receptions" Type="Self.Receptions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Receptions">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReceptionsComplaints_Complaints">
+          <End Role="Complaints" Type="Self.Complaints" Multiplicity="1" />
+          <End Role="ReceptionsComplaints" Type="Self.ReceptionsComplaints" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Complaints">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReceptionsComplaints">
+              <PropertyRef Name="ComplaintId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReceptionsComplaints_Receptions">
+          <End Role="Receptions" Type="Self.Receptions" Multiplicity="1" />
+          <End Role="ReceptionsComplaints" Type="Self.ReceptionsComplaints" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Receptions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReceptionsComplaints">
+              <PropertyRef Name="ReceptionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReceptionsMedicines_Medicines">
+          <End Role="Medicines" Type="Self.Medicines" Multiplicity="1" />
+          <End Role="ReceptionsMedicines" Type="Self.ReceptionsMedicines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medicines">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReceptionsMedicines">
+              <PropertyRef Name="MedicineId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReceptionsMedicines_Receptions">
+          <End Role="Receptions" Type="Self.Receptions" Multiplicity="1" />
+          <End Role="ReceptionsMedicines" Type="Self.ReceptionsMedicines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Receptions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReceptionsMedicines">
+              <PropertyRef Name="ReceptionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReceptionsRecommendations_Receptions">
+          <End Role="Receptions" Type="Self.Receptions" Multiplicity="1" />
+          <End Role="ReceptionsRecommendations" Type="Self.ReceptionsRecommendations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Receptions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReceptionsRecommendations">
+              <PropertyRef Name="ReceptionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReceptionsRecommendations_Recommendation">
+          <End Role="Recommendations" Type="Self.Recommendations" Multiplicity="1" />
+          <End Role="ReceptionsRecommendations" Type="Self.ReceptionsRecommendations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recommendations">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReceptionsRecommendations">
+              <PropertyRef Name="RecommendationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище DesktopDoctorDatabaseModelContainer">
+          <EntitySet Name="Accounts" EntityType="Self.Accounts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Complaints" EntityType="Self.Complaints" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Medicines" EntityType="Self.Medicines" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patients" EntityType="Self.Patients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Procedures" EntityType="Self.Procedures" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReceprionsProcedures" EntityType="Self.ReceprionsProcedures" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Receptions" EntityType="Self.Receptions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReceptionsComplaints" EntityType="Self.ReceptionsComplaints" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReceptionsMedicines" EntityType="Self.ReceptionsMedicines" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReceptionsRecommendations" EntityType="Self.ReceptionsRecommendations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Recommendations" EntityType="Self.Recommendations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SecurityLevels" EntityType="Self.SecurityLevels" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Accounts_Employees" Association="Self.FK_Accounts_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Accounts" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Accounts_SecurityLevels" Association="Self.FK_Accounts_SecurityLevels">
+            <End Role="SecurityLevels" EntitySet="SecurityLevels" />
+            <End Role="Accounts" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReceprionsProcedures_Procedures" Association="Self.FK_ReceprionsProcedures_Procedures">
+            <End Role="Procedures" EntitySet="Procedures" />
+            <End Role="ReceprionsProcedures" EntitySet="ReceprionsProcedures" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReceprionsProcedures_Receptions" Association="Self.FK_ReceprionsProcedures_Receptions">
+            <End Role="Receptions" EntitySet="Receptions" />
+            <End Role="ReceprionsProcedures" EntitySet="ReceprionsProcedures" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Receptions_Employees" Association="Self.FK_Receptions_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Receptions" EntitySet="Receptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Receptions_Patients" Association="Self.FK_Receptions_Patients">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="Receptions" EntitySet="Receptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReceptionsComplaints_Complaints" Association="Self.FK_ReceptionsComplaints_Complaints">
+            <End Role="Complaints" EntitySet="Complaints" />
+            <End Role="ReceptionsComplaints" EntitySet="ReceptionsComplaints" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReceptionsComplaints_Receptions" Association="Self.FK_ReceptionsComplaints_Receptions">
+            <End Role="Receptions" EntitySet="Receptions" />
+            <End Role="ReceptionsComplaints" EntitySet="ReceptionsComplaints" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReceptionsMedicines_Medicines" Association="Self.FK_ReceptionsMedicines_Medicines">
+            <End Role="Medicines" EntitySet="Medicines" />
+            <End Role="ReceptionsMedicines" EntitySet="ReceptionsMedicines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReceptionsMedicines_Receptions" Association="Self.FK_ReceptionsMedicines_Receptions">
+            <End Role="Receptions" EntitySet="Receptions" />
+            <End Role="ReceptionsMedicines" EntitySet="ReceptionsMedicines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReceptionsRecommendations_Receptions" Association="Self.FK_ReceptionsRecommendations_Receptions">
+            <End Role="Receptions" EntitySet="Receptions" />
+            <End Role="ReceptionsRecommendations" EntitySet="ReceptionsRecommendations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReceptionsRecommendations_Recommendation" Association="Self.FK_ReceptionsRecommendations_Recommendation">
+            <End Role="Recommendations" EntitySet="Recommendations" />
+            <End Role="ReceptionsRecommendations" EntitySet="ReceptionsRecommendations" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DesktopDoctorDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+          <Property Name="SecurityLevelId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Accounts_Employees" FromRole="Accounts" ToRole="Employees" />
+          <NavigationProperty Name="SecurityLevel" Relationship="Self.FK_Accounts_SecurityLevels" FromRole="Accounts" ToRole="SecurityLevels" />
+        </EntityType>
+        <EntityType Name="Complaint">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ReceptionsComplaints" Relationship="Self.FK_ReceptionsComplaints_Complaints" FromRole="Complaints" ToRole="ReceptionsComplaints" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Accounts" Relationship="Self.FK_Accounts_Employees" FromRole="Employees" ToRole="Accounts" />
+          <NavigationProperty Name="Receptions" Relationship="Self.FK_Receptions_Employees" FromRole="Employees" ToRole="Receptions" />
+        </EntityType>
+        <EntityType Name="Medicine">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ReceptionsMedicines" Relationship="Self.FK_ReceptionsMedicines_Medicines" FromRole="Medicines" ToRole="ReceptionsMedicines" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Birthdate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Gender" Type="Boolean" Nullable="false" />
+          <Property Name="SNILS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Policy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Receptions" Relationship="Self.FK_Receptions_Patients" FromRole="Patients" ToRole="Receptions" />
+        </EntityType>
+        <EntityType Name="Procedure">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FilePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ReceprionsProcedures" Relationship="Self.FK_ReceprionsProcedures_Procedures" FromRole="Procedures" ToRole="ReceprionsProcedures" />
+        </EntityType>
+        <EntityType Name="ReceprionProcedure">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReceptionId" Type="Int32" Nullable="false" />
+          <Property Name="ProcedureId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Procedure" Relationship="Self.FK_ReceprionsProcedures_Procedures" FromRole="ReceprionsProcedures" ToRole="Procedures" />
+          <NavigationProperty Name="Reception" Relationship="Self.FK_ReceprionsProcedures_Receptions" FromRole="ReceprionsProcedures" ToRole="Receptions" />
+        </EntityType>
+        <EntityType Name="Reception">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+          <Property Name="PatientId" Type="Int32" Nullable="false" />
+          <Property Name="Temperature" Type="Double" />
+          <Property Name="Pressure" Type="Int32" />
+          <Property Name="Diagnosis" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Receptions_Employees" FromRole="Receptions" ToRole="Employees" />
+          <NavigationProperty Name="Patient" Relationship="Self.FK_Receptions_Patients" FromRole="Receptions" ToRole="Patients" />
+          <NavigationProperty Name="ReceprionsProcedures" Relationship="Self.FK_ReceprionsProcedures_Receptions" FromRole="Receptions" ToRole="ReceprionsProcedures" />
+          <NavigationProperty Name="ReceptionsComplaints" Relationship="Self.FK_ReceptionsComplaints_Receptions" FromRole="Receptions" ToRole="ReceptionsComplaints" />
+          <NavigationProperty Name="ReceptionsMedicines" Relationship="Self.FK_ReceptionsMedicines_Receptions" FromRole="Receptions" ToRole="ReceptionsMedicines" />
+          <NavigationProperty Name="ReceptionsRecommendations" Relationship="Self.FK_ReceptionsRecommendations_Receptions" FromRole="Receptions" ToRole="ReceptionsRecommendations" />
+        </EntityType>
+        <EntityType Name="ReceptionComplaint">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReceptionId" Type="Int32" Nullable="false" />
+          <Property Name="ComplaintId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Complaint" Relationship="Self.FK_ReceptionsComplaints_Complaints" FromRole="ReceptionsComplaints" ToRole="Complaints" />
+          <NavigationProperty Name="Reception" Relationship="Self.FK_ReceptionsComplaints_Receptions" FromRole="ReceptionsComplaints" ToRole="Receptions" />
+        </EntityType>
+        <EntityType Name="ReceptionMedicine">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReceptionId" Type="Int32" Nullable="false" />
+          <Property Name="MedicineId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Medicine" Relationship="Self.FK_ReceptionsMedicines_Medicines" FromRole="ReceptionsMedicines" ToRole="Medicines" />
+          <NavigationProperty Name="Reception" Relationship="Self.FK_ReceptionsMedicines_Receptions" FromRole="ReceptionsMedicines" ToRole="Receptions" />
+        </EntityType>
+        <EntityType Name="ReceptionRecommendation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReceptionId" Type="Int32" Nullable="false" />
+          <Property Name="RecommendationId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Reception" Relationship="Self.FK_ReceptionsRecommendations_Receptions" FromRole="ReceptionsRecommendations" ToRole="Receptions" />
+          <NavigationProperty Name="Recommendation" Relationship="Self.FK_ReceptionsRecommendations_Recommendation" FromRole="ReceptionsRecommendations" ToRole="Recommendations" />
+        </EntityType>
+        <EntityType Name="Recommendation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ReceptionsRecommendations" Relationship="Self.FK_ReceptionsRecommendations_Recommendation" FromRole="Recommendations" ToRole="ReceptionsRecommendations" />
+        </EntityType>
+        <EntityType Name="SecurityLevel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Accounts" Relationship="Self.FK_Accounts_SecurityLevels" FromRole="SecurityLevels" ToRole="Accounts" />
+        </EntityType>
+        <Association Name="FK_Accounts_Employees">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Accounts" Type="Self.Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Accounts_SecurityLevels">
+          <End Role="SecurityLevels" Type="Self.SecurityLevel" Multiplicity="1" />
+          <End Role="Accounts" Type="Self.Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SecurityLevels">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="SecurityLevelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReceptionsComplaints_Complaints">
+          <End Role="Complaints" Type="Self.Complaint" Multiplicity="1" />
+          <End Role="ReceptionsComplaints" Type="DesktopDoctorDatabaseModel.ReceptionComplaint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Complaints">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReceptionsComplaints">
+              <PropertyRef Name="ComplaintId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Receptions_Employees">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Receptions" Type="Self.Reception" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Receptions">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReceptionsMedicines_Medicines">
+          <End Role="Medicines" Type="Self.Medicine" Multiplicity="1" />
+          <End Role="ReceptionsMedicines" Type="DesktopDoctorDatabaseModel.ReceptionMedicine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medicines">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReceptionsMedicines">
+              <PropertyRef Name="MedicineId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Receptions_Patients">
+          <End Role="Patients" Type="Self.Patient" Multiplicity="1" />
+          <End Role="Receptions" Type="Self.Reception" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Receptions">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReceprionsProcedures_Procedures">
+          <End Role="Procedures" Type="Self.Procedure" Multiplicity="1" />
+          <End Role="ReceprionsProcedures" Type="DesktopDoctorDatabaseModel.ReceprionProcedure" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Procedures">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReceprionsProcedures">
+              <PropertyRef Name="ProcedureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReceprionsProcedures_Receptions">
+          <End Role="Receptions" Type="Self.Reception" Multiplicity="1" />
+          <End Role="ReceprionsProcedures" Type="DesktopDoctorDatabaseModel.ReceprionProcedure" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Receptions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReceprionsProcedures">
+              <PropertyRef Name="ReceptionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReceptionsComplaints_Receptions">
+          <End Role="Receptions" Type="Self.Reception" Multiplicity="1" />
+          <End Role="ReceptionsComplaints" Type="DesktopDoctorDatabaseModel.ReceptionComplaint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Receptions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReceptionsComplaints">
+              <PropertyRef Name="ReceptionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReceptionsMedicines_Receptions">
+          <End Role="Receptions" Type="Self.Reception" Multiplicity="1" />
+          <End Role="ReceptionsMedicines" Type="DesktopDoctorDatabaseModel.ReceptionMedicine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Receptions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReceptionsMedicines">
+              <PropertyRef Name="ReceptionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReceptionsRecommendations_Receptions">
+          <End Role="Receptions" Type="Self.Reception" Multiplicity="1" />
+          <End Role="ReceptionsRecommendations" Type="DesktopDoctorDatabaseModel.ReceptionRecommendation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Receptions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReceptionsRecommendations">
+              <PropertyRef Name="ReceptionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReceptionsRecommendations_Recommendation">
+          <End Role="Recommendations" Type="Self.Recommendation" Multiplicity="1" />
+          <End Role="ReceptionsRecommendations" Type="DesktopDoctorDatabaseModel.ReceptionRecommendation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recommendations">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReceptionsRecommendations">
+              <PropertyRef Name="RecommendationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DesktopDoctorDatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accounts" EntityType="Self.Account" />
+          <EntitySet Name="Complaints" EntityType="Self.Complaint" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="Medicines" EntityType="Self.Medicine" />
+          <EntitySet Name="Patients" EntityType="Self.Patient" />
+          <EntitySet Name="Procedures" EntityType="Self.Procedure" />
+          <EntitySet Name="ReceprionsProcedures" EntityType="DesktopDoctorDatabaseModel.ReceprionProcedure" />
+          <EntitySet Name="Receptions" EntityType="Self.Reception" />
+          <EntitySet Name="ReceptionsComplaints" EntityType="DesktopDoctorDatabaseModel.ReceptionComplaint" />
+          <EntitySet Name="ReceptionsMedicines" EntityType="DesktopDoctorDatabaseModel.ReceptionMedicine" />
+          <EntitySet Name="ReceptionsRecommendations" EntityType="DesktopDoctorDatabaseModel.ReceptionRecommendation" />
+          <EntitySet Name="Recommendations" EntityType="Self.Recommendation" />
+          <EntitySet Name="SecurityLevels" EntityType="Self.SecurityLevel" />
+          <AssociationSet Name="FK_Accounts_Employees" Association="Self.FK_Accounts_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Accounts" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Accounts_SecurityLevels" Association="Self.FK_Accounts_SecurityLevels">
+            <End Role="SecurityLevels" EntitySet="SecurityLevels" />
+            <End Role="Accounts" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReceptionsComplaints_Complaints" Association="Self.FK_ReceptionsComplaints_Complaints">
+            <End Role="Complaints" EntitySet="Complaints" />
+            <End Role="ReceptionsComplaints" EntitySet="ReceptionsComplaints" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Receptions_Employees" Association="Self.FK_Receptions_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Receptions" EntitySet="Receptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReceptionsMedicines_Medicines" Association="Self.FK_ReceptionsMedicines_Medicines">
+            <End Role="Medicines" EntitySet="Medicines" />
+            <End Role="ReceptionsMedicines" EntitySet="ReceptionsMedicines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Receptions_Patients" Association="Self.FK_Receptions_Patients">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="Receptions" EntitySet="Receptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReceprionsProcedures_Procedures" Association="Self.FK_ReceprionsProcedures_Procedures">
+            <End Role="Procedures" EntitySet="Procedures" />
+            <End Role="ReceprionsProcedures" EntitySet="ReceprionsProcedures" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReceprionsProcedures_Receptions" Association="Self.FK_ReceprionsProcedures_Receptions">
+            <End Role="Receptions" EntitySet="Receptions" />
+            <End Role="ReceprionsProcedures" EntitySet="ReceprionsProcedures" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReceptionsComplaints_Receptions" Association="Self.FK_ReceptionsComplaints_Receptions">
+            <End Role="Receptions" EntitySet="Receptions" />
+            <End Role="ReceptionsComplaints" EntitySet="ReceptionsComplaints" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReceptionsMedicines_Receptions" Association="Self.FK_ReceptionsMedicines_Receptions">
+            <End Role="Receptions" EntitySet="Receptions" />
+            <End Role="ReceptionsMedicines" EntitySet="ReceptionsMedicines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReceptionsRecommendations_Receptions" Association="Self.FK_ReceptionsRecommendations_Receptions">
+            <End Role="Receptions" EntitySet="Receptions" />
+            <End Role="ReceptionsRecommendations" EntitySet="ReceptionsRecommendations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReceptionsRecommendations_Recommendation" Association="Self.FK_ReceptionsRecommendations_Recommendation">
+            <End Role="Recommendations" EntitySet="Recommendations" />
+            <End Role="ReceptionsRecommendations" EntitySet="ReceptionsRecommendations" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище DesktopDoctorDatabaseModelContainer" CdmEntityContainer="DesktopDoctorDatabaseEntities">
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="DesktopDoctorDatabaseModel.Account">
+              <MappingFragment StoreEntitySet="Accounts">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="SecurityLevelId" ColumnName="SecurityLevelId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Complaints">
+            <EntityTypeMapping TypeName="DesktopDoctorDatabaseModel.Complaint">
+              <MappingFragment StoreEntitySet="Complaints">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="DesktopDoctorDatabaseModel.Employee">
+              <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Fename" ColumnName="Fename" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Medicines">
+            <EntityTypeMapping TypeName="DesktopDoctorDatabaseModel.Medicine">
+              <MappingFragment StoreEntitySet="Medicines">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patients">
+            <EntityTypeMapping TypeName="DesktopDoctorDatabaseModel.Patient">
+              <MappingFragment StoreEntitySet="Patients">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Fename" ColumnName="Fename" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="SNILS" ColumnName="SNILS" />
+                <ScalarProperty Name="Policy" ColumnName="Policy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Procedures">
+            <EntityTypeMapping TypeName="DesktopDoctorDatabaseModel.Procedure">
+              <MappingFragment StoreEntitySet="Procedures">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReceprionsProcedures">
+            <EntityTypeMapping TypeName="DesktopDoctorDatabaseModel.ReceprionProcedure">
+              <MappingFragment StoreEntitySet="ReceprionsProcedures">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ReceptionId" ColumnName="ReceptionId" />
+                <ScalarProperty Name="ProcedureId" ColumnName="ProcedureId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Receptions">
+            <EntityTypeMapping TypeName="DesktopDoctorDatabaseModel.Reception">
+              <MappingFragment StoreEntitySet="Receptions">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="Temperature" ColumnName="Temperature" />
+                <ScalarProperty Name="Pressure" ColumnName="Pressure" />
+                <ScalarProperty Name="Diagnosis" ColumnName="Diagnosis" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReceptionsComplaints">
+            <EntityTypeMapping TypeName="DesktopDoctorDatabaseModel.ReceptionComplaint">
+              <MappingFragment StoreEntitySet="ReceptionsComplaints">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ReceptionId" ColumnName="ReceptionId" />
+                <ScalarProperty Name="ComplaintId" ColumnName="ComplaintId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReceptionsMedicines">
+            <EntityTypeMapping TypeName="DesktopDoctorDatabaseModel.ReceptionMedicine">
+              <MappingFragment StoreEntitySet="ReceptionsMedicines">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ReceptionId" ColumnName="ReceptionId" />
+                <ScalarProperty Name="MedicineId" ColumnName="MedicineId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReceptionsRecommendations">
+            <EntityTypeMapping TypeName="DesktopDoctorDatabaseModel.ReceptionRecommendation">
+              <MappingFragment StoreEntitySet="ReceptionsRecommendations">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ReceptionId" ColumnName="ReceptionId" />
+                <ScalarProperty Name="RecommendationId" ColumnName="RecommendationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Recommendations">
+            <EntityTypeMapping TypeName="DesktopDoctorDatabaseModel.Recommendation">
+              <MappingFragment StoreEntitySet="Recommendations">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SecurityLevels">
+            <EntityTypeMapping TypeName="DesktopDoctorDatabaseModel.SecurityLevel">
+              <MappingFragment StoreEntitySet="SecurityLevels">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
