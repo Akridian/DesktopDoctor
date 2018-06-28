@@ -12,9 +12,21 @@ namespace DesktopDoctor
 {
     public partial class PatientsForm : Form
     {
+        private DesktopDoctorDatabaseEntities db = new DesktopDoctorDatabaseEntities();
+
         public PatientsForm()
         {
             InitializeComponent();
+            patientBindingSource.DataSource = db.Patients.ToList();
+        }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            string fename = fenameTextBox.Text.ToString();
+            string name = nameTextBox.Text.ToString();
+            string patronymic = patronymicTextBox.Text.ToString();
+            string policy = policyTextBox.Text.ToString();
+            patientBindingSource.DataSource = db.Patients.Where(pat => pat.Fename.StartsWith(fename) && pat.Name.StartsWith(name) && pat.Patronymic.StartsWith(patronymic) && pat.Policy.StartsWith(policy)).ToList();
         }
     }
 }
