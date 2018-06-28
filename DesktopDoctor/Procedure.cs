@@ -16,7 +16,7 @@ namespace DesktopDoctor
     {
         public Procedure()
         {
-            this.ReceprionsProcedures = new HashSet<ReceprionProcedure>();
+            this.ReceptionsProcedures = new HashSet<ReceptionProcedure>();
         }
     
         public int Id { get; set; }
@@ -25,6 +25,6 @@ namespace DesktopDoctor
         public System.DateTime Date { get; set; }
         public string FilePath { get; set; }
     
-        public virtual ICollection<ReceprionProcedure> ReceprionsProcedures { get; set; }
+        public virtual ICollection<ReceptionProcedure> ReceptionsProcedures { get; set; }
     }
 }

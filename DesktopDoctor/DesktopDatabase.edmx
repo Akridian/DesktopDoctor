@@ -63,14 +63,6 @@
           <Property Name="Date" Type="date" Nullable="false" />
           <Property Name="FilePath" Type="nvarchar(max)" />
         </EntityType>
-        <EntityType Name="ReceprionsProcedures">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ReceptionId" Type="int" Nullable="false" />
-          <Property Name="ProcedureId" Type="int" Nullable="false" />
-        </EntityType>
         <EntityType Name="Receptions">
           <Key>
             <PropertyRef Name="Id" />
@@ -98,6 +90,14 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ReceptionId" Type="int" Nullable="false" />
           <Property Name="MedicineId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ReceptionsProcedures">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ReceptionId" Type="int" Nullable="false" />
+          <Property Name="ProcedureId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="ReceptionsRecommendations">
           <Key>
@@ -144,30 +144,6 @@
             </Principal>
             <Dependent Role="Accounts">
               <PropertyRef Name="SecurityLevelId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ReceprionsProcedures_Procedures">
-          <End Role="Procedures" Type="Self.Procedures" Multiplicity="1" />
-          <End Role="ReceprionsProcedures" Type="Self.ReceprionsProcedures" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Procedures">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ReceprionsProcedures">
-              <PropertyRef Name="ProcedureId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ReceprionsProcedures_Receptions">
-          <End Role="Receptions" Type="Self.Receptions" Multiplicity="1" />
-          <End Role="ReceprionsProcedures" Type="Self.ReceprionsProcedures" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Receptions">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ReceprionsProcedures">
-              <PropertyRef Name="ReceptionId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -243,6 +219,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ReceptionsProcedures_Procedures">
+          <End Role="Procedures" Type="Self.Procedures" Multiplicity="1" />
+          <End Role="ReceptionsProcedures" Type="Self.ReceptionsProcedures" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Procedures">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReceptionsProcedures">
+              <PropertyRef Name="ProcedureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReceptionsProcedures_Receptions">
+          <End Role="Receptions" Type="Self.Receptions" Multiplicity="1" />
+          <End Role="ReceptionsProcedures" Type="Self.ReceptionsProcedures" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Receptions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReceptionsProcedures">
+              <PropertyRef Name="ReceptionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ReceptionsRecommendations_Receptions">
           <End Role="Receptions" Type="Self.Receptions" Multiplicity="1" />
           <End Role="ReceptionsRecommendations" Type="Self.ReceptionsRecommendations" Multiplicity="*" />
@@ -274,10 +274,10 @@
           <EntitySet Name="Medicines" EntityType="Self.Medicines" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Patients" EntityType="Self.Patients" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Procedures" EntityType="Self.Procedures" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ReceprionsProcedures" EntityType="Self.ReceprionsProcedures" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Receptions" EntityType="Self.Receptions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ReceptionsComplaints" EntityType="Self.ReceptionsComplaints" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ReceptionsMedicines" EntityType="Self.ReceptionsMedicines" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReceptionsProcedures" EntityType="Self.ReceptionsProcedures" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ReceptionsRecommendations" EntityType="Self.ReceptionsRecommendations" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Recommendations" EntityType="Self.Recommendations" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SecurityLevels" EntityType="Self.SecurityLevels" Schema="dbo" store:Type="Tables" />
@@ -288,14 +288,6 @@
           <AssociationSet Name="FK_Accounts_SecurityLevels" Association="Self.FK_Accounts_SecurityLevels">
             <End Role="SecurityLevels" EntitySet="SecurityLevels" />
             <End Role="Accounts" EntitySet="Accounts" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ReceprionsProcedures_Procedures" Association="Self.FK_ReceprionsProcedures_Procedures">
-            <End Role="Procedures" EntitySet="Procedures" />
-            <End Role="ReceprionsProcedures" EntitySet="ReceprionsProcedures" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ReceprionsProcedures_Receptions" Association="Self.FK_ReceprionsProcedures_Receptions">
-            <End Role="Receptions" EntitySet="Receptions" />
-            <End Role="ReceprionsProcedures" EntitySet="ReceprionsProcedures" />
           </AssociationSet>
           <AssociationSet Name="FK_Receptions_Employees" Association="Self.FK_Receptions_Employees">
             <End Role="Employees" EntitySet="Employees" />
@@ -320,6 +312,14 @@
           <AssociationSet Name="FK_ReceptionsMedicines_Receptions" Association="Self.FK_ReceptionsMedicines_Receptions">
             <End Role="Receptions" EntitySet="Receptions" />
             <End Role="ReceptionsMedicines" EntitySet="ReceptionsMedicines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReceptionsProcedures_Procedures" Association="Self.FK_ReceptionsProcedures_Procedures">
+            <End Role="Procedures" EntitySet="Procedures" />
+            <End Role="ReceptionsProcedures" EntitySet="ReceptionsProcedures" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReceptionsProcedures_Receptions" Association="Self.FK_ReceptionsProcedures_Receptions">
+            <End Role="Receptions" EntitySet="Receptions" />
+            <End Role="ReceptionsProcedures" EntitySet="ReceptionsProcedures" />
           </AssociationSet>
           <AssociationSet Name="FK_ReceptionsRecommendations_Receptions" Association="Self.FK_ReceptionsRecommendations_Receptions">
             <End Role="Receptions" EntitySet="Receptions" />
@@ -398,17 +398,7 @@
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="FilePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="ReceprionsProcedures" Relationship="Self.FK_ReceprionsProcedures_Procedures" FromRole="Procedures" ToRole="ReceprionsProcedures" />
-        </EntityType>
-        <EntityType Name="ReceprionProcedure">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ReceptionId" Type="Int32" Nullable="false" />
-          <Property Name="ProcedureId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Procedure" Relationship="Self.FK_ReceprionsProcedures_Procedures" FromRole="ReceprionsProcedures" ToRole="Procedures" />
-          <NavigationProperty Name="Reception" Relationship="Self.FK_ReceprionsProcedures_Receptions" FromRole="ReceprionsProcedures" ToRole="Receptions" />
+          <NavigationProperty Name="ReceptionsProcedures" Relationship="DesktopDoctorDatabaseModel.FK_ReceptionsProcedures_Procedures" FromRole="Procedure" ToRole="ReceptionsProcedure" />
         </EntityType>
         <EntityType Name="Reception">
           <Key>
@@ -423,10 +413,10 @@
           <Property Name="Diagnosis" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Employee" Relationship="Self.FK_Receptions_Employees" FromRole="Receptions" ToRole="Employees" />
           <NavigationProperty Name="Patient" Relationship="Self.FK_Receptions_Patients" FromRole="Receptions" ToRole="Patients" />
-          <NavigationProperty Name="ReceprionsProcedures" Relationship="Self.FK_ReceprionsProcedures_Receptions" FromRole="Receptions" ToRole="ReceprionsProcedures" />
           <NavigationProperty Name="ReceptionsComplaints" Relationship="Self.FK_ReceptionsComplaints_Receptions" FromRole="Receptions" ToRole="ReceptionsComplaints" />
           <NavigationProperty Name="ReceptionsMedicines" Relationship="Self.FK_ReceptionsMedicines_Receptions" FromRole="Receptions" ToRole="ReceptionsMedicines" />
           <NavigationProperty Name="ReceptionsRecommendations" Relationship="Self.FK_ReceptionsRecommendations_Receptions" FromRole="Receptions" ToRole="ReceptionsRecommendations" />
+          <NavigationProperty Name="ReceptionsProcedures" Relationship="DesktopDoctorDatabaseModel.FK_ReceptionsProcedures_Receptions" FromRole="Reception" ToRole="ReceptionsProcedure" />
         </EntityType>
         <EntityType Name="ReceptionComplaint">
           <Key>
@@ -548,30 +538,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ReceprionsProcedures_Procedures">
-          <End Role="Procedures" Type="Self.Procedure" Multiplicity="1" />
-          <End Role="ReceprionsProcedures" Type="DesktopDoctorDatabaseModel.ReceprionProcedure" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Procedures">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ReceprionsProcedures">
-              <PropertyRef Name="ProcedureId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ReceprionsProcedures_Receptions">
-          <End Role="Receptions" Type="Self.Reception" Multiplicity="1" />
-          <End Role="ReceprionsProcedures" Type="DesktopDoctorDatabaseModel.ReceprionProcedure" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Receptions">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ReceprionsProcedures">
-              <PropertyRef Name="ReceptionId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_ReceptionsComplaints_Receptions">
           <End Role="Receptions" Type="Self.Reception" Multiplicity="1" />
           <End Role="ReceptionsComplaints" Type="DesktopDoctorDatabaseModel.ReceptionComplaint" Multiplicity="*" />
@@ -627,7 +593,6 @@
           <EntitySet Name="Medicines" EntityType="Self.Medicine" />
           <EntitySet Name="Patients" EntityType="Self.Patient" />
           <EntitySet Name="Procedures" EntityType="Self.Procedure" />
-          <EntitySet Name="ReceprionsProcedures" EntityType="DesktopDoctorDatabaseModel.ReceprionProcedure" />
           <EntitySet Name="Receptions" EntityType="Self.Reception" />
           <EntitySet Name="ReceptionsComplaints" EntityType="DesktopDoctorDatabaseModel.ReceptionComplaint" />
           <EntitySet Name="ReceptionsMedicines" EntityType="DesktopDoctorDatabaseModel.ReceptionMedicine" />
@@ -658,14 +623,6 @@
             <End Role="Patients" EntitySet="Patients" />
             <End Role="Receptions" EntitySet="Receptions" />
           </AssociationSet>
-          <AssociationSet Name="FK_ReceprionsProcedures_Procedures" Association="Self.FK_ReceprionsProcedures_Procedures">
-            <End Role="Procedures" EntitySet="Procedures" />
-            <End Role="ReceprionsProcedures" EntitySet="ReceprionsProcedures" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ReceprionsProcedures_Receptions" Association="Self.FK_ReceprionsProcedures_Receptions">
-            <End Role="Receptions" EntitySet="Receptions" />
-            <End Role="ReceprionsProcedures" EntitySet="ReceprionsProcedures" />
-          </AssociationSet>
           <AssociationSet Name="FK_ReceptionsComplaints_Receptions" Association="Self.FK_ReceptionsComplaints_Receptions">
             <End Role="Receptions" EntitySet="Receptions" />
             <End Role="ReceptionsComplaints" EntitySet="ReceptionsComplaints" />
@@ -682,7 +639,50 @@
             <End Role="Recommendations" EntitySet="Recommendations" />
             <End Role="ReceptionsRecommendations" EntitySet="ReceptionsRecommendations" />
           </AssociationSet>
+          <EntitySet Name="ReceptionsProcedures" EntityType="DesktopDoctorDatabaseModel.ReceptionProcedure" />
+          <AssociationSet Name="FK_ReceptionsProcedures_Procedures" Association="DesktopDoctorDatabaseModel.FK_ReceptionsProcedures_Procedures">
+            <End Role="Procedure" EntitySet="Procedures" />
+            <End Role="ReceptionsProcedure" EntitySet="ReceptionsProcedures" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReceptionsProcedures_Receptions" Association="DesktopDoctorDatabaseModel.FK_ReceptionsProcedures_Receptions">
+            <End Role="Reception" EntitySet="Receptions" />
+            <End Role="ReceptionsProcedure" EntitySet="ReceptionsProcedures" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="ReceptionProcedure">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReceptionId" Type="Int32" Nullable="false" />
+          <Property Name="ProcedureId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Procedure" Relationship="DesktopDoctorDatabaseModel.FK_ReceptionsProcedures_Procedures" FromRole="ReceptionsProcedure" ToRole="Procedure" />
+          <NavigationProperty Name="Reception" Relationship="DesktopDoctorDatabaseModel.FK_ReceptionsProcedures_Receptions" FromRole="ReceptionsProcedure" ToRole="Reception" />
+        </EntityType>
+        <Association Name="FK_ReceptionsProcedures_Procedures">
+          <End Type="DesktopDoctorDatabaseModel.Procedure" Role="Procedure" Multiplicity="1" />
+          <End Type="DesktopDoctorDatabaseModel.ReceptionProcedure" Role="ReceptionsProcedure" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Procedure">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReceptionsProcedure">
+              <PropertyRef Name="ProcedureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReceptionsProcedures_Receptions">
+          <End Type="DesktopDoctorDatabaseModel.Reception" Role="Reception" Multiplicity="1" />
+          <End Type="DesktopDoctorDatabaseModel.ReceptionProcedure" Role="ReceptionsProcedure" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reception">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReceptionsProcedure">
+              <PropertyRef Name="ReceptionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -753,15 +753,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ReceprionsProcedures">
-            <EntityTypeMapping TypeName="DesktopDoctorDatabaseModel.ReceprionProcedure">
-              <MappingFragment StoreEntitySet="ReceprionsProcedures">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="ReceptionId" ColumnName="ReceptionId" />
-                <ScalarProperty Name="ProcedureId" ColumnName="ProcedureId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Receptions">
             <EntityTypeMapping TypeName="DesktopDoctorDatabaseModel.Reception">
               <MappingFragment StoreEntitySet="Receptions">
@@ -817,6 +808,15 @@
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReceptionsProcedures">
+            <EntityTypeMapping TypeName="DesktopDoctorDatabaseModel.ReceptionProcedure">
+              <MappingFragment StoreEntitySet="ReceptionsProcedures">
+                <ScalarProperty Name="ProcedureId" ColumnName="ProcedureId" />
+                <ScalarProperty Name="ReceptionId" ColumnName="ReceptionId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

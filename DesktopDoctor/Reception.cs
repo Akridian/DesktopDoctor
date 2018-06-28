@@ -16,10 +16,10 @@ namespace DesktopDoctor
     {
         public Reception()
         {
-            this.ReceprionsProcedures = new HashSet<ReceprionProcedure>();
             this.ReceptionsComplaints = new HashSet<ReceptionComplaint>();
             this.ReceptionsMedicines = new HashSet<ReceptionMedicine>();
             this.ReceptionsRecommendations = new HashSet<ReceptionRecommendation>();
+            this.ReceptionsProcedures = new HashSet<ReceptionProcedure>();
         }
     
         public int Id { get; set; }
@@ -32,9 +32,9 @@ namespace DesktopDoctor
     
         public virtual Employee Employee { get; set; }
         public virtual Patient Patient { get; set; }
-        public virtual ICollection<ReceprionProcedure> ReceprionsProcedures { get; set; }
         public virtual ICollection<ReceptionComplaint> ReceptionsComplaints { get; set; }
         public virtual ICollection<ReceptionMedicine> ReceptionsMedicines { get; set; }
         public virtual ICollection<ReceptionRecommendation> ReceptionsRecommendations { get; set; }
+        public virtual ICollection<ReceptionProcedure> ReceptionsProcedures { get; set; }
     }
 }
