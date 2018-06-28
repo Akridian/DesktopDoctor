@@ -31,12 +31,12 @@ namespace DesktopDoctor
         public DbSet<Medicine> Medicines { get; set; }
         public DbSet<Patient> Patients { get; set; }
         public DbSet<Procedure> Procedures { get; set; }
-        public DbSet<ReceprionProcedure> ReceprionsProcedures { get; set; }
         public DbSet<Reception> Receptions { get; set; }
         public DbSet<ReceptionComplaint> ReceptionsComplaints { get; set; }
         public DbSet<ReceptionMedicine> ReceptionsMedicines { get; set; }
         public DbSet<ReceptionRecommendation> ReceptionsRecommendations { get; set; }
         public DbSet<Recommendation> Recommendations { get; set; }
         public DbSet<SecurityLevel> SecurityLevels { get; set; }
+        public DbSet<ReceptionProcedure> ReceptionsProcedures { get; set; }
     }
 }
