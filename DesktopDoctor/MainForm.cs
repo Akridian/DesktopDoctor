@@ -12,6 +12,8 @@ namespace DesktopDoctor
 {
     public partial class MainForm : Form
     {
+        public Employee employee;
+
         public MainForm()
         {
             InitializeComponent();
