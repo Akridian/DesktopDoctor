@@ -22,6 +22,7 @@ namespace DesktopDoctor
                 MdiParent = this
             };
             authorizationForm.Show();
+            authorizationForm.Dock = DockStyle.Fill;
         }
     }
 }

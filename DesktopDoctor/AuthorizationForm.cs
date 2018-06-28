@@ -36,6 +36,7 @@ namespace DesktopDoctor
                             MdiParent = MdiParent
                         };
                         patientsForm.Show();
+                        patientsForm.Dock = DockStyle.Fill;
                         Close();
                     }
                     else if (account.SecurityLevel.Code == "admin")
@@ -45,6 +46,7 @@ namespace DesktopDoctor
                             MdiParent = MdiParent
                         };
                         medicinesForm.Show();
+                        medicinesForm.Dock = DockStyle.Fill;
                         Close();
                     }
                 }
