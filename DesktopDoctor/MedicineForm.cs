@@ -20,19 +20,19 @@ namespace DesktopDoctor
             InitializeComponent();
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void CancelButton_Click(object sender, EventArgs e)
         {
             ComeBack();
         }
 
-        private void btnAddNewMedicine_Click(object sender, EventArgs e)
+        private void AddMedicineButton_Click(object sender, EventArgs e)
         {
-            if(!string.IsNullOrWhiteSpace(tbxNameMedicine.Text))
+            if(!string.IsNullOrWhiteSpace(medicineNameTextBox.Text))
             {
                 Medicine medicine = new Medicine()
                 {
-                    Name = tbxNameMedicine.Text,
-                    Description = tbxDescriptionMedicine.Text
+                    Name = medicineNameTextBox.Text,
+                    Description = medicineDescriptionTextBox.Text
                 };
                 db.Medicines.Add(medicine);
                 db.SaveChanges();
@@ -48,6 +48,7 @@ namespace DesktopDoctor
                 MdiParent = MdiParent
             };
             medicinesForm.Show();
+            medicinesForm.Dock = DockStyle.Fill;
             Close();
         }
     }

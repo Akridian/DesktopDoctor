@@ -28,65 +28,65 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnAddNewMedicine = new System.Windows.Forms.Button();
-            this.labelNameMedicine = new System.Windows.Forms.Label();
-            this.tbxNameMedicine = new System.Windows.Forms.TextBox();
-            this.tbxDescriptionMedicine = new System.Windows.Forms.TextBox();
-            this.labelDescriptionMedicine = new System.Windows.Forms.Label();
-            this.btnCancel = new System.Windows.Forms.Button();
+            this.addMedicineButton = new System.Windows.Forms.Button();
+            this.medicineNameLabel = new System.Windows.Forms.Label();
+            this.medicineNameTextBox = new System.Windows.Forms.TextBox();
+            this.medicineDescriptionTextBox = new System.Windows.Forms.TextBox();
+            this.medicineDescriptionLabel = new System.Windows.Forms.Label();
+            this.cancelButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btnAddNewMedicine
+            // addMedicineButton
             // 
-            this.btnAddNewMedicine.Location = new System.Drawing.Point(425, 248);
-            this.btnAddNewMedicine.Name = "btnAddNewMedicine";
-            this.btnAddNewMedicine.Size = new System.Drawing.Size(75, 23);
-            this.btnAddNewMedicine.TabIndex = 0;
-            this.btnAddNewMedicine.Text = "Добавить";
-            this.btnAddNewMedicine.UseVisualStyleBackColor = true;
-            this.btnAddNewMedicine.Click += new System.EventHandler(this.btnAddNewMedicine_Click);
+            this.addMedicineButton.Location = new System.Drawing.Point(425, 248);
+            this.addMedicineButton.Name = "addMedicineButton";
+            this.addMedicineButton.Size = new System.Drawing.Size(75, 23);
+            this.addMedicineButton.TabIndex = 0;
+            this.addMedicineButton.Text = "Добавить";
+            this.addMedicineButton.UseVisualStyleBackColor = true;
+            this.addMedicineButton.Click += new System.EventHandler(this.AddMedicineButton_Click);
             // 
-            // labelNameMedicine
+            // medicineNameLabel
             // 
-            this.labelNameMedicine.AutoSize = true;
-            this.labelNameMedicine.Location = new System.Drawing.Point(155, 166);
-            this.labelNameMedicine.Name = "labelNameMedicine";
-            this.labelNameMedicine.Size = new System.Drawing.Size(113, 13);
-            this.labelNameMedicine.TabIndex = 1;
-            this.labelNameMedicine.Text = "Название препарата";
+            this.medicineNameLabel.AutoSize = true;
+            this.medicineNameLabel.Location = new System.Drawing.Point(155, 166);
+            this.medicineNameLabel.Name = "medicineNameLabel";
+            this.medicineNameLabel.Size = new System.Drawing.Size(113, 13);
+            this.medicineNameLabel.TabIndex = 1;
+            this.medicineNameLabel.Text = "Название препарата";
             // 
-            // tbxNameMedicine
+            // medicineNameTextBox
             // 
-            this.tbxNameMedicine.Location = new System.Drawing.Point(274, 163);
-            this.tbxNameMedicine.Name = "tbxNameMedicine";
-            this.tbxNameMedicine.Size = new System.Drawing.Size(310, 20);
-            this.tbxNameMedicine.TabIndex = 2;
+            this.medicineNameTextBox.Location = new System.Drawing.Point(274, 163);
+            this.medicineNameTextBox.Name = "medicineNameTextBox";
+            this.medicineNameTextBox.Size = new System.Drawing.Size(310, 20);
+            this.medicineNameTextBox.TabIndex = 2;
             // 
-            // tbxDescriptionMedicine
+            // medicineDescriptionTextBox
             // 
-            this.tbxDescriptionMedicine.Location = new System.Drawing.Point(274, 199);
-            this.tbxDescriptionMedicine.Name = "tbxDescriptionMedicine";
-            this.tbxDescriptionMedicine.Size = new System.Drawing.Size(310, 20);
-            this.tbxDescriptionMedicine.TabIndex = 4;
+            this.medicineDescriptionTextBox.Location = new System.Drawing.Point(274, 199);
+            this.medicineDescriptionTextBox.Name = "medicineDescriptionTextBox";
+            this.medicineDescriptionTextBox.Size = new System.Drawing.Size(310, 20);
+            this.medicineDescriptionTextBox.TabIndex = 4;
             // 
-            // labelDescriptionMedicine
+            // medicineDescriptionLabel
             // 
-            this.labelDescriptionMedicine.AutoSize = true;
-            this.labelDescriptionMedicine.Location = new System.Drawing.Point(155, 202);
-            this.labelDescriptionMedicine.Name = "labelDescriptionMedicine";
-            this.labelDescriptionMedicine.Size = new System.Drawing.Size(113, 13);
-            this.labelDescriptionMedicine.TabIndex = 3;
-            this.labelDescriptionMedicine.Text = "Описание препарата";
+            this.medicineDescriptionLabel.AutoSize = true;
+            this.medicineDescriptionLabel.Location = new System.Drawing.Point(155, 202);
+            this.medicineDescriptionLabel.Name = "medicineDescriptionLabel";
+            this.medicineDescriptionLabel.Size = new System.Drawing.Size(113, 13);
+            this.medicineDescriptionLabel.TabIndex = 3;
+            this.medicineDescriptionLabel.Text = "Описание препарата";
             // 
-            // btnCancel
+            // cancelButton
             // 
-            this.btnCancel.Location = new System.Drawing.Point(509, 248);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 5;
-            this.btnCancel.Text = "Отмена";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.cancelButton.Location = new System.Drawing.Point(509, 248);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(75, 23);
+            this.cancelButton.TabIndex = 5;
+            this.cancelButton.Text = "Отмена";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // MedicineForm
             // 
@@ -94,16 +94,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.tbxDescriptionMedicine);
-            this.Controls.Add(this.labelDescriptionMedicine);
-            this.Controls.Add(this.tbxNameMedicine);
-            this.Controls.Add(this.labelNameMedicine);
-            this.Controls.Add(this.btnAddNewMedicine);
+            this.Controls.Add(this.cancelButton);
+            this.Controls.Add(this.medicineDescriptionTextBox);
+            this.Controls.Add(this.medicineDescriptionLabel);
+            this.Controls.Add(this.medicineNameTextBox);
+            this.Controls.Add(this.medicineNameLabel);
+            this.Controls.Add(this.addMedicineButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MedicineForm";
             this.Text = "MedicineForm";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -111,11 +110,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnAddNewMedicine;
-        private System.Windows.Forms.Label labelNameMedicine;
-        private System.Windows.Forms.TextBox tbxNameMedicine;
-        private System.Windows.Forms.TextBox tbxDescriptionMedicine;
-        private System.Windows.Forms.Label labelDescriptionMedicine;
-        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button addMedicineButton;
+        private System.Windows.Forms.Label medicineNameLabel;
+        private System.Windows.Forms.TextBox medicineNameTextBox;
+        private System.Windows.Forms.TextBox medicineDescriptionTextBox;
+        private System.Windows.Forms.Label medicineDescriptionLabel;
+        private System.Windows.Forms.Button cancelButton;
     }
 }
