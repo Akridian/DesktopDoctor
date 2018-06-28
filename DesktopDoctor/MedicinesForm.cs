@@ -28,7 +28,12 @@ namespace DesktopDoctor
 
         private void btnAddMedicine_Click(object sender, EventArgs e)
         {
-            
+            MedicineForm medicineForm = new MedicineForm
+            {
+                MdiParent = MdiParent
+            };
+            medicineForm.Show();
+            Close();
         }
     }
 }

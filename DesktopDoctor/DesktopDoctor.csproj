@@ -111,6 +111,12 @@
     <Compile Include="Medicine.cs">
       <DependentUpon>DesktopDatabase.tt</DependentUpon>
     </Compile>
+    <Compile Include="MedicineForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MedicineForm.Designer.cs">
+      <DependentUpon>MedicineForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MedicinesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MedicineForm.resx">
+      <DependentUpon>MedicineForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MedicinesForm.resx">
       <DependentUpon>MedicinesForm.cs</DependentUpon>
