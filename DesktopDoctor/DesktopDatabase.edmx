@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище DesktopDoctorDatabaseModel" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище DesktopDoctorDatabaseModel" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Accounts">
           <Key>
             <PropertyRef Name="Id" />
@@ -80,7 +80,7 @@
           <Property Name="EmployeeId" Type="int" Nullable="false" />
           <Property Name="PatientId" Type="int" Nullable="false" />
           <Property Name="Temperature" Type="float" />
-          <Property Name="Pressure" Type="int" />
+          <Property Name="Pressure" Type="nvarchar" MaxLength="50" />
           <Property Name="Diagnosis" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="ReceptionsComplaints">
@@ -330,8 +330,7 @@
             <End Role="ReceptionsRecommendations" EntitySet="ReceptionsRecommendations" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DesktopDoctorDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -420,7 +419,7 @@
           <Property Name="EmployeeId" Type="Int32" Nullable="false" />
           <Property Name="PatientId" Type="Int32" Nullable="false" />
           <Property Name="Temperature" Type="Double" />
-          <Property Name="Pressure" Type="Int32" />
+          <Property Name="Pressure" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="Diagnosis" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Employee" Relationship="Self.FK_Receptions_Employees" FromRole="Receptions" ToRole="Employees" />
           <NavigationProperty Name="Patient" Relationship="Self.FK_Receptions_Patients" FromRole="Receptions" ToRole="Patients" />

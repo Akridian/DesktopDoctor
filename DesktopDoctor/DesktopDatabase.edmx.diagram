@@ -13,7 +13,7 @@
         <EntityTypeShape EntityType="DesktopDoctorDatabaseModel.Procedure" Width="1.5" PointX="6" PointY="11" IsExpanded="true" />
         <EntityTypeShape EntityType="DesktopDoctorDatabaseModel.ReceprionProcedure" Width="1.5" PointX="8.25" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="DesktopDoctorDatabaseModel.Reception" Width="1.5" PointX="6" PointY="6.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="DesktopDoctorDatabaseModel.ReceptionComplaint" Width="1.5" PointX="8.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DesktopDoctorDatabaseModel.ReceptionComplaint" Width="1.5" PointX="8.625" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DesktopDoctorDatabaseModel.ReceptionMedicine" Width="1.5" PointX="10.25" PointY="10.5" IsExpanded="true" />
         <EntityTypeShape EntityType="DesktopDoctorDatabaseModel.ReceptionRecommendation" Width="1.5" PointX="11.25" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="DesktopDoctorDatabaseModel.Recommendation" Width="1.5" PointX="9" PointY="1.25" IsExpanded="true" />

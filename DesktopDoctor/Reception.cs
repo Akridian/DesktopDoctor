@@ -27,7 +27,7 @@ namespace DesktopDoctor
         public int EmployeeId { get; set; }
         public int PatientId { get; set; }
         public Nullable<double> Temperature { get; set; }
-        public Nullable<int> Pressure { get; set; }
+        public string Pressure { get; set; }
         public string Diagnosis { get; set; }
     
         public virtual Employee Employee { get; set; }
