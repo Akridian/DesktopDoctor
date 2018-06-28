@@ -108,6 +108,7 @@
             this.patientDataGridView.ReadOnly = true;
             this.patientDataGridView.Size = new System.Drawing.Size(800, 180);
             this.patientDataGridView.TabIndex = 6;
+            this.patientDataGridView.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.PatientDataGridView_CellMouseDoubleClick);
             // 
             // dataGridViewTextBoxColumn2
             // 

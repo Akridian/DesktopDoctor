@@ -14,10 +14,12 @@ namespace DesktopDoctor
     {
 
         DesktopDoctorDatabaseEntities db = new DesktopDoctorDatabaseEntities();
+        Medicine medicine;
 
-        public EditMedicineForm()
+        public EditMedicineForm(Medicine medicine)
         {
             InitializeComponent();
+            this.medicine = medicine;
         }
 
         private void CancelButton_Click(object sender, EventArgs e)

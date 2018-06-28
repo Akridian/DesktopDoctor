@@ -12,9 +12,12 @@ namespace DesktopDoctor
 {
     public partial class ReceptionForm : Form
     {
-        public ReceptionForm()
+        Reception reception;
+
+        public ReceptionForm(Reception reception)
         {
             InitializeComponent();
+            this.reception = reception;
         }
     }
 }

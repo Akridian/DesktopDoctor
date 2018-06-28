@@ -12,9 +12,12 @@ namespace DesktopDoctor
 {
     public partial class MedicineForm : Form
     {
-        public MedicineForm()
+        Medicine medicine;
+
+        public MedicineForm(Medicine medicine)
         {
             InitializeComponent();
+            this.medicine = medicine;
         }
     }
 }

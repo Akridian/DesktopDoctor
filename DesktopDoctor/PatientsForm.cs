@@ -28,5 +28,17 @@ namespace DesktopDoctor
             string policy = policyTextBox.Text.ToString();
             patientBindingSource.DataSource = db.Patients.Where(pat => pat.Fename.StartsWith(fename) && pat.Name.StartsWith(name) && pat.Patronymic.StartsWith(patronymic) && pat.Policy.StartsWith(policy)).ToList();
         }
+
+        private void PatientDataGridView_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            PatientForm patientForm = new PatientForm(patientBindingSource.Current as Patient)
+            {
+                MdiParent = MdiParent
+            };
+            patientForm.Show();
+            patientForm.Dock = DockStyle.Fill;
+            Close();
+
+        }
     }
 }

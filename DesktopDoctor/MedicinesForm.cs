@@ -17,7 +17,7 @@ namespace DesktopDoctor
 
         private void AddMedicineButton_Click(object sender, EventArgs e)
         {
-            EditMedicineForm medicineForm = new EditMedicineForm
+            EditMedicineForm medicineForm = new EditMedicineForm(new Medicine())
             {
                 MdiParent = MdiParent
             };

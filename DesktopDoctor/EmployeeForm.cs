@@ -12,9 +12,12 @@ namespace DesktopDoctor
 {
     public partial class EmployeeForm : Form
     {
-        public EmployeeForm()
+        Employee employee;
+
+        public EmployeeForm(Employee employee)
         {
             InitializeComponent();
+            this.employee = employee;
         }
     }
 }
