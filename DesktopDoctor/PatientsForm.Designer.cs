@@ -43,6 +43,7 @@
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.addPatientButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.patientDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -165,6 +166,16 @@
             // 
             this.patientBindingSource.DataSource = typeof(DesktopDoctor.Patient);
             // 
+            // addPatientButton
+            // 
+            this.addPatientButton.Location = new System.Drawing.Point(200, 198);
+            this.addPatientButton.Name = "addPatientButton";
+            this.addPatientButton.Size = new System.Drawing.Size(129, 23);
+            this.addPatientButton.TabIndex = 7;
+            this.addPatientButton.Text = "Добавить пациента";
+            this.addPatientButton.UseVisualStyleBackColor = true;
+            this.addPatientButton.Click += new System.EventHandler(this.AddPatientButton_Click);
+            // 
             // PatientsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -172,6 +183,7 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.addPatientButton);
             this.Controls.Add(this.patientDataGridView);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.policyTextBox);
@@ -204,5 +216,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewCheckBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.Button addPatientButton;
     }
 }
