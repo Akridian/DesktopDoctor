@@ -20,6 +20,14 @@ namespace DesktopDoctor
         {
             InitializeComponent();
             this.medicine = medicine;
+            if(medicine != null)
+            {
+                addMedicineButton.Text = "Изменить";
+            }
+            else
+            {
+                addMedicineButton.Text = "Добавить";
+            }
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
@@ -29,16 +37,34 @@ namespace DesktopDoctor
 
         private void AddMedicineButton_Click(object sender, EventArgs e)
         {
-            if(!string.IsNullOrWhiteSpace(medicineNameTextBox.Text))
+            if (medicine == null)
             {
-                Medicine medicine = new Medicine()
+                if (!string.IsNullOrWhiteSpace(medicineNameTextBox.Text))
                 {
-                    Name = medicineNameTextBox.Text,
-                    Description = medicineDescriptionTextBox.Text
-                };
-                db.Medicines.Add(medicine);
+                    Medicine medicine = new Medicine()
+                    {
+                        Name = medicineNameTextBox.Text,
+                        Description = medicineDescriptionTextBox.Text
+                    };
+                    db.Medicines.Add(medicine);
+                    db.SaveChanges();
+                    MessageBox.Show("Новый препарат добавлен");
+                    ComeBack();
+                }
+                else
+                {
+                    MessageBox.Show("Необходимо заполнить поля");
+                }
+            }
+            else
+            {
+                Medicine m = db.Medicines.Find(medicine.Id);
+
+                m.Name = medicineNameTextBox.Text;
+                m.Description = medicineDescriptionTextBox.Text;
+
                 db.SaveChanges();
-                MessageBox.Show("Новый препарат добавлен");
+                MessageBox.Show("Препарат изменен");
                 ComeBack();
             }
         }
@@ -52,6 +78,15 @@ namespace DesktopDoctor
             medicinesForm.Show();
             medicinesForm.Dock = DockStyle.Fill;
             Close();
+        }
+
+        private void EditMedicineForm_Load(object sender, EventArgs e)
+        {
+            if(medicine != null)
+            {
+                medicineNameTextBox.Text = medicine.Name;
+                medicineDescriptionTextBox.Text = medicine.Description;
+            }
         }
     }
 }
