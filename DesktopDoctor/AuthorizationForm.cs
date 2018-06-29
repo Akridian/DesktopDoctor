@@ -28,27 +28,7 @@ namespace DesktopDoctor
                 Account account = db.Accounts.Where(acc => acc.Login == login).Select(acc => acc).First();
                 if (account.Password == password)
                 {
-                    (MdiParent as MainForm).employee = account.Employee;
-                    if (account.SecurityLevel.Code == "doctor")
-                    {
-                        PatientsForm patientsForm = new PatientsForm
-                        {
-                            MdiParent = MdiParent
-                        };
-                        patientsForm.Show();
-                        patientsForm.Dock = DockStyle.Fill;
-                        Close();
-                    }
-                    else if (account.SecurityLevel.Code == "admin")
-                    {
-                        MedicinesForm medicinesForm = new MedicinesForm
-                        {
-                            MdiParent = MdiParent
-                        };
-                        medicinesForm.Show();
-                        medicinesForm.Dock = DockStyle.Fill;
-                        Close();
-                    }
+                    (MdiParent as MainForm).Authorization(account);
                 }
                 else
                 {
