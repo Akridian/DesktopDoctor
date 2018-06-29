@@ -88,7 +88,7 @@
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
-            // MedicineForm
+            // EditMedicineForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -101,8 +101,9 @@
             this.Controls.Add(this.medicineNameLabel);
             this.Controls.Add(this.addMedicineButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "MedicineForm";
+            this.Name = "EditMedicineForm";
             this.Text = "MedicineForm";
+            this.Load += new System.EventHandler(this.EditMedicineForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
