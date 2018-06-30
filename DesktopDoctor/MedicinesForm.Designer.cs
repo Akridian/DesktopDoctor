@@ -147,6 +147,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MedicinesForm";
             this.Text = "MedicinesForm";
+            this.Load += new System.EventHandler(this.MedicinesForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.medicinesDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicinesBindingSource)).EndInit();
             this.ResumeLayout(false);

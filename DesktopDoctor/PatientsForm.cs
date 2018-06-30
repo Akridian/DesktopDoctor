@@ -12,12 +12,14 @@ namespace DesktopDoctor
 {
     public partial class PatientsForm : Form
     {
-        private DesktopDoctorDatabaseEntities db = new DesktopDoctorDatabaseEntities();
-
         public PatientsForm()
         {
             InitializeComponent();
-            patientBindingSource.DataSource = db.Patients.ToList();
+        }
+
+        private void PatientsForm_Load(object sender, EventArgs e)
+        {
+            patientBindingSource.DataSource = (MdiParent as MainForm).db.Patients.ToList();
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
@@ -26,19 +28,12 @@ namespace DesktopDoctor
             string name = nameTextBox.Text.ToString();
             string patronymic = patronymicTextBox.Text.ToString();
             string policy = policyTextBox.Text.ToString();
-            patientBindingSource.DataSource = db.Patients.Where(pat => pat.Fename.StartsWith(fename) && pat.Name.StartsWith(name) && pat.Patronymic.StartsWith(patronymic) && pat.Policy.StartsWith(policy)).ToList();
+            patientBindingSource.DataSource = (MdiParent as MainForm).db.Patients.Where(pat => pat.Fename.StartsWith(fename) && pat.Name.StartsWith(name) && pat.Patronymic.StartsWith(patronymic) && pat.Policy.StartsWith(policy)).ToList();
         }
 
         private void PatientDataGridView_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            PatientForm patientForm = new PatientForm(patientBindingSource.Current as Patient)
-            {
-                MdiParent = MdiParent
-            };
-            patientForm.Show();
-            patientForm.Dock = DockStyle.Fill;
-            Close();
-
+            (MdiParent as MainForm).GoToPatientForm(patientBindingSource.Current as Patient);
         }
 
         private void AddPatientButton_Click(object sender, EventArgs e)

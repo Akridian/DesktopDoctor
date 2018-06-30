@@ -12,7 +12,6 @@ namespace DesktopDoctor
 {
     public partial class AuthorizationForm : Form
     {
-        DesktopDoctorDatabaseEntities db = new DesktopDoctorDatabaseEntities();
 
         public AuthorizationForm()
         {
@@ -25,7 +24,7 @@ namespace DesktopDoctor
             string password = passwordTextBox.Text.ToString();
             try
             {
-                Account account = db.Accounts.Where(acc => acc.Login == login).Select(acc => acc).First();
+                Account account = (MdiParent as MainForm).db.Accounts.Where(acc => acc.Login == login).Select(acc => acc).First();
                 if (account.Password == password)
                 {
                     (MdiParent as MainForm).Authorization(account);

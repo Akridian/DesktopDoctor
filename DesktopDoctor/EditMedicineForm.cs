@@ -12,8 +12,6 @@ namespace DesktopDoctor
 {
     public partial class EditMedicineForm : Form
     {
-
-        DesktopDoctorDatabaseEntities db = new DesktopDoctorDatabaseEntities();
         Medicine medicine;
 
         public EditMedicineForm(Medicine medicine)
@@ -46,8 +44,8 @@ namespace DesktopDoctor
                         Name = medicineNameTextBox.Text,
                         Description = medicineDescriptionTextBox.Text
                     };
-                    db.Medicines.Add(medicine);
-                    db.SaveChanges();
+                    (MdiParent as MainForm).db.Medicines.Add(medicine);
+                    (MdiParent as MainForm).db.SaveChanges();
                     MessageBox.Show("Новый препарат добавлен");
                     ComeBack();
                 }
@@ -58,12 +56,12 @@ namespace DesktopDoctor
             }
             else
             {
-                Medicine m = db.Medicines.Find(medicine.Id);
+                Medicine m = (MdiParent as MainForm).db.Medicines.Find(medicine.Id);
 
                 m.Name = medicineNameTextBox.Text;
                 m.Description = medicineDescriptionTextBox.Text;
 
-                db.SaveChanges();
+                (MdiParent as MainForm).db.SaveChanges();
                 MessageBox.Show("Препарат изменен");
                 ComeBack();
             }
