@@ -36,6 +36,7 @@ namespace DesktopDoctor
                 ToolStripMenuItem addPatientMenuItem = new ToolStripMenuItem("Добавить пациента");
                 addPatientMenuItem.Click += AddPatientMenuItem_Click;
                 patientsToolStripDropDown.Items.Add(addPatientMenuItem);
+                AddLogoutButton();
                 GoToPatientsForm();
             }
             else if (account.SecurityLevel.Code == "admin")
@@ -50,8 +51,17 @@ namespace DesktopDoctor
                 ToolStripMenuItem addMedicineMenuItem = new ToolStripMenuItem("Добавить медикамент");
                 addMedicineMenuItem.Click += AddMedicineMenuItem_Click;
                 medicinesToolStripDropDown.Items.Add(addMedicineMenuItem);
+                AddLogoutButton();
                 GoToMedicinesForm();
             }
+        }
+
+        private void AddLogoutButton()
+        {
+            ToolStripMenuItem logoutToolStripMenuItem = new ToolStripMenuItem("Выход");
+            logoutToolStripMenuItem.Alignment = ToolStripItemAlignment.Right;
+            logoutToolStripMenuItem.Click += LogoutToolStripMenuItem_Click;
+            topMenuStrip.Items.Add(logoutToolStripMenuItem);
         }
 
         public void GoToPatientsForm()
@@ -149,6 +159,13 @@ namespace DesktopDoctor
         private void AddMedicineMenuItem_Click(object sender, EventArgs e)
         {
             GoToEditMedicineForm(new Medicine());
+        }
+
+        private void LogoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            account = null;
+            topMenuStrip.Items.Clear();
+            GoToAuthorizationForm();
         }
     }
 }
