@@ -14,9 +14,10 @@ namespace DesktopDoctor
     {
         Medicine medicine;
 
-        public MedicineForm(Medicine medicine)
+        public MedicineForm(MainForm mainForm, Medicine medicine)
         {
             InitializeComponent();
+            MdiParent = mainForm;
             this.medicine = medicine;
         }
     }

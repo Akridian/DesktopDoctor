@@ -12,10 +12,10 @@ namespace DesktopDoctor
 {
     public partial class AuthorizationForm : Form
     {
-
-        public AuthorizationForm()
+        public AuthorizationForm(MainForm mainForm)
         {
             InitializeComponent();
+            MdiParent = mainForm;
         }
 
         private void LoginButton_Click(object sender, EventArgs e)

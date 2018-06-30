@@ -6,9 +6,10 @@ namespace DesktopDoctor
 {
     public partial class MedicinesForm : Form
     {
-        public MedicinesForm()
+        public MedicinesForm(MainForm mainForm)
         {
             InitializeComponent();
+            MdiParent = mainForm;
         }
 
         private void MedicinesForm_Load(object sender, EventArgs e)
@@ -18,22 +19,15 @@ namespace DesktopDoctor
 
         private void AddMedicineButton_Click(object sender, EventArgs e)
         {
-            EditMedicineForm medicineForm = new EditMedicineForm(null)
-            {
-                MdiParent = MdiParent
-            };
-            medicineForm.Show();
-            medicineForm.Dock = DockStyle.Fill;
-            Close();
+            (MdiParent as MainForm).GoToEditMedicineForm(null);
         }
 
-        private void changeMedicineButton_Click(object sender, EventArgs e)
+        private void ChangeMedicineButton_Click(object sender, EventArgs e)
         {
             if(medicinesDataGridView.SelectedRows.Count >0)
             {
                 int index = medicinesDataGridView.SelectedRows[0].Index;
-                int id = 0;
-                bool converted = Int32.TryParse(medicinesDataGridView[0, index].Value.ToString(), out id);
+                bool converted = Int32.TryParse(medicinesDataGridView[0, index].Value.ToString(), out int id);
 
                 if (converted == false)
                     return;
@@ -42,24 +36,17 @@ namespace DesktopDoctor
 
                 if(medicine != null)
                 {
-                    EditMedicineForm medicineForm = new EditMedicineForm(medicine)
-                    {
-                        MdiParent = MdiParent
-                    };
-                    medicineForm.Show();
-                    medicineForm.Dock = DockStyle.Fill;
-                    Close();
+                    (MdiParent as MainForm).GoToEditMedicineForm(medicine);
                 }
             }
         }
 
-        private void removeMedicineButton_Click(object sender, EventArgs e)
+        private void RemoveMedicineButton_Click(object sender, EventArgs e)
         {
             if (medicinesDataGridView.SelectedRows.Count > 0)
             {
                 int index = medicinesDataGridView.SelectedRows[0].Index;
-                int id = 0;
-                bool converted = Int32.TryParse(medicinesDataGridView[0, index].Value.ToString(), out id);
+                bool converted = Int32.TryParse(medicinesDataGridView[0, index].Value.ToString(), out int id);
 
                 if (converted == false)
                     return;
