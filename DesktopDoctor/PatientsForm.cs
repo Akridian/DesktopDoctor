@@ -43,13 +43,7 @@ namespace DesktopDoctor
 
         private void AddPatientButton_Click(object sender, EventArgs e)
         {
-            EditPatientForm editPatientForm = new EditPatientForm(new Patient())
-            {
-                MdiParent = MdiParent
-            };
-            editPatientForm.Show();
-            editPatientForm.Dock = DockStyle.Fill;
-            Close();
+            (MdiParent as MainForm).GoToEditPatientForm(new Patient());
         }
     }
 }
