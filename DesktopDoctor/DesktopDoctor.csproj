@@ -115,6 +115,7 @@
     <Compile Include="EmployeeForm.Designer.cs">
       <DependentUpon>EmployeeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="EmployeePartial.cs" />
     <Compile Include="EmployeesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -259,6 +260,7 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Medicine.datasource" />
     <None Include="Properties\DataSources\Patient.datasource" />
+    <None Include="Properties\DataSources\Reception.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

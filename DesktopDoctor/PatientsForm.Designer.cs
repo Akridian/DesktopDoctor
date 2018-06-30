@@ -107,6 +107,7 @@
             this.patientDataGridView.Location = new System.Drawing.Point(0, 270);
             this.patientDataGridView.Name = "patientDataGridView";
             this.patientDataGridView.ReadOnly = true;
+            this.patientDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.patientDataGridView.Size = new System.Drawing.Size(800, 180);
             this.patientDataGridView.TabIndex = 6;
             this.patientDataGridView.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.PatientDataGridView_CellMouseDoubleClick);
@@ -193,6 +194,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PatientsForm";
             this.Text = "PatientsForm";
+            this.Load += new System.EventHandler(this.PatientsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.patientDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).EndInit();
             this.ResumeLayout(false);

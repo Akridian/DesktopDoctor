@@ -14,6 +14,7 @@ namespace DesktopDoctor
     {
         public Employee employee;
         public Account account;
+        public DesktopDoctorDatabaseEntities db = new DesktopDoctorDatabaseEntities();
 
         public MainForm()
         {
@@ -101,6 +102,28 @@ namespace DesktopDoctor
             };
             medicineForm.Show();
             medicineForm.Dock = DockStyle.Fill;
+        }
+
+        public void GoToPatientForm(Patient patient)
+        {
+            MdiChildren.First().Close();
+            PatientForm patientForm = new PatientForm(patient)
+            {
+                MdiParent = this
+            };
+            patientForm.Show();
+            patientForm.Dock = DockStyle.Fill;
+        }
+
+        public void GoToReceptionForm(Reception reception)
+        {
+            MdiChildren.First().Close();
+            ReceptionForm receptionForm = new ReceptionForm(reception)
+            {
+                MdiParent = this
+            };
+            receptionForm.Show();
+            receptionForm.Dock = DockStyle.Fill;
         }
 
         private void SearchPatientsMenuItem_Click(object sender, EventArgs e)
