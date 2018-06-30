@@ -12,19 +12,13 @@ namespace DesktopDoctor
 {
     public partial class MainForm : Form
     {
-        public Employee employee;
         public Account account;
         public DesktopDoctorDatabaseEntities db = new DesktopDoctorDatabaseEntities();
 
         public MainForm()
         {
             InitializeComponent();
-            AuthorizationForm authorizationForm = new AuthorizationForm
-            {
-                MdiParent = this
-            };
-            authorizationForm.Show();
-            authorizationForm.Dock = DockStyle.Fill;
+            GoToAuthorizationForm();
         }
 
         public void Authorization(Account account)
@@ -62,68 +56,79 @@ namespace DesktopDoctor
 
         public void GoToPatientsForm()
         {
-            MdiChildren.First().Close();
-            PatientsForm patientsForm = new PatientsForm
+            foreach (Form form in MdiChildren)
             {
-                MdiParent = this
-            };
+                form.Close();
+            }
+            PatientsForm patientsForm = new PatientsForm(this);
             patientsForm.Show();
             patientsForm.Dock = DockStyle.Fill;
         }
 
         public void GoToMedicinesForm()
         {
-            MdiChildren.First().Close();
-            MedicinesForm medicinesForm = new MedicinesForm
+            foreach (Form form in MdiChildren)
             {
-                MdiParent = this
-            };
+                form.Close();
+            }
+            MedicinesForm medicinesForm = new MedicinesForm(this);
             medicinesForm.Show();
             medicinesForm.Dock = DockStyle.Fill;
         }
 
         public void GoToEditPatientForm(Patient patient)
         {
-            MdiChildren.First().Close();
-            EditPatientForm editPatientForm = new EditPatientForm(patient)
+            foreach (Form form in MdiChildren)
             {
-                MdiParent = this
-            };
+                form.Close();
+            }
+            EditPatientForm editPatientForm = new EditPatientForm(this, patient);
             editPatientForm.Show();
             editPatientForm.Dock = DockStyle.Fill;
         }
 
         public void GoToEditMedicineForm(Medicine medicine)
         {
-            MdiChildren.First().Close();
-            EditMedicineForm medicineForm = new EditMedicineForm(medicine)
+            foreach (Form form in MdiChildren)
             {
-                MdiParent = this
-            };
+                form.Close();
+            }
+            EditMedicineForm medicineForm = new EditMedicineForm(this, medicine);
             medicineForm.Show();
             medicineForm.Dock = DockStyle.Fill;
         }
 
         public void GoToPatientForm(Patient patient)
         {
-            MdiChildren.First().Close();
-            PatientForm patientForm = new PatientForm(patient)
+            foreach (Form form in MdiChildren)
             {
-                MdiParent = this
-            };
+                form.Close();
+            }
+            PatientForm patientForm = new PatientForm(this, patient);
             patientForm.Show();
             patientForm.Dock = DockStyle.Fill;
         }
 
         public void GoToReceptionForm(Reception reception)
         {
-            MdiChildren.First().Close();
-            ReceptionForm receptionForm = new ReceptionForm(reception)
+            foreach (Form form in MdiChildren)
             {
-                MdiParent = this
-            };
+                form.Close();
+            }
+            ReceptionForm receptionForm = new ReceptionForm(this, reception);
             receptionForm.Show();
             receptionForm.Dock = DockStyle.Fill;
+        }
+
+        public void GoToAuthorizationForm()
+        {
+            foreach (Form form in MdiChildren)
+            {
+                form.Close();
+            }
+            AuthorizationForm authorizationForm = new AuthorizationForm(this);
+            authorizationForm.Show();
+            authorizationForm.Dock = DockStyle.Fill;
         }
 
         private void SearchPatientsMenuItem_Click(object sender, EventArgs e)

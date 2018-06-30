@@ -12,9 +12,10 @@ namespace DesktopDoctor
 {
     public partial class EmployeesForm : Form
     {
-        public EmployeesForm()
+        public EmployeesForm(MainForm mainForm)
         {
             InitializeComponent();
+            MdiParent = mainForm;
         }
     }
 }

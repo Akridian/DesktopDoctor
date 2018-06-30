@@ -14,9 +14,10 @@ namespace DesktopDoctor
     {
         Patient patient;
 
-        public PatientForm(Patient patient)
+        public PatientForm(MainForm mainForm, Patient patient)
         {
             InitializeComponent();
+            MdiParent = mainForm;
             fenameLabel.Text = patient.Fename;
             nameLabel.Text = patient.Name;
             patronymicLabel.Text = patient.Patronymic;

@@ -12,9 +12,10 @@ namespace DesktopDoctor
 {
     public partial class PatientsForm : Form
     {
-        public PatientsForm()
+        public PatientsForm(MainForm mainForm)
         {
             InitializeComponent();
+            MdiParent = mainForm;
         }
 
         private void PatientsForm_Load(object sender, EventArgs e)

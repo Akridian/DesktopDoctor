@@ -14,9 +14,10 @@ namespace DesktopDoctor
     {
         Medicine medicine;
 
-        public EditMedicineForm(Medicine medicine)
+        public EditMedicineForm(MainForm mainForm, Medicine medicine)
         {
             InitializeComponent();
+            MdiParent = mainForm;
             this.medicine = medicine;
             if(medicine != null)
             {
@@ -30,7 +31,7 @@ namespace DesktopDoctor
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            ComeBack();
+            (MdiParent as MainForm).GoToMedicinesForm();
         }
 
         private void AddMedicineButton_Click(object sender, EventArgs e)
@@ -46,8 +47,7 @@ namespace DesktopDoctor
                     };
                     (MdiParent as MainForm).db.Medicines.Add(medicine);
                     (MdiParent as MainForm).db.SaveChanges();
-                    MessageBox.Show("Новый препарат добавлен");
-                    ComeBack();
+                    (MdiParent as MainForm).GoToMedicinesForm();
                 }
                 else
                 {
@@ -63,19 +63,8 @@ namespace DesktopDoctor
 
                 (MdiParent as MainForm).db.SaveChanges();
                 MessageBox.Show("Препарат изменен");
-                ComeBack();
+                (MdiParent as MainForm).GoToMedicinesForm();
             }
-        }
-
-        private void ComeBack()
-        {
-            MedicinesForm medicinesForm = new MedicinesForm
-            {
-                MdiParent = MdiParent
-            };
-            medicinesForm.Show();
-            medicinesForm.Dock = DockStyle.Fill;
-            Close();
         }
 
         private void EditMedicineForm_Load(object sender, EventArgs e)

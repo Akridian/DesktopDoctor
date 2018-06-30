@@ -14,9 +14,10 @@ namespace DesktopDoctor
     {
         Employee employee;
 
-        public EmployeeForm(Employee employee)
+        public EmployeeForm(MainForm mainForm, Employee employee)
         {
             InitializeComponent();
+            MdiParent = mainForm;
             this.employee = employee;
         }
     }

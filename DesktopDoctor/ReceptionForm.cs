@@ -14,9 +14,10 @@ namespace DesktopDoctor
     {
         Reception reception;
 
-        public ReceptionForm(Reception reception)
+        public ReceptionForm(MainForm mainForm, Reception reception)
         {
             InitializeComponent();
+            MdiParent = mainForm;
             this.reception = reception;
         }
     }
