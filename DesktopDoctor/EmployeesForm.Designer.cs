@@ -79,7 +79,7 @@
             this.addNewEmployeeButton.TabIndex = 1;
             this.addNewEmployeeButton.Text = "Добавить";
             this.addNewEmployeeButton.UseVisualStyleBackColor = true;
-            this.addNewEmployeeButton.Click += new System.EventHandler(this.addNewEmployeeButton_Click);
+            this.addNewEmployeeButton.Click += new System.EventHandler(this.AddNewEmployeeButton_Click);
             // 
             // changeEmployeeButton
             // 
@@ -89,7 +89,7 @@
             this.changeEmployeeButton.TabIndex = 2;
             this.changeEmployeeButton.Text = "Изменить";
             this.changeEmployeeButton.UseVisualStyleBackColor = true;
-            this.changeEmployeeButton.Click += new System.EventHandler(this.changeEmployeeButton_Click);
+            this.changeEmployeeButton.Click += new System.EventHandler(this.ChangeEmployeeButton_Click);
             // 
             // removeEmployeeButton
             // 
@@ -99,7 +99,7 @@
             this.removeEmployeeButton.TabIndex = 3;
             this.removeEmployeeButton.Text = "Удалить";
             this.removeEmployeeButton.UseVisualStyleBackColor = true;
-            this.removeEmployeeButton.Click += new System.EventHandler(this.removeEmployeeButton_Click);
+            this.removeEmployeeButton.Click += new System.EventHandler(this.RemoveEmployeeButton_Click);
             // 
             // ComeBackButton
             // 

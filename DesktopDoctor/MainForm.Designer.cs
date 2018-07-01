@@ -48,7 +48,7 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.topMenuStrip;
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "DesktopDoctor";
             this.ResumeLayout(false);
             this.PerformLayout();
 

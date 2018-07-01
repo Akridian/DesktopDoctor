@@ -30,7 +30,7 @@ namespace DesktopDoctor
                 topMenuStrip.Items.Add(patientsToolStripMenuItem);
                 ToolStripDropDown patientsToolStripDropDown = new ToolStripDropDown();
                 patientsToolStripMenuItem.DropDown = patientsToolStripDropDown;
-                ToolStripMenuItem searchPatientsMenuItem = new ToolStripMenuItem("Поиск");
+                ToolStripMenuItem searchPatientsMenuItem = new ToolStripMenuItem("Поиск пациента");
                 searchPatientsMenuItem.Click += SearchPatientsMenuItem_Click;
                 patientsToolStripDropDown.Items.Add(searchPatientsMenuItem);
                 ToolStripMenuItem addPatientMenuItem = new ToolStripMenuItem("Добавить пациента");
@@ -45,12 +45,22 @@ namespace DesktopDoctor
                 topMenuStrip.Items.Add(medicinesToolStripMenuItem);
                 ToolStripDropDown medicinesToolStripDropDown = new ToolStripDropDown();
                 medicinesToolStripMenuItem.DropDown = medicinesToolStripDropDown;
-                ToolStripMenuItem searchMedicinesMenuItem = new ToolStripMenuItem("Поиск");
+                ToolStripMenuItem searchMedicinesMenuItem = new ToolStripMenuItem("Поиск медикамента");
                 searchMedicinesMenuItem.Click += SearchMedicinesMenuItem_Click;
                 medicinesToolStripDropDown.Items.Add(searchMedicinesMenuItem);
                 ToolStripMenuItem addMedicineMenuItem = new ToolStripMenuItem("Добавить медикамент");
                 addMedicineMenuItem.Click += AddMedicineMenuItem_Click;
                 medicinesToolStripDropDown.Items.Add(addMedicineMenuItem);
+                ToolStripMenuItem employeesToolStripMenuItem = new ToolStripMenuItem("Сотрудники");
+                topMenuStrip.Items.Add(employeesToolStripMenuItem);
+                ToolStripDropDown employeesToolStripDropDown = new ToolStripDropDown();
+                employeesToolStripMenuItem.DropDown = employeesToolStripDropDown;
+                ToolStripMenuItem searchEmployeesToolStripMenuItem = new ToolStripMenuItem("Поиск сотрудника");
+                searchEmployeesToolStripMenuItem.Click += SearchEmployeesToolStripMenuItem_Click;
+                employeesToolStripDropDown.Items.Add(searchEmployeesToolStripMenuItem);
+                ToolStripMenuItem addEmployeeToolStripMenuItem = new ToolStripMenuItem("Добавить сотрудника");
+                addEmployeeToolStripMenuItem.Click += AddEmployeeToolStripMenuItem_Click;
+                employeesToolStripDropDown.Items.Add(addEmployeeToolStripMenuItem);
                 AddLogoutButton();
                 GoToMedicinesForm();
             }
@@ -58,8 +68,10 @@ namespace DesktopDoctor
 
         private void AddLogoutButton()
         {
-            ToolStripMenuItem logoutToolStripMenuItem = new ToolStripMenuItem("Выход");
-            logoutToolStripMenuItem.Alignment = ToolStripItemAlignment.Right;
+            ToolStripMenuItem logoutToolStripMenuItem = new ToolStripMenuItem("Выход")
+            {
+                Alignment = ToolStripItemAlignment.Right
+            };
             logoutToolStripMenuItem.Click += LogoutToolStripMenuItem_Click;
             topMenuStrip.Items.Add(logoutToolStripMenuItem);
         }
@@ -141,6 +153,28 @@ namespace DesktopDoctor
             authorizationForm.Dock = DockStyle.Fill;
         }
 
+        public void GoToEmployeesForm()
+        {
+            foreach (Form form in MdiChildren)
+            {
+                form.Close();
+            }
+            EmployeesForm employeesForm = new EmployeesForm(this);
+            employeesForm.Show();
+            employeesForm.Dock = DockStyle.Fill;
+        }
+
+        public void GoToEditEmployeeForm(Employee employee)
+        {
+            foreach (Form form in MdiChildren)
+            {
+                form.Close();
+            }
+            EditEmployeeForm editEmployeeForm = new EditEmployeeForm(this, employee);
+            editEmployeeForm.Show();
+            editEmployeeForm.Dock = DockStyle.Fill;
+        }
+
         private void SearchPatientsMenuItem_Click(object sender, EventArgs e)
         {
             GoToPatientsForm();
@@ -168,26 +202,14 @@ namespace DesktopDoctor
             GoToAuthorizationForm();
         }
 
-        public void GoToEmployeesForm()
+        private void SearchEmployeesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            foreach (Form form in MdiChildren)
-            {
-                form.Close();
-            }
-            EmployeesForm employeesForm = new EmployeesForm(this);
-            employeesForm.Show();
-            employeesForm.Dock = DockStyle.Fill;
+            GoToEmployeesForm();
         }
 
-        public void GoToEditEmployeeForm(Employee employee)
+        private void AddEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            foreach (Form form in MdiChildren)
-            {
-                form.Close();
-            }
-            EditEmployeeForm editEmployeeForm = new EditEmployeeForm(this, employee);
-            editEmployeeForm.Show();
-            editEmployeeForm.Dock = DockStyle.Fill;
+            GoToEditEmployeeForm(new Employee());
         }
     }
 }
