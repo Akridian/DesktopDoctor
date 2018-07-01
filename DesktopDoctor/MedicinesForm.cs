@@ -19,7 +19,7 @@ namespace DesktopDoctor
 
         private void AddMedicineButton_Click(object sender, EventArgs e)
         {
-            (MdiParent as MainForm).GoToEditMedicineForm(null);
+            (MdiParent as MainForm).GoToEditMedicineForm(new Medicine());
         }
 
         private void ChangeMedicineButton_Click(object sender, EventArgs e)
