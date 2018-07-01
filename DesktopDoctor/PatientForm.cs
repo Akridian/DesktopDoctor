@@ -23,8 +23,8 @@ namespace DesktopDoctor
             patronymicLabel.Text = patient.Patronymic;
             genderLabel.Text = "Пол: " + (patient.Gender ? "Мужской" : "Женский");
             birthdateLabel.Text = "Дата рождения: " + patient.Birthdate.ToShortDateString();
-            snilsLabel.Text = patient.SNILS;
-            policyLabel.Text = patient.Policy;
+            snilsLabel.Text = "СНИЛС: " + patient.SNILS;
+            policyLabel.Text = "Полис: " + patient.Policy;
             this.patient = patient;
             receptionBindingSource.DataSource = patient.Receptions.OrderByDescending(r => r.Date).ToList();
         }
@@ -41,7 +41,12 @@ namespace DesktopDoctor
 
         private void StartReceptionButton_Click(object sender, EventArgs e)
         {
-            (MdiParent as MainForm).GoToReceptionForm(new Reception());
+            Reception reception = new Reception
+            {
+                Patient = patient,
+                Employee = (MdiParent as MainForm).account.Employee
+            };
+            (MdiParent as MainForm).GoToReceptionForm(reception);
         }
 
         private void ReceptionDataGridView_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
