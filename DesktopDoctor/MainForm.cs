@@ -178,5 +178,16 @@ namespace DesktopDoctor
             employeesForm.Show();
             employeesForm.Dock = DockStyle.Fill;
         }
+
+        public void GoToEditEmployeeForm(Employee employee)
+        {
+            foreach (Form form in MdiChildren)
+            {
+                form.Close();
+            }
+            EditEmployeeForm editEmployeeForm = new EditEmployeeForm(this, employee);
+            editEmployeeForm.Show();
+            editEmployeeForm.Dock = DockStyle.Fill;
+        }
     }
 }

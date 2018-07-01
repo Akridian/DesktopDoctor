@@ -20,7 +20,33 @@ namespace DesktopDoctor
 
         private void EmployeesForm_Load(object sender, EventArgs e)
         {
-            // medicinesBindingSource.DataSource = (MdiParent as MainForm).db.Medicines.ToList();
+            List<Account> accounts = (MdiParent as MainForm).db.Accounts.ToList();
+            List<Employee> employees = (MdiParent as MainForm).db.Employees.ToList();
+            List<SecurityLevel> securityLevels = (MdiParent as MainForm).db.SecurityLevels.ToList();
+
+            List<AccountView> result = new List<AccountView>();
+
+            foreach (var account in accounts)
+            {
+                AccountView accountView = new AccountView();
+                accountView.Login = account.Login;
+                accountView.Fename = employees.Find(a => a.Id == account.EmployeeId).Fename;
+                accountView.Name = employees.Find(a => a.Id == account.EmployeeId).Name;
+                accountView.Patronymic = employees.Find(a => a.Id == account.EmployeeId).Patronymic;
+                accountView.SecurityLevel = securityLevels.Find(a => a.Id == account.SecurityLevelId).Name;
+                result.Add(accountView);
+            }
+            employeesBindingSource.DataSource = result;
+        }
+
+        private void ComeBackButton_Click(object sender, EventArgs e)
+        {
+            (MdiParent as MainForm).GoToMedicinesForm();
+        }
+
+        private void addNewEmployeeButton_Click(object sender, EventArgs e)
+        {
+            (MdiParent as MainForm).GoToEditEmployeeForm(new Employee());
         }
     }
 }

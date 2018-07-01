@@ -20,5 +20,10 @@ namespace DesktopDoctor
             MdiParent = mainForm;
             this.employee = employee;
         }
+
+        private void EditEmployeeForm_Load(object sender, EventArgs e)
+        {
+            SecurityLevelsBindingSource.DataSource = (MdiParent as MainForm).db.SecurityLevels.ToList();
+        }
     }
 }
