@@ -19,7 +19,7 @@ namespace DesktopDoctor
             InitializeComponent();
             MdiParent = mainForm;
             this.medicine = medicine;
-            if(medicine != null)
+            if(medicine.Id != 0)
             {
                 addMedicineButton.Text = "Изменить";
             }
@@ -36,7 +36,7 @@ namespace DesktopDoctor
 
         private void AddMedicineButton_Click(object sender, EventArgs e)
         {
-            if (medicine == null)
+            if (medicine.Id == 0)
             {
                 if (!string.IsNullOrWhiteSpace(medicineNameTextBox.Text))
                 {
@@ -69,7 +69,7 @@ namespace DesktopDoctor
 
         private void EditMedicineForm_Load(object sender, EventArgs e)
         {
-            if(medicine != null)
+            if(medicine.Id != 0)
             {
                 medicineNameTextBox.Text = medicine.Name;
                 medicineDescriptionTextBox.Text = medicine.Description;

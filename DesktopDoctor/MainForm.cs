@@ -192,7 +192,7 @@ namespace DesktopDoctor
 
         private void AddMedicineMenuItem_Click(object sender, EventArgs e)
         {
-            GoToEditMedicineForm(null);
+            GoToEditMedicineForm(new Medicine());
         }
 
         private void LogoutToolStripMenuItem_Click(object sender, EventArgs e)
