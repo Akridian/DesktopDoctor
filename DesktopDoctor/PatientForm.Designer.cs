@@ -130,12 +130,12 @@
             this.receptionDataGridView.DataSource = this.receptionBindingSource;
             this.receptionDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.receptionDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.receptionDataGridView.Location = new System.Drawing.Point(0, 355);
+            this.receptionDataGridView.Location = new System.Drawing.Point(0, 385);
             this.receptionDataGridView.MultiSelect = false;
             this.receptionDataGridView.Name = "receptionDataGridView";
             this.receptionDataGridView.ReadOnly = true;
             this.receptionDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.receptionDataGridView.Size = new System.Drawing.Size(800, 200);
+            this.receptionDataGridView.Size = new System.Drawing.Size(800, 170);
             this.receptionDataGridView.TabIndex = 8;
             this.receptionDataGridView.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.ReceptionDataGridView_CellMouseDoubleClick);
             // 
