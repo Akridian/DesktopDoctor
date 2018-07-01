@@ -30,17 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             this.employeesDataGridView = new System.Windows.Forms.DataGridView();
-            this.employeesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.addNewEmployeeButton = new System.Windows.Forms.Button();
             this.changeEmployeeButton = new System.Windows.Forms.Button();
             this.removeEmployeeButton = new System.Windows.Forms.Button();
             this.ComeBackButton = new System.Windows.Forms.Button();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.loginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fename = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Name1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Patronymic = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.loginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.securityLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.employeesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -71,10 +71,6 @@
             this.employeesDataGridView.Size = new System.Drawing.Size(776, 366);
             this.employeesDataGridView.TabIndex = 0;
             // 
-            // employeesBindingSource
-            // 
-            this.employeesBindingSource.DataSource = typeof(DesktopDoctor.AccountView);
-            // 
             // addNewEmployeeButton
             // 
             this.addNewEmployeeButton.Location = new System.Drawing.Point(12, 28);
@@ -103,6 +99,7 @@
             this.removeEmployeeButton.TabIndex = 3;
             this.removeEmployeeButton.Text = "Удалить";
             this.removeEmployeeButton.UseVisualStyleBackColor = true;
+            this.removeEmployeeButton.Click += new System.EventHandler(this.removeEmployeeButton_Click);
             // 
             // ComeBackButton
             // 
@@ -120,13 +117,6 @@
             this.Id.HeaderText = "Id";
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
-            // 
-            // loginDataGridViewTextBoxColumn
-            // 
-            this.loginDataGridViewTextBoxColumn.DataPropertyName = "Login";
-            this.loginDataGridViewTextBoxColumn.HeaderText = "Login";
-            this.loginDataGridViewTextBoxColumn.Name = "loginDataGridViewTextBoxColumn";
-            this.loginDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // Fename
             // 
@@ -149,12 +139,23 @@
             this.Patronymic.Name = "Patronymic";
             this.Patronymic.ReadOnly = true;
             // 
+            // loginDataGridViewTextBoxColumn
+            // 
+            this.loginDataGridViewTextBoxColumn.DataPropertyName = "Login";
+            this.loginDataGridViewTextBoxColumn.HeaderText = "Login";
+            this.loginDataGridViewTextBoxColumn.Name = "loginDataGridViewTextBoxColumn";
+            this.loginDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // securityLevelDataGridViewTextBoxColumn
             // 
             this.securityLevelDataGridViewTextBoxColumn.DataPropertyName = "SecurityLevel";
             this.securityLevelDataGridViewTextBoxColumn.HeaderText = "SecurityLevel";
             this.securityLevelDataGridViewTextBoxColumn.Name = "securityLevelDataGridViewTextBoxColumn";
             this.securityLevelDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // employeesBindingSource
+            // 
+            this.employeesBindingSource.DataSource = typeof(DesktopDoctor.AccountView);
             // 
             // EmployeesForm
             // 
