@@ -8,6 +8,7 @@ namespace DesktopDoctor
 {
     public class AccountView
     {
+        public int ID { get; set; }
         public string Login { get; set; }
         public string Fename { get; set; }
         public string Name { get; set; }

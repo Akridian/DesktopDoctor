@@ -41,7 +41,7 @@
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.patronimicTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
-            this.comfirmPasswordTextBox = new System.Windows.Forms.TextBox();
+            this.confirmPasswordTextBox = new System.Windows.Forms.TextBox();
             this.passwordLabel = new System.Windows.Forms.Label();
             this.confirmPasswordLabel = new System.Windows.Forms.Label();
             this.securityLevelLabel = new System.Windows.Forms.Label();
@@ -59,7 +59,7 @@
             this.SecurityLevelsComboBox.Location = new System.Drawing.Point(210, 235);
             this.SecurityLevelsComboBox.Name = "SecurityLevelsComboBox";
             this.SecurityLevelsComboBox.Size = new System.Drawing.Size(141, 21);
-            this.SecurityLevelsComboBox.TabIndex = 1;
+            this.SecurityLevelsComboBox.TabIndex = 4;
             this.SecurityLevelsComboBox.ValueMember = "Id";
             // 
             // SecurityLevelsBindingSource
@@ -72,9 +72,10 @@
             this.ConfirmButton.Location = new System.Drawing.Point(336, 284);
             this.ConfirmButton.Name = "ConfirmButton";
             this.ConfirmButton.Size = new System.Drawing.Size(75, 23);
-            this.ConfirmButton.TabIndex = 2;
+            this.ConfirmButton.TabIndex = 8;
             this.ConfirmButton.Text = "Создать";
             this.ConfirmButton.UseVisualStyleBackColor = true;
+            this.ConfirmButton.Click += new System.EventHandler(this.ConfirmButton_Click);
             // 
             // loginLabel
             // 
@@ -92,7 +93,7 @@
             this.loginTextBox.Location = new System.Drawing.Point(210, 157);
             this.loginTextBox.Name = "loginTextBox";
             this.loginTextBox.Size = new System.Drawing.Size(141, 20);
-            this.loginTextBox.TabIndex = 5;
+            this.loginTextBox.TabIndex = 1;
             // 
             // fenameLabel
             // 
@@ -130,7 +131,7 @@
             this.fenameTextBox.Location = new System.Drawing.Point(471, 160);
             this.fenameTextBox.Name = "fenameTextBox";
             this.fenameTextBox.Size = new System.Drawing.Size(190, 20);
-            this.fenameTextBox.TabIndex = 9;
+            this.fenameTextBox.TabIndex = 5;
             // 
             // nameTextBox
             // 
@@ -138,7 +139,7 @@
             this.nameTextBox.Location = new System.Drawing.Point(471, 186);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(190, 20);
-            this.nameTextBox.TabIndex = 10;
+            this.nameTextBox.TabIndex = 6;
             // 
             // patronimicTextBox
             // 
@@ -146,7 +147,7 @@
             this.patronimicTextBox.Location = new System.Drawing.Point(471, 212);
             this.patronimicTextBox.Name = "patronimicTextBox";
             this.patronimicTextBox.Size = new System.Drawing.Size(190, 20);
-            this.patronimicTextBox.TabIndex = 11;
+            this.patronimicTextBox.TabIndex = 7;
             // 
             // passwordTextBox
             // 
@@ -154,15 +155,16 @@
             this.passwordTextBox.Location = new System.Drawing.Point(210, 183);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(141, 20);
-            this.passwordTextBox.TabIndex = 12;
+            this.passwordTextBox.TabIndex = 2;
+            this.passwordTextBox.TextChanged += new System.EventHandler(this.passwordTextBox_TextChanged);
             // 
-            // comfirmPasswordTextBox
+            // confirmPasswordTextBox
             // 
-            this.comfirmPasswordTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comfirmPasswordTextBox.Location = new System.Drawing.Point(210, 209);
-            this.comfirmPasswordTextBox.Name = "comfirmPasswordTextBox";
-            this.comfirmPasswordTextBox.Size = new System.Drawing.Size(141, 20);
-            this.comfirmPasswordTextBox.TabIndex = 13;
+            this.confirmPasswordTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.confirmPasswordTextBox.Location = new System.Drawing.Point(210, 209);
+            this.confirmPasswordTextBox.Name = "confirmPasswordTextBox";
+            this.confirmPasswordTextBox.Size = new System.Drawing.Size(141, 20);
+            this.confirmPasswordTextBox.TabIndex = 3;
             // 
             // passwordLabel
             // 
@@ -200,9 +202,10 @@
             this.CancelButton.Location = new System.Drawing.Point(437, 284);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(75, 23);
-            this.CancelButton.TabIndex = 17;
+            this.CancelButton.TabIndex = 9;
             this.CancelButton.Text = "Отмена";
             this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // EditEmployeeForm
             // 
@@ -214,7 +217,7 @@
             this.Controls.Add(this.securityLevelLabel);
             this.Controls.Add(this.confirmPasswordLabel);
             this.Controls.Add(this.passwordLabel);
-            this.Controls.Add(this.comfirmPasswordTextBox);
+            this.Controls.Add(this.confirmPasswordTextBox);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.patronimicTextBox);
             this.Controls.Add(this.nameTextBox);
@@ -251,10 +254,10 @@
         private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.TextBox patronimicTextBox;
         private System.Windows.Forms.TextBox passwordTextBox;
-        private System.Windows.Forms.TextBox comfirmPasswordTextBox;
+        private System.Windows.Forms.TextBox confirmPasswordTextBox;
         private System.Windows.Forms.Label passwordLabel;
         private System.Windows.Forms.Label confirmPasswordLabel;
         private System.Windows.Forms.Label securityLevelLabel;
-        private System.Windows.Forms.Button CancelButton;
+        private new System.Windows.Forms.Button CancelButton;
     }
 }

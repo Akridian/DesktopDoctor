@@ -29,6 +29,7 @@ namespace DesktopDoctor
             foreach (var account in accounts)
             {
                 AccountView accountView = new AccountView();
+                accountView.ID = account.EmployeeId;
                 accountView.Login = account.Login;
                 accountView.Fename = employees.Find(a => a.Id == account.EmployeeId).Fename;
                 accountView.Name = employees.Find(a => a.Id == account.EmployeeId).Name;
@@ -47,6 +48,25 @@ namespace DesktopDoctor
         private void addNewEmployeeButton_Click(object sender, EventArgs e)
         {
             (MdiParent as MainForm).GoToEditEmployeeForm(new Employee());
+        }
+
+        private void changeEmployeeButton_Click(object sender, EventArgs e)
+        {
+            if (employeesDataGridView.SelectedRows.Count > 0)
+            {
+                int index = employeesDataGridView.SelectedRows[0].Index;
+                bool converted = Int32.TryParse(employeesDataGridView[0, index].Value.ToString(), out int id);
+
+                if (converted == false)
+                    return;
+
+                Employee employee = (MdiParent as MainForm).db.Employees.Find(id);
+
+                if (employee != null)
+                {
+                    (MdiParent as MainForm).GoToEditEmployeeForm(employee);
+                }
+            }
         }
     }
 }

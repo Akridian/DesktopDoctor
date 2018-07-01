@@ -35,6 +35,7 @@
             this.changeEmployeeButton = new System.Windows.Forms.Button();
             this.removeEmployeeButton = new System.Windows.Forms.Button();
             this.ComeBackButton = new System.Windows.Forms.Button();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.loginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fename = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Name1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,6 +56,7 @@
             this.employeesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.employeesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.employeesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
             this.loginDataGridViewTextBoxColumn,
             this.Fename,
             this.Name1,
@@ -91,6 +93,7 @@
             this.changeEmployeeButton.TabIndex = 2;
             this.changeEmployeeButton.Text = "Изменить";
             this.changeEmployeeButton.UseVisualStyleBackColor = true;
+            this.changeEmployeeButton.Click += new System.EventHandler(this.changeEmployeeButton_Click);
             // 
             // removeEmployeeButton
             // 
@@ -110,6 +113,13 @@
             this.ComeBackButton.Text = "Назад";
             this.ComeBackButton.UseVisualStyleBackColor = true;
             this.ComeBackButton.Click += new System.EventHandler(this.ComeBackButton_Click);
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "ID";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
             // 
             // loginDataGridViewTextBoxColumn
             // 
@@ -176,6 +186,7 @@
         private System.Windows.Forms.Button removeEmployeeButton;
         private System.Windows.Forms.Button ComeBackButton;
         private System.Windows.Forms.BindingSource employeesBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn loginDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fename;
         private System.Windows.Forms.DataGridViewTextBoxColumn Name1;
