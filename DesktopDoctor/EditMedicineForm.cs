@@ -12,13 +12,12 @@ namespace DesktopDoctor
 {
     public partial class EditMedicineForm : Form
     {
-
-        DesktopDoctorDatabaseEntities db = new DesktopDoctorDatabaseEntities();
         Medicine medicine;
 
-        public EditMedicineForm(Medicine medicine)
+        public EditMedicineForm(MainForm mainForm, Medicine medicine)
         {
             InitializeComponent();
+            MdiParent = mainForm;
             this.medicine = medicine;
             if(medicine != null)
             {
@@ -32,7 +31,7 @@ namespace DesktopDoctor
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            ComeBack();
+            (MdiParent as MainForm).GoToMedicinesForm();
         }
 
         private void AddMedicineButton_Click(object sender, EventArgs e)
@@ -46,10 +45,9 @@ namespace DesktopDoctor
                         Name = medicineNameTextBox.Text,
                         Description = medicineDescriptionTextBox.Text
                     };
-                    db.Medicines.Add(medicine);
-                    db.SaveChanges();
-                    MessageBox.Show("Новый препарат добавлен");
-                    ComeBack();
+                    (MdiParent as MainForm).db.Medicines.Add(medicine);
+                    (MdiParent as MainForm).db.SaveChanges();
+                    (MdiParent as MainForm).GoToMedicinesForm();
                 }
                 else
                 {
@@ -58,26 +56,15 @@ namespace DesktopDoctor
             }
             else
             {
-                Medicine m = db.Medicines.Find(medicine.Id);
+                Medicine m = (MdiParent as MainForm).db.Medicines.Find(medicine.Id);
 
                 m.Name = medicineNameTextBox.Text;
                 m.Description = medicineDescriptionTextBox.Text;
 
-                db.SaveChanges();
+                (MdiParent as MainForm).db.SaveChanges();
                 MessageBox.Show("Препарат изменен");
-                ComeBack();
+                (MdiParent as MainForm).GoToMedicinesForm();
             }
-        }
-
-        private void ComeBack()
-        {
-            MedicinesForm medicinesForm = new MedicinesForm
-            {
-                MdiParent = MdiParent
-            };
-            medicinesForm.Show();
-            medicinesForm.Dock = DockStyle.Fill;
-            Close();
         }
 
         private void EditMedicineForm_Load(object sender, EventArgs e)

@@ -12,9 +12,10 @@ namespace DesktopDoctor
 {
     public partial class ReceptionsForm : Form
     {
-        public ReceptionsForm()
+        public ReceptionsForm(MainForm mainForm)
         {
             InitializeComponent();
+            MdiParent = mainForm;
         }
     }
 }

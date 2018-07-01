@@ -71,7 +71,7 @@
             this.changeMedicineButton.TabIndex = 4;
             this.changeMedicineButton.Text = "Изменить";
             this.changeMedicineButton.UseVisualStyleBackColor = true;
-            this.changeMedicineButton.Click += new System.EventHandler(this.changeMedicineButton_Click);
+            this.changeMedicineButton.Click += new System.EventHandler(this.ChangeMedicineButton_Click);
             // 
             // removeMedicineButton
             // 
@@ -81,7 +81,7 @@
             this.removeMedicineButton.TabIndex = 4;
             this.removeMedicineButton.Text = "Удалить";
             this.removeMedicineButton.UseVisualStyleBackColor = true;
-            this.removeMedicineButton.Click += new System.EventHandler(this.removeMedicineButton_Click);
+            this.removeMedicineButton.Click += new System.EventHandler(this.RemoveMedicineButton_Click);
             // 
             // medicinesDataGridView
             // 
@@ -147,6 +147,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MedicinesForm";
             this.Text = "MedicinesForm";
+            this.Load += new System.EventHandler(this.MedicinesForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.medicinesDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicinesBindingSource)).EndInit();
             this.ResumeLayout(false);

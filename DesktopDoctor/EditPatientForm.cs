@@ -12,12 +12,12 @@ namespace DesktopDoctor
 {
     public partial class EditPatientForm : Form
     {
-        DesktopDoctorDatabaseEntities db = new DesktopDoctorDatabaseEntities();
         Patient patient;
 
-        public EditPatientForm(Patient patient)
+        public EditPatientForm(MainForm mainForm, Patient patient)
         {
             InitializeComponent();
+            MdiParent = mainForm;
             fenameTextBox.Text = patient.Fename;
             nameTextBox.Text = patient.Name;
             patronymicTextBox.Text = patient.Patronymic;
@@ -33,13 +33,14 @@ namespace DesktopDoctor
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            PatientsForm patientsForm = new PatientsForm
+            if (patient.Id == 0)
             {
-                MdiParent = MdiParent
-            };
-            patientsForm.Show();
-            patientsForm.Dock = DockStyle.Fill;
-            Close();
+                (MdiParent as MainForm).GoToPatientsForm();
+            }
+            else
+            {
+                (MdiParent as MainForm).GoToPatientForm(patient);
+            }
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
@@ -51,15 +52,16 @@ namespace DesktopDoctor
             patient.Gender = maleRadioButton.Checked;
             patient.SNILS = snilsTextBox.Text.ToString();
             patient.Policy = policyTextBox.Text.ToString();
-            db.Patients.Add(patient);
-            db.SaveChanges();
-            PatientsForm patientsForm = new PatientsForm
+            if (patient.Id == 0)
             {
-                MdiParent = MdiParent
-            };
-            patientsForm.Show();
-            patientsForm.Dock = DockStyle.Fill;
-            Close();
+                (MdiParent as MainForm).db.Patients.Add(patient);
+            }
+            else
+            {
+                (MdiParent as MainForm).db.Entry(patient).State = EntityState.Modified;
+            }
+            (MdiParent as MainForm).db.SaveChanges();
+            (MdiParent as MainForm).GoToPatientForm(patient);
         }
     }
 }
