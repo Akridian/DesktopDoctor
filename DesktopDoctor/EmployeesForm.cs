@@ -33,13 +33,15 @@ namespace DesktopDoctor
 
             foreach (var account in accounts)
             {
-                AccountView accountView = new AccountView();
-                accountView.ID = account.EmployeeId;
-                accountView.Login = account.Login;
-                accountView.Fename = employees.Find(a => a.Id == account.EmployeeId).Fename;
-                accountView.Name = employees.Find(a => a.Id == account.EmployeeId).Name;
-                accountView.Patronymic = employees.Find(a => a.Id == account.EmployeeId).Patronymic;
-                accountView.SecurityLevel = securityLevels.Find(a => a.Id == account.SecurityLevelId).Name;
+                AccountView accountView = new AccountView
+                {
+                    ID = account.EmployeeId,
+                    Login = account.Login,
+                    Fename = employees.Find(a => a.Id == account.EmployeeId).Fename,
+                    Name = employees.Find(a => a.Id == account.EmployeeId).Name,
+                    Patronymic = employees.Find(a => a.Id == account.EmployeeId).Patronymic,
+                    SecurityLevel = securityLevels.Find(a => a.Id == account.SecurityLevelId).Name
+                };
                 result.Add(accountView);
             }
             employeesBindingSource.DataSource = result;
@@ -50,12 +52,12 @@ namespace DesktopDoctor
             (MdiParent as MainForm).GoToMedicinesForm();
         }
 
-        private void addNewEmployeeButton_Click(object sender, EventArgs e)
+        private void AddNewEmployeeButton_Click(object sender, EventArgs e)
         {
             (MdiParent as MainForm).GoToEditEmployeeForm(new Employee());
         }
 
-        private void changeEmployeeButton_Click(object sender, EventArgs e)
+        private void ChangeEmployeeButton_Click(object sender, EventArgs e)
         {
             if (employeesDataGridView.SelectedRows.Count > 0)
             {
@@ -74,7 +76,7 @@ namespace DesktopDoctor
             }
         }
 
-        private void removeEmployeeButton_Click(object sender, EventArgs e)
+        private void RemoveEmployeeButton_Click(object sender, EventArgs e)
         {
             if (employeesDataGridView.SelectedRows.Count > 0)
             {
