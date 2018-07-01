@@ -70,6 +70,7 @@
     <Compile Include="Account.cs">
       <DependentUpon>DesktopDatabase.tt</DependentUpon>
     </Compile>
+    <Compile Include="AccountView.cs" />
     <Compile Include="AuthorizationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -259,9 +260,12 @@
       <DependentUpon>DesktopDatabase.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Account.datasource" />
+    <None Include="Properties\DataSources\AccountView.datasource" />
     <None Include="Properties\DataSources\Medicine.datasource" />
     <None Include="Properties\DataSources\Patient.datasource" />
     <None Include="Properties\DataSources\Reception.datasource" />
+    <None Include="Properties\DataSources\SecurityLevel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

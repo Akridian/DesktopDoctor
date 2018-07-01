@@ -52,6 +52,7 @@
             this.toDoctorsButton.TabIndex = 3;
             this.toDoctorsButton.Text = " Врачи ";
             this.toDoctorsButton.UseVisualStyleBackColor = true;
+            this.toDoctorsButton.Click += new System.EventHandler(this.toDoctorsButton_Click);
             // 
             // addMedicineButton
             // 
