@@ -58,7 +58,7 @@ namespace DesktopDoctor
             }
         }
 
-        private void passwordTextBox_TextChanged(object sender, EventArgs e)
+        private void PasswordTextBox_TextChanged(object sender, EventArgs e)
         {
             confirmPasswordTextBox.Text = string.Empty;
         }

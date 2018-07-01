@@ -69,7 +69,7 @@ namespace DesktopDoctor
             }
         }
 
-        private void toDoctorsButton_Click(object sender, EventArgs e)
+        private void ToDoctorsButton_Click(object sender, EventArgs e)
         {
             (MdiParent as MainForm).GoToEmployeesForm();
         }
