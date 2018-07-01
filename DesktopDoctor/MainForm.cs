@@ -167,5 +167,16 @@ namespace DesktopDoctor
             topMenuStrip.Items.Clear();
             GoToAuthorizationForm();
         }
+
+        public void GoToEmployeesForm()
+        {
+            foreach (Form form in MdiChildren)
+            {
+                form.Close();
+            }
+            EmployeesForm employeesForm = new EmployeesForm(this);
+            employeesForm.Show();
+            employeesForm.Dock = DockStyle.Fill;
+        }
     }
 }

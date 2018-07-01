@@ -17,5 +17,10 @@ namespace DesktopDoctor
             InitializeComponent();
             MdiParent = mainForm;
         }
+
+        private void EmployeesForm_Load(object sender, EventArgs e)
+        {
+            // medicinesBindingSource.DataSource = (MdiParent as MainForm).db.Medicines.ToList();
+        }
     }
 }
