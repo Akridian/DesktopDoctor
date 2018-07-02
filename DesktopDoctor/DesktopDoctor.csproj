@@ -11,6 +11,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -23,7 +24,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -76,9 +76,6 @@
     </Compile>
     <Compile Include="AuthorizationForm.Designer.cs">
       <DependentUpon>AuthorizationForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Complaint.cs">
-      <DependentUpon>DesktopDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="DesktopDatabase.Context.cs">
       <AutoGen>True</AutoGen>
@@ -174,9 +171,6 @@
     <Compile Include="Reception.cs">
       <DependentUpon>DesktopDatabase.tt</DependentUpon>
     </Compile>
-    <Compile Include="ReceptionComplaint.cs">
-      <DependentUpon>DesktopDatabase.tt</DependentUpon>
-    </Compile>
     <Compile Include="ReceptionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,17 +183,11 @@
     <Compile Include="ReceptionProcedure.cs">
       <DependentUpon>DesktopDatabase.tt</DependentUpon>
     </Compile>
-    <Compile Include="ReceptionRecommendation.cs">
-      <DependentUpon>DesktopDatabase.tt</DependentUpon>
-    </Compile>
     <Compile Include="ReceptionsForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ReceptionsForm.Designer.cs">
       <DependentUpon>ReceptionsForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Recommendation.cs">
-      <DependentUpon>DesktopDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="SecurityLevel.cs">
       <DependentUpon>DesktopDatabase.tt</DependentUpon>

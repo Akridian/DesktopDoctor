@@ -16,9 +16,7 @@ namespace DesktopDoctor
     {
         public Reception()
         {
-            this.ReceptionsComplaints = new HashSet<ReceptionComplaint>();
             this.ReceptionsMedicines = new HashSet<ReceptionMedicine>();
-            this.ReceptionsRecommendations = new HashSet<ReceptionRecommendation>();
             this.ReceptionsProcedures = new HashSet<ReceptionProcedure>();
         }
     
@@ -29,12 +27,12 @@ namespace DesktopDoctor
         public Nullable<double> Temperature { get; set; }
         public string Pressure { get; set; }
         public string Diagnosis { get; set; }
+        public string Symptoms { get; set; }
+        public string Recommendations { get; set; }
     
         public virtual Employee Employee { get; set; }
         public virtual Patient Patient { get; set; }
-        public virtual ICollection<ReceptionComplaint> ReceptionsComplaints { get; set; }
         public virtual ICollection<ReceptionMedicine> ReceptionsMedicines { get; set; }
-        public virtual ICollection<ReceptionRecommendation> ReceptionsRecommendations { get; set; }
         public virtual ICollection<ReceptionProcedure> ReceptionsProcedures { get; set; }
     }
 }

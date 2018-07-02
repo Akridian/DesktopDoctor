@@ -72,7 +72,7 @@
             // patronymicLabel
             // 
             this.patronymicLabel.AutoSize = true;
-            this.patronymicLabel.Location = new System.Drawing.Point(301, 22);
+            this.patronymicLabel.Location = new System.Drawing.Point(277, 22);
             this.patronymicLabel.Name = "patronymicLabel";
             this.patronymicLabel.Size = new System.Drawing.Size(59, 13);
             this.patronymicLabel.TabIndex = 2;
@@ -81,7 +81,7 @@
             // genderLabel
             // 
             this.genderLabel.AutoSize = true;
-            this.genderLabel.Location = new System.Drawing.Point(31, 76);
+            this.genderLabel.Location = new System.Drawing.Point(31, 66);
             this.genderLabel.Name = "genderLabel";
             this.genderLabel.Size = new System.Drawing.Size(42, 13);
             this.genderLabel.TabIndex = 3;
@@ -90,7 +90,7 @@
             // birthdateLabel
             // 
             this.birthdateLabel.AutoSize = true;
-            this.birthdateLabel.Location = new System.Drawing.Point(149, 76);
+            this.birthdateLabel.Location = new System.Drawing.Point(149, 66);
             this.birthdateLabel.Name = "birthdateLabel";
             this.birthdateLabel.Size = new System.Drawing.Size(49, 13);
             this.birthdateLabel.TabIndex = 4;
@@ -99,7 +99,7 @@
             // snilsLabel
             // 
             this.snilsLabel.AutoSize = true;
-            this.snilsLabel.Location = new System.Drawing.Point(31, 124);
+            this.snilsLabel.Location = new System.Drawing.Point(31, 110);
             this.snilsLabel.Name = "snilsLabel";
             this.snilsLabel.Size = new System.Drawing.Size(29, 13);
             this.snilsLabel.TabIndex = 5;
@@ -108,7 +108,7 @@
             // policyLabel
             // 
             this.policyLabel.AutoSize = true;
-            this.policyLabel.Location = new System.Drawing.Point(32, 162);
+            this.policyLabel.Location = new System.Drawing.Point(31, 156);
             this.policyLabel.Name = "policyLabel";
             this.policyLabel.Size = new System.Drawing.Size(35, 13);
             this.policyLabel.TabIndex = 6;
