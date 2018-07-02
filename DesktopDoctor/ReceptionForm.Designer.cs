@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dateLabel = new System.Windows.Forms.Label();
             this.doctorLabel = new System.Windows.Forms.Label();
             this.patientLabel = new System.Windows.Forms.Label();
@@ -43,6 +44,15 @@
             this.symptomsLabel = new System.Windows.Forms.Label();
             this.recommendationsTextBox = new System.Windows.Forms.TextBox();
             this.recommendationsLabel = new System.Windows.Forms.Label();
+            this.medicineDataGridView = new System.Windows.Forms.DataGridView();
+            this.medicineBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.addMedicineButton = new System.Windows.Forms.Button();
+            this.removeMedicineButton = new System.Windows.Forms.Button();
+            this.saveRecomendationsButton = new System.Windows.Forms.Button();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.medicineDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medicineBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dateLabel
@@ -176,12 +186,77 @@
             this.recommendationsLabel.TabIndex = 14;
             this.recommendationsLabel.Text = "Рекоммендации";
             // 
+            // medicineDataGridView
+            // 
+            this.medicineDataGridView.AutoGenerateColumns = false;
+            this.medicineDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.medicineDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.medicineDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3});
+            this.medicineDataGridView.DataSource = this.medicineBindingSource;
+            this.medicineDataGridView.Location = new System.Drawing.Point(12, 284);
+            this.medicineDataGridView.MultiSelect = false;
+            this.medicineDataGridView.Name = "medicineDataGridView";
+            this.medicineDataGridView.ReadOnly = true;
+            this.medicineDataGridView.Size = new System.Drawing.Size(776, 82);
+            this.medicineDataGridView.TabIndex = 16;
+            // 
+            // medicineBindingSource
+            // 
+            this.medicineBindingSource.DataSource = typeof(DesktopDoctor.Medicine);
+            // 
+            // addMedicineButton
+            // 
+            this.addMedicineButton.Location = new System.Drawing.Point(19, 255);
+            this.addMedicineButton.Name = "addMedicineButton";
+            this.addMedicineButton.Size = new System.Drawing.Size(182, 23);
+            this.addMedicineButton.TabIndex = 17;
+            this.addMedicineButton.Text = "Добавить медикамент";
+            this.addMedicineButton.UseVisualStyleBackColor = true;
+            // 
+            // removeMedicineButton
+            // 
+            this.removeMedicineButton.Location = new System.Drawing.Point(223, 255);
+            this.removeMedicineButton.Name = "removeMedicineButton";
+            this.removeMedicineButton.Size = new System.Drawing.Size(175, 23);
+            this.removeMedicineButton.TabIndex = 18;
+            this.removeMedicineButton.Text = "Удалить медикамент";
+            this.removeMedicineButton.UseVisualStyleBackColor = true;
+            // 
+            // saveRecomendationsButton
+            // 
+            this.saveRecomendationsButton.Location = new System.Drawing.Point(233, 390);
+            this.saveRecomendationsButton.Name = "saveRecomendationsButton";
+            this.saveRecomendationsButton.Size = new System.Drawing.Size(179, 23);
+            this.saveRecomendationsButton.TabIndex = 19;
+            this.saveRecomendationsButton.Text = "Сохранить рекоммендации";
+            this.saveRecomendationsButton.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Название";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Description";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Описание";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
             // ReceptionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 536);
             this.ControlBox = false;
+            this.Controls.Add(this.saveRecomendationsButton);
+            this.Controls.Add(this.removeMedicineButton);
+            this.Controls.Add(this.addMedicineButton);
+            this.Controls.Add(this.medicineDataGridView);
             this.Controls.Add(this.recommendationsLabel);
             this.Controls.Add(this.recommendationsTextBox);
             this.Controls.Add(this.symptomsLabel);
@@ -201,6 +276,8 @@
             this.Name = "ReceptionForm";
             this.ShowIcon = false;
             this.Text = "ReceptionForm";
+            ((System.ComponentModel.ISupportInitialize)(this.medicineDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medicineBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,5 +300,12 @@
         private System.Windows.Forms.Label symptomsLabel;
         private System.Windows.Forms.TextBox recommendationsTextBox;
         private System.Windows.Forms.Label recommendationsLabel;
+        private System.Windows.Forms.BindingSource medicineBindingSource;
+        private System.Windows.Forms.DataGridView medicineDataGridView;
+        private System.Windows.Forms.Button addMedicineButton;
+        private System.Windows.Forms.Button removeMedicineButton;
+        private System.Windows.Forms.Button saveRecomendationsButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
     }
 }
