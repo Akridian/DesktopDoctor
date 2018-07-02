@@ -29,6 +29,8 @@ namespace DesktopDoctor
             temperatureTextBox.Text = reception.Temperature.ToString();
             pressureTextBox.Text = reception.Pressure == null ? "" : reception.Pressure.ToString();
             diagnosisTextBox.Text = reception.Diagnosis == null ? "" : reception.Diagnosis.ToString();
+            symptomsTextBox.Text = reception.Symptoms == null ? "" : reception.Symptoms.ToString();
+            recommendationsTextBox.Text = reception.Recommendations == null ? "" : reception.Recommendations.ToString();
         }
 
         private void BackButton_Click(object sender, EventArgs e)
@@ -48,6 +50,8 @@ namespace DesktopDoctor
             }
             reception.Pressure = pressureTextBox.Text.ToString();
             reception.Diagnosis = diagnosisTextBox.Text.ToString();
+            reception.Symptoms = symptomsTextBox.Text.ToString();
+            reception.Recommendations = recommendationsTextBox.Text.ToString();
             if (reception.Id == 0)
             {
                 (MdiParent as MainForm).db.Receptions.Add(reception);

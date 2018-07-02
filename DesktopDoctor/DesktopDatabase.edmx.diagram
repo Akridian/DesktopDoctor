@@ -6,27 +6,19 @@
     <edmx:Diagrams>
       <Diagram DiagramId="b1310440471649bfb5c1f9740c213da2" Name="Diagram1" ZoomLevel="74">
         <EntityTypeShape EntityType="DesktopDoctorDatabaseModel.Account" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="DesktopDoctorDatabaseModel.Complaint" Width="1.5" PointX="6" PointY="3.25" IsExpanded="true" />
         <EntityTypeShape EntityType="DesktopDoctorDatabaseModel.Employee" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
         <EntityTypeShape EntityType="DesktopDoctorDatabaseModel.Medicine" Width="1.5" PointX="6" PointY="14.25" IsExpanded="true" />
         <EntityTypeShape EntityType="DesktopDoctorDatabaseModel.Patient" Width="1.5" PointX="3.75" PointY="2.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DesktopDoctorDatabaseModel.Procedure" Width="1.5" PointX="6" PointY="11" IsExpanded="true" />
         <EntityTypeShape EntityType="DesktopDoctorDatabaseModel.Reception" Width="1.5" PointX="6" PointY="6.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="DesktopDoctorDatabaseModel.ReceptionComplaint" Width="1.5" PointX="8.625" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DesktopDoctorDatabaseModel.ReceptionMedicine" Width="1.5" PointX="10.25" PointY="10.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DesktopDoctorDatabaseModel.ReceptionRecommendation" Width="1.5" PointX="11.25" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DesktopDoctorDatabaseModel.Recommendation" Width="1.5" PointX="9" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="DesktopDoctorDatabaseModel.SecurityLevel" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
         <AssociationConnector Association="DesktopDoctorDatabaseModel.FK_Accounts_Employees" ManuallyRouted="false" />
         <AssociationConnector Association="DesktopDoctorDatabaseModel.FK_Accounts_SecurityLevels" ManuallyRouted="false" />
-        <AssociationConnector Association="DesktopDoctorDatabaseModel.FK_ReceptionsComplaints_Complaints" ManuallyRouted="false" />
         <AssociationConnector Association="DesktopDoctorDatabaseModel.FK_Receptions_Employees" ManuallyRouted="false" />
         <AssociationConnector Association="DesktopDoctorDatabaseModel.FK_ReceptionsMedicines_Medicines" ManuallyRouted="false" />
         <AssociationConnector Association="DesktopDoctorDatabaseModel.FK_Receptions_Patients" ManuallyRouted="false" />
-        <AssociationConnector Association="DesktopDoctorDatabaseModel.FK_ReceptionsComplaints_Receptions" ManuallyRouted="false" />
         <AssociationConnector Association="DesktopDoctorDatabaseModel.FK_ReceptionsMedicines_Receptions" ManuallyRouted="false" />
-        <AssociationConnector Association="DesktopDoctorDatabaseModel.FK_ReceptionsRecommendations_Receptions" ManuallyRouted="false" />
-        <AssociationConnector Association="DesktopDoctorDatabaseModel.FK_ReceptionsRecommendations_Recommendation" ManuallyRouted="false" />
         <EntityTypeShape EntityType="DesktopDoctorDatabaseModel.ReceptionProcedure" Width="1.5" PointX="8.25" PointY="12.375" />
         <AssociationConnector Association="DesktopDoctorDatabaseModel.FK_ReceptionsProcedures_Procedures" />
         <AssociationConnector Association="DesktopDoctorDatabaseModel.FK_ReceptionsProcedures_Receptions" />

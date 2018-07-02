@@ -39,12 +39,16 @@
             this.diagnosisTextBox = new System.Windows.Forms.TextBox();
             this.saveButton = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
+            this.symptomsTextBox = new System.Windows.Forms.TextBox();
+            this.symptomsLabel = new System.Windows.Forms.Label();
+            this.recommendationsTextBox = new System.Windows.Forms.TextBox();
+            this.recommendationsLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // dateLabel
             // 
             this.dateLabel.AutoSize = true;
-            this.dateLabel.Location = new System.Drawing.Point(14, 13);
+            this.dateLabel.Location = new System.Drawing.Point(16, 13);
             this.dateLabel.Name = "dateLabel";
             this.dateLabel.Size = new System.Drawing.Size(56, 13);
             this.dateLabel.TabIndex = 0;
@@ -71,7 +75,7 @@
             // temperatureLabel
             // 
             this.temperatureLabel.AutoSize = true;
-            this.temperatureLabel.Location = new System.Drawing.Point(261, 41);
+            this.temperatureLabel.Location = new System.Drawing.Point(258, 41);
             this.temperatureLabel.Name = "temperatureLabel";
             this.temperatureLabel.Size = new System.Drawing.Size(74, 13);
             this.temperatureLabel.TabIndex = 3;
@@ -87,7 +91,7 @@
             // PressureLabel
             // 
             this.PressureLabel.AutoSize = true;
-            this.PressureLabel.Location = new System.Drawing.Point(528, 41);
+            this.PressureLabel.Location = new System.Drawing.Point(524, 41);
             this.PressureLabel.Name = "PressureLabel";
             this.PressureLabel.Size = new System.Drawing.Size(58, 13);
             this.PressureLabel.TabIndex = 5;
@@ -111,14 +115,14 @@
             // 
             // diagnosisTextBox
             // 
-            this.diagnosisTextBox.Location = new System.Drawing.Point(96, 68);
+            this.diagnosisTextBox.Location = new System.Drawing.Point(109, 68);
             this.diagnosisTextBox.Name = "diagnosisTextBox";
-            this.diagnosisTextBox.Size = new System.Drawing.Size(100, 20);
+            this.diagnosisTextBox.Size = new System.Drawing.Size(486, 20);
             this.diagnosisTextBox.TabIndex = 8;
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(17, 102);
+            this.saveButton.Location = new System.Drawing.Point(19, 390);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 9;
@@ -128,7 +132,7 @@
             // 
             // backButton
             // 
-            this.backButton.Location = new System.Drawing.Point(126, 102);
+            this.backButton.Location = new System.Drawing.Point(126, 390);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(75, 23);
             this.backButton.TabIndex = 10;
@@ -136,12 +140,52 @@
             this.backButton.UseVisualStyleBackColor = true;
             this.backButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
+            // symptomsTextBox
+            // 
+            this.symptomsTextBox.Location = new System.Drawing.Point(109, 110);
+            this.symptomsTextBox.MaxLength = 255;
+            this.symptomsTextBox.Multiline = true;
+            this.symptomsTextBox.Name = "symptomsTextBox";
+            this.symptomsTextBox.Size = new System.Drawing.Size(486, 56);
+            this.symptomsTextBox.TabIndex = 11;
+            // 
+            // symptomsLabel
+            // 
+            this.symptomsLabel.AutoSize = true;
+            this.symptomsLabel.Location = new System.Drawing.Point(16, 110);
+            this.symptomsLabel.Name = "symptomsLabel";
+            this.symptomsLabel.Size = new System.Drawing.Size(61, 13);
+            this.symptomsLabel.TabIndex = 12;
+            this.symptomsLabel.Text = "Симптомы";
+            // 
+            // recommendationsTextBox
+            // 
+            this.recommendationsTextBox.Location = new System.Drawing.Point(109, 188);
+            this.recommendationsTextBox.MaxLength = 255;
+            this.recommendationsTextBox.Multiline = true;
+            this.recommendationsTextBox.Name = "recommendationsTextBox";
+            this.recommendationsTextBox.Size = new System.Drawing.Size(486, 60);
+            this.recommendationsTextBox.TabIndex = 13;
+            // 
+            // recommendationsLabel
+            // 
+            this.recommendationsLabel.AutoSize = true;
+            this.recommendationsLabel.Location = new System.Drawing.Point(16, 191);
+            this.recommendationsLabel.Name = "recommendationsLabel";
+            this.recommendationsLabel.Size = new System.Drawing.Size(90, 13);
+            this.recommendationsLabel.TabIndex = 14;
+            this.recommendationsLabel.Text = "Рекоммендации";
+            // 
             // ReceptionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.recommendationsLabel);
+            this.Controls.Add(this.recommendationsTextBox);
+            this.Controls.Add(this.symptomsLabel);
+            this.Controls.Add(this.symptomsTextBox);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.diagnosisTextBox);
@@ -175,5 +219,9 @@
         private System.Windows.Forms.TextBox diagnosisTextBox;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button backButton;
+        private System.Windows.Forms.TextBox symptomsTextBox;
+        private System.Windows.Forms.Label symptomsLabel;
+        private System.Windows.Forms.TextBox recommendationsTextBox;
+        private System.Windows.Forms.Label recommendationsLabel;
     }
 }
