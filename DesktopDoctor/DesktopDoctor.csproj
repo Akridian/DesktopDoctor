@@ -107,12 +107,6 @@
     <Compile Include="Employee.cs">
       <DependentUpon>DesktopDatabase.tt</DependentUpon>
     </Compile>
-    <Compile Include="EmployeeForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EmployeeForm.Designer.cs">
-      <DependentUpon>EmployeeForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="EmployeePartial.cs" />
     <Compile Include="EmployeesForm.cs">
       <SubType>Form</SubType>
@@ -134,12 +128,6 @@
     </Compile>
     <Compile Include="EditMedicineForm.Designer.cs">
       <DependentUpon>EditMedicineForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MedicineForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MedicineForm.Designer.cs">
-      <DependentUpon>MedicineForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MedicinesForm.cs">
       <SubType>Form</SubType>
@@ -183,12 +171,6 @@
     <Compile Include="ReceptionProcedure.cs">
       <DependentUpon>DesktopDatabase.tt</DependentUpon>
     </Compile>
-    <Compile Include="ReceptionsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ReceptionsForm.Designer.cs">
-      <DependentUpon>ReceptionsForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="SecurityLevel.cs">
       <DependentUpon>DesktopDatabase.tt</DependentUpon>
     </Compile>
@@ -201,9 +183,6 @@
     <EmbeddedResource Include="EditPatientForm.resx">
       <DependentUpon>EditPatientForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EmployeeForm.resx">
-      <DependentUpon>EmployeeForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="EmployeesForm.resx">
       <DependentUpon>EmployeesForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -212,9 +191,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditMedicineForm.resx">
       <DependentUpon>EditMedicineForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MedicineForm.resx">
-      <DependentUpon>MedicineForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MedicinesForm.resx">
       <DependentUpon>MedicinesForm.cs</DependentUpon>
@@ -236,9 +212,6 @@
     </Compile>
     <EmbeddedResource Include="ReceptionForm.resx">
       <DependentUpon>ReceptionForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ReceptionsForm.resx">
-      <DependentUpon>ReceptionsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="DesktopDatabase.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

@@ -34,11 +34,9 @@
             this.changeMedicineButton = new System.Windows.Forms.Button();
             this.removeMedicineButton = new System.Windows.Forms.Button();
             this.medicinesDataGridView = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.medicinesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.receptionsMedicinesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.medicinesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.medicinesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicinesBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -95,10 +93,8 @@
             this.medicinesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.medicinesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.medicinesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
             this.nameDataGridViewTextBoxColumn,
-            this.descriptionDataGridViewTextBoxColumn,
-            this.receptionsMedicinesDataGridViewTextBoxColumn});
+            this.descriptionDataGridViewTextBoxColumn});
             this.medicinesDataGridView.DataSource = this.medicinesBindingSource;
             this.medicinesDataGridView.Location = new System.Drawing.Point(34, 81);
             this.medicinesDataGridView.Name = "medicinesDataGridView";
@@ -106,33 +102,21 @@
             this.medicinesDataGridView.Size = new System.Drawing.Size(719, 357);
             this.medicinesDataGridView.TabIndex = 5;
             // 
-            // idDataGridViewTextBoxColumn
+            // medicinesBindingSource
             // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.medicinesBindingSource.DataSource = typeof(DesktopDoctor.Medicine);
             // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Название";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             // 
             // descriptionDataGridViewTextBoxColumn
             // 
             this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Описание";
             this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            // 
-            // receptionsMedicinesDataGridViewTextBoxColumn
-            // 
-            this.receptionsMedicinesDataGridViewTextBoxColumn.DataPropertyName = "ReceptionsMedicines";
-            this.receptionsMedicinesDataGridViewTextBoxColumn.HeaderText = "ReceptionsMedicines";
-            this.receptionsMedicinesDataGridViewTextBoxColumn.Name = "receptionsMedicinesDataGridViewTextBoxColumn";
-            // 
-            // medicinesBindingSource
-            // 
-            this.medicinesBindingSource.DataSource = typeof(DesktopDoctor.Medicine);
             // 
             // MedicinesForm
             // 
@@ -162,9 +146,7 @@
         private System.Windows.Forms.Button removeMedicineButton;
         private System.Windows.Forms.DataGridView medicinesDataGridView;
         private System.Windows.Forms.BindingSource medicinesBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn receptionsMedicinesDataGridViewTextBoxColumn;
     }
 }

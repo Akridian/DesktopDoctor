@@ -30,17 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             this.employeesDataGridView = new System.Windows.Forms.DataGridView();
+            this.employeesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.addNewEmployeeButton = new System.Windows.Forms.Button();
             this.changeEmployeeButton = new System.Windows.Forms.Button();
             this.removeEmployeeButton = new System.Windows.Forms.Button();
             this.ComeBackButton = new System.Windows.Forms.Button();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.loginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fename = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Name1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Patronymic = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.loginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.securityLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.employeesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -56,7 +55,6 @@
             this.employeesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.employeesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.employeesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
             this.loginDataGridViewTextBoxColumn,
             this.Fename,
             this.Name1,
@@ -70,6 +68,10 @@
             this.employeesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.employeesDataGridView.Size = new System.Drawing.Size(776, 366);
             this.employeesDataGridView.TabIndex = 0;
+            // 
+            // employeesBindingSource
+            // 
+            this.employeesBindingSource.DataSource = typeof(DesktopDoctor.AccountView);
             // 
             // addNewEmployeeButton
             // 
@@ -111,51 +113,40 @@
             this.ComeBackButton.UseVisualStyleBackColor = true;
             this.ComeBackButton.Click += new System.EventHandler(this.ComeBackButton_Click);
             // 
-            // Id
+            // loginDataGridViewTextBoxColumn
             // 
-            this.Id.DataPropertyName = "ID";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
+            this.loginDataGridViewTextBoxColumn.DataPropertyName = "Login";
+            this.loginDataGridViewTextBoxColumn.HeaderText = "Логин";
+            this.loginDataGridViewTextBoxColumn.Name = "loginDataGridViewTextBoxColumn";
+            this.loginDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // Fename
             // 
             this.Fename.DataPropertyName = "Fename";
-            this.Fename.HeaderText = "Fename";
+            this.Fename.HeaderText = "Фамилия";
             this.Fename.Name = "Fename";
             this.Fename.ReadOnly = true;
             // 
             // Name1
             // 
             this.Name1.DataPropertyName = "Name";
-            this.Name1.HeaderText = "Name";
+            this.Name1.HeaderText = "Имя";
             this.Name1.Name = "Name1";
             this.Name1.ReadOnly = true;
             // 
             // Patronymic
             // 
             this.Patronymic.DataPropertyName = "Patronymic";
-            this.Patronymic.HeaderText = "Patronymic";
+            this.Patronymic.HeaderText = "Отчество";
             this.Patronymic.Name = "Patronymic";
             this.Patronymic.ReadOnly = true;
-            // 
-            // loginDataGridViewTextBoxColumn
-            // 
-            this.loginDataGridViewTextBoxColumn.DataPropertyName = "Login";
-            this.loginDataGridViewTextBoxColumn.HeaderText = "Login";
-            this.loginDataGridViewTextBoxColumn.Name = "loginDataGridViewTextBoxColumn";
-            this.loginDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // securityLevelDataGridViewTextBoxColumn
             // 
             this.securityLevelDataGridViewTextBoxColumn.DataPropertyName = "SecurityLevel";
-            this.securityLevelDataGridViewTextBoxColumn.HeaderText = "SecurityLevel";
+            this.securityLevelDataGridViewTextBoxColumn.HeaderText = "Уровень доступа";
             this.securityLevelDataGridViewTextBoxColumn.Name = "securityLevelDataGridViewTextBoxColumn";
             this.securityLevelDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // employeesBindingSource
-            // 
-            this.employeesBindingSource.DataSource = typeof(DesktopDoctor.AccountView);
             // 
             // EmployeesForm
             // 
@@ -187,7 +178,6 @@
         private System.Windows.Forms.Button removeEmployeeButton;
         private System.Windows.Forms.Button ComeBackButton;
         private System.Windows.Forms.BindingSource employeesBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn loginDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fename;
         private System.Windows.Forms.DataGridViewTextBoxColumn Name1;
