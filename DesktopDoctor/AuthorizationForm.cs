@@ -24,7 +24,7 @@ namespace DesktopDoctor
             string password = passwordTextBox.Text.ToString();
             try
             {
-                Account account = (MdiParent as MainForm).db.Accounts.Where(acc => acc.Login == login).Select(acc => acc).First();
+                Account account = (MdiParent as MainForm).db.Accounts.Where(acc => acc.Login == login).ToList().Where(acc => acc.Login == login).First();
                 if (account.Password == password)
                 {
                     (MdiParent as MainForm).Authorization(account);
