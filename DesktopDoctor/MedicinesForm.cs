@@ -24,48 +24,21 @@ namespace DesktopDoctor
 
         private void ChangeMedicineButton_Click(object sender, EventArgs e)
         {
-            if(medicinesDataGridView.SelectedRows.Count >0)
-            {
-                int index = medicinesDataGridView.SelectedRows[0].Index;
-                bool converted = Int32.TryParse(medicinesDataGridView[0, index].Value.ToString(), out int id);
-
-                if (converted == false)
-                    return;
-
-                Medicine medicine = (MdiParent as MainForm).db.Medicines.Find(id);
-
-                if(medicine != null)
-                {
-                    (MdiParent as MainForm).GoToEditMedicineForm(medicine);
-                }
-            }
+            (MdiParent as MainForm).GoToEditMedicineForm(medicinesBindingSource.Current as Medicine);
         }
 
         private void RemoveMedicineButton_Click(object sender, EventArgs e)
         {
-            if (medicinesDataGridView.SelectedRows.Count > 0)
+            Medicine medicine = medicinesBindingSource.Current as Medicine;
+            if (MessageBox.Show("Удалить " + medicine.Name + " ?", Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                int index = medicinesDataGridView.SelectedRows[0].Index;
-                bool converted = Int32.TryParse(medicinesDataGridView[0, index].Value.ToString(), out int id);
-
-                if (converted == false)
-                    return;
-
-                Medicine medicine = (MdiParent as MainForm).db.Medicines.Find(id);
-
-                if (medicine != null)
-                {
-                    if (MessageBox.Show("Удалить " + medicine.Name + " ?", Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        (MdiParent as MainForm).db.Medicines.Remove(medicine);
-                        (MdiParent as MainForm).db.SaveChanges();
-                        medicinesBindingSource.DataSource = (MdiParent as MainForm).db.Medicines.ToList();
-                    }
-                    else
-                    {
-                        return;
-                    }
-                }
+                (MdiParent as MainForm).db.Medicines.Remove(medicine);
+                (MdiParent as MainForm).db.SaveChanges();
+                medicinesBindingSource.DataSource = (MdiParent as MainForm).db.Medicines.ToList();
+            }
+            else
+            {
+                return;
             }
         }
 

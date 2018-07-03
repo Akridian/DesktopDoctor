@@ -24,6 +24,7 @@ namespace DesktopDoctor
         public string Fename { get; set; }
         public string Name { get; set; }
         public string Patronymic { get; set; }
+        public bool IsDeleted { get; set; }
     
         public virtual ICollection<Account> Accounts { get; set; }
         public virtual ICollection<Reception> Receptions { get; set; }
