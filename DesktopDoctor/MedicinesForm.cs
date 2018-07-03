@@ -14,7 +14,7 @@ namespace DesktopDoctor
 
         private void MedicinesForm_Load(object sender, EventArgs e)
         {
-            medicinesBindingSource.DataSource = (MdiParent as MainForm).db.Medicines.ToList();
+            medicinesBindingSource.DataSource = ((MdiParent as MainForm).db.Medicines.Where(m => m.IsDeleted == false)).ToList();
         }
 
         private void AddMedicineButton_Click(object sender, EventArgs e)
@@ -38,9 +38,9 @@ namespace DesktopDoctor
             {
                 if (MessageBox.Show("Удалить " + medicine.Name + " ?", Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    (MdiParent as MainForm).db.Medicines.Remove(medicine);
+                    medicine.IsDeleted = true;
                     (MdiParent as MainForm).db.SaveChanges();
-                    medicinesBindingSource.DataSource = (MdiParent as MainForm).db.Medicines.ToList();
+                    medicinesBindingSource.DataSource = ((MdiParent as MainForm).db.Medicines.Where(m => m.IsDeleted == false)).ToList();
                 }
                 else
                 {
@@ -58,7 +58,7 @@ namespace DesktopDoctor
         {
             string name = searchNameMedicineTextBox.Text;
             string description = searchDescriptionMedicineTextBox.Text;
-            medicinesBindingSource.DataSource = (MdiParent as MainForm).db.Medicines.Where(m => m.Name.StartsWith(name) && m.Description.StartsWith(description)).ToList();
+            medicinesBindingSource.DataSource = (MdiParent as MainForm).db.Medicines.Where(m => m.Name.StartsWith(name) && m.Description.StartsWith(description) && m.IsDeleted == false).ToList();
         }
     }
 }
