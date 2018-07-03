@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DocumentFormat.OpenXml;
+using DocumentFormat.OpenXml.Packaging;
+using DocumentFormat.OpenXml.Wordprocessing;
 
 namespace DesktopDoctor
 {
@@ -47,6 +51,34 @@ namespace DesktopDoctor
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
+            Save();
+            (MdiParent as MainForm).GoToPatientForm(reception.Patient);
+        }
+
+        private void AddMedicineButton_Click(object sender, EventArgs e)
+        {
+            SelectMedicineForm selectMedicineForm = new SelectMedicineForm(this);
+            selectMedicineForm.ShowDialog();
+        }
+
+        public void AddMedicine(Medicine medicine)
+        {
+            medicines.Add(medicine);
+            medicineBindingSource.CurrencyManager.Refresh();
+        }
+
+        private void RemoveMedicineButton_Click(object sender, EventArgs e)
+        {
+            if (medicines.Count > 0)
+            {
+                Medicine medicine = medicineBindingSource.Current as Medicine;
+                medicines.Remove(medicine);
+                medicineBindingSource.CurrencyManager.Refresh();
+            }
+        }
+
+        private void Save()
+        {
             if (Double.TryParse(temperatureTextBox.Text.ToString(), out double temperature))
             {
                 reception.Temperature = temperature;
@@ -85,7 +117,7 @@ namespace DesktopDoctor
             foreach (Medicine med in medicines)
             {
                 if (!linkedMedicines.Contains(med))
-                { 
+                {
                     ReceptionMedicine recMed = new ReceptionMedicine()
                     {
                         MedicineId = med.Id,
@@ -95,28 +127,97 @@ namespace DesktopDoctor
                     (MdiParent as MainForm).db.SaveChanges();
                 }
             }
-            (MdiParent as MainForm).GoToPatientForm(reception.Patient);
         }
 
-        private void AddMedicineButton_Click(object sender, EventArgs e)
+        private void SaveRecomendationsButton_Click(object sender, EventArgs e)
         {
-            SelectMedicineForm selectMedicineForm = new SelectMedicineForm(this);
-            selectMedicineForm.ShowDialog();
-        }
-
-        public void AddMedicine(Medicine medicine)
-        {
-            medicines.Add(medicine);
-            medicineBindingSource.CurrencyManager.Refresh();
-        }
-
-        private void RemoveMedicineButton_Click(object sender, EventArgs e)
-        {
-            if (medicines.Count > 0)
+            Save();
+            SaveFileDialog saveFileDialog = new SaveFileDialog
             {
-                Medicine medicine = medicineBindingSource.Current as Medicine;
-                medicines.Remove(medicine);
-                medicineBindingSource.CurrencyManager.Refresh();
+                Filter = "Word Document|*.docx",
+                Title = "Сохранить рекоммендации",
+                FileName = reception.Date.ToShortDateString() + " " + reception.Patient.ToString() + " рекоммендации"
+            };
+            saveFileDialog.ShowDialog();
+            if (saveFileDialog.FileName != "")
+            {
+                using (FileStream fileStream = saveFileDialog.OpenFile() as FileStream)
+                {
+                    using (WordprocessingDocument wordDocument = WordprocessingDocument.Create(fileStream, WordprocessingDocumentType.Document, true))
+                    {
+                        MainDocumentPart mainPart = wordDocument.AddMainDocumentPart();
+                        mainPart.Document = new Document();
+                        Body body = new Body();
+                        mainPart.Document.Body = body;
+                        body.Append(new Paragraph(new Run(new Text("Врач: " + reception.Employee.ToString()))));
+                        body.Append(new Paragraph(new Run(new Text("Дата: " + reception.Date.ToShortDateString()))));
+                        body.Append(new Paragraph(new Run(new Text("Рекоммендации:"))));
+                        body.Append(new Paragraph(new Run(new Text(reception.Recommendations.ToString()))));
+                        if (reception.ReceptionsMedicines.Count > 0)
+                        {
+                            body.Append(new Paragraph(new Run(new Text("Медикаменты:"))));
+                            Table table = new Table();
+                            TableProperties tableProperties = new TableProperties(
+                                new TableBorders(
+                                    new TopBorder()
+                                    {
+                                        Val =
+                                        new EnumValue<BorderValues>(BorderValues.Single),
+                                        Size = 1
+                                    },
+                                    new BottomBorder()
+                                    {
+                                        Val =
+                                        new EnumValue<BorderValues>(BorderValues.Single),
+                                        Size = 1
+                                    },
+                                    new LeftBorder()
+                                    {
+                                        Val =
+                                        new EnumValue<BorderValues>(BorderValues.Single),
+                                        Size = 1
+                                    },
+                                    new RightBorder()
+                                    {
+                                        Val =
+                                        new EnumValue<BorderValues>(BorderValues.Single),
+                                        Size = 1
+                                    },
+                                    new InsideHorizontalBorder()
+                                    {
+                                        Val =
+                                        new EnumValue<BorderValues>(BorderValues.Single),
+                                        Size = 1
+                                    },
+                                    new InsideVerticalBorder()
+                                    {
+                                        Val =
+                                        new EnumValue<BorderValues>(BorderValues.Single),
+                                        Size = 1
+                                    }
+                                )
+                            );
+                            table.AppendChild(tableProperties);
+                            TableRow headerTableRow = new TableRow();
+                            TableCell nameHeaderCell = new TableCell(new Paragraph(new Run(new Text("Название"))));
+                            headerTableRow.Append(nameHeaderCell);
+                            TableCell descriptionHeaderCell = new TableCell(new Paragraph(new Run(new Text("Описание"))));
+                            headerTableRow.Append(descriptionHeaderCell);
+                            table.Append(headerTableRow);
+                            foreach (ReceptionMedicine recMed in reception.ReceptionsMedicines)
+                            {
+                                TableRow medicineTableRow = new TableRow();
+                                TableCell medicineNameTableCell = new TableCell(new Paragraph(new Run(new Text(recMed.Medicine.Name))));
+                                medicineTableRow.Append(medicineNameTableCell);
+                                TableCell medicineDescriptionTableCell = new TableCell(new Paragraph(new Run(new Text(recMed.Medicine.Description))));
+                                medicineTableRow.Append(medicineDescriptionTableCell);
+                                table.Append(medicineTableRow);
+                            }
+                            body.Append(table);
+                        }
+                    }
+                    fileStream.Close();
+                }
             }
         }
     }
