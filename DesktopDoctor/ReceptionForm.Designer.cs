@@ -45,12 +45,12 @@
             this.recommendationsTextBox = new System.Windows.Forms.TextBox();
             this.recommendationsLabel = new System.Windows.Forms.Label();
             this.medicineDataGridView = new System.Windows.Forms.DataGridView();
-            this.medicineBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.addMedicineButton = new System.Windows.Forms.Button();
             this.removeMedicineButton = new System.Windows.Forms.Button();
             this.saveRecomendationsButton = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.medicineBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.medicineDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicineBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -188,6 +188,8 @@
             // 
             // medicineDataGridView
             // 
+            this.medicineDataGridView.AllowUserToAddRows = false;
+            this.medicineDataGridView.AllowUserToDeleteRows = false;
             this.medicineDataGridView.AutoGenerateColumns = false;
             this.medicineDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.medicineDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -199,12 +201,9 @@
             this.medicineDataGridView.MultiSelect = false;
             this.medicineDataGridView.Name = "medicineDataGridView";
             this.medicineDataGridView.ReadOnly = true;
+            this.medicineDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.medicineDataGridView.Size = new System.Drawing.Size(776, 82);
             this.medicineDataGridView.TabIndex = 16;
-            // 
-            // medicineBindingSource
-            // 
-            this.medicineBindingSource.DataSource = typeof(DesktopDoctor.Medicine);
             // 
             // addMedicineButton
             // 
@@ -214,6 +213,7 @@
             this.addMedicineButton.TabIndex = 17;
             this.addMedicineButton.Text = "Добавить медикамент";
             this.addMedicineButton.UseVisualStyleBackColor = true;
+            this.addMedicineButton.Click += new System.EventHandler(this.AddMedicineButton_Click);
             // 
             // removeMedicineButton
             // 
@@ -223,6 +223,7 @@
             this.removeMedicineButton.TabIndex = 18;
             this.removeMedicineButton.Text = "Удалить медикамент";
             this.removeMedicineButton.UseVisualStyleBackColor = true;
+            this.removeMedicineButton.Click += new System.EventHandler(this.RemoveMedicineButton_Click);
             // 
             // saveRecomendationsButton
             // 
@@ -246,6 +247,10 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "Описание";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // medicineBindingSource
+            // 
+            this.medicineBindingSource.DataSource = typeof(DesktopDoctor.Medicine);
             // 
             // ReceptionForm
             // 

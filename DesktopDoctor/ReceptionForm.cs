@@ -13,6 +13,7 @@ namespace DesktopDoctor
     public partial class ReceptionForm : Form
     {
         Reception reception;
+        public List<Medicine> medicines;
 
         public ReceptionForm(MainForm mainForm, Reception reception)
         {
@@ -31,6 +32,12 @@ namespace DesktopDoctor
             diagnosisTextBox.Text = reception.Diagnosis == null ? "" : reception.Diagnosis.ToString();
             symptomsTextBox.Text = reception.Symptoms == null ? "" : reception.Symptoms.ToString();
             recommendationsTextBox.Text = reception.Recommendations == null ? "" : reception.Recommendations.ToString();
+            medicines = new List<Medicine>();
+            foreach (ReceptionMedicine recMed in reception.ReceptionsMedicines)
+            {
+                medicines.Add(recMed.Medicine);
+            }
+            medicineBindingSource.DataSource = medicines;
         }
 
         private void BackButton_Click(object sender, EventArgs e)
@@ -61,7 +68,56 @@ namespace DesktopDoctor
                 (MdiParent as MainForm).db.Entry(reception).State = EntityState.Modified;
             }
             (MdiParent as MainForm).db.SaveChanges();
+            List<Medicine> linkedMedicines = new List<Medicine>();
+            List<ReceptionMedicine> linkedReceptionMedicines = reception.ReceptionsMedicines.ToList();
+            foreach (ReceptionMedicine recMed in linkedReceptionMedicines)
+            {
+                if (!medicines.Contains(recMed.Medicine))
+                {
+                    (MdiParent as MainForm).db.ReceptionsMedicines.Remove(recMed);
+                    (MdiParent as MainForm).db.SaveChanges();
+                }
+                else
+                {
+                    linkedMedicines.Add(recMed.Medicine);
+                }
+            }
+            foreach (Medicine med in medicines)
+            {
+                if (!linkedMedicines.Contains(med))
+                { 
+                    ReceptionMedicine recMed = new ReceptionMedicine()
+                    {
+                        MedicineId = med.Id,
+                        ReceptionId = reception.Id
+                    };
+                    (MdiParent as MainForm).db.ReceptionsMedicines.Add(recMed);
+                    (MdiParent as MainForm).db.SaveChanges();
+                }
+            }
             (MdiParent as MainForm).GoToPatientForm(reception.Patient);
+        }
+
+        private void AddMedicineButton_Click(object sender, EventArgs e)
+        {
+            SelectMedicineForm selectMedicineForm = new SelectMedicineForm(this);
+            selectMedicineForm.ShowDialog();
+        }
+
+        public void AddMedicine(Medicine medicine)
+        {
+            medicines.Add(medicine);
+            medicineBindingSource.CurrencyManager.Refresh();
+        }
+
+        private void RemoveMedicineButton_Click(object sender, EventArgs e)
+        {
+            if (medicines.Count > 0)
+            {
+                Medicine medicine = medicineBindingSource.Current as Medicine;
+                medicines.Remove(medicine);
+                medicineBindingSource.CurrencyManager.Refresh();
+            }
         }
     }
 }
