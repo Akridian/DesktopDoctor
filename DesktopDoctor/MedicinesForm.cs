@@ -24,8 +24,7 @@ namespace DesktopDoctor
 
         private void ChangeMedicineButton_Click(object sender, EventArgs e)
         {
-            Medicine medicine = medicinesBindingSource.Current as Medicine;
-            if (medicine != null)
+            if (medicinesBindingSource.Current is Medicine medicine)
             {
                 (MdiParent as MainForm).GoToEditMedicineForm(medicine);
             }
@@ -33,8 +32,7 @@ namespace DesktopDoctor
 
         private void RemoveMedicineButton_Click(object sender, EventArgs e)
         {
-            Medicine medicine = medicinesBindingSource.Current as Medicine;
-            if (medicine != null)
+            if (medicinesBindingSource.Current is Medicine medicine)
             {
                 if (MessageBox.Show("Удалить " + medicine.Name + " ?", Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
@@ -54,7 +52,7 @@ namespace DesktopDoctor
             (MdiParent as MainForm).GoToEmployeesForm();
         }
 
-        private void searchButton_Click(object sender, EventArgs e)
+        private void SearchButton_Click(object sender, EventArgs e)
         {
             string name = searchNameMedicineTextBox.Text;
             string description = searchDescriptionMedicineTextBox.Text;

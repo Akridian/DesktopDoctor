@@ -148,7 +148,7 @@
             this.searchButton.TabIndex = 8;
             this.searchButton.Text = "Поиск";
             this.searchButton.UseVisualStyleBackColor = true;
-            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            this.searchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // MedicinesForm
             // 
