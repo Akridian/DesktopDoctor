@@ -73,5 +73,12 @@ namespace DesktopDoctor
         {
             (MdiParent as MainForm).GoToEmployeesForm();
         }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            string name = searchNameMedicineTextBox.Text;
+            string description = searchDescriptionMedicineTextBox.Text;
+            medicinesBindingSource.DataSource = (MdiParent as MainForm).db.Medicines.Where(m => m.Name.StartsWith(name) && m.Description.StartsWith(description)).ToList();
+        }
     }
 }
