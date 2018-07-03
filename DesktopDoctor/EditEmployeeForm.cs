@@ -103,6 +103,7 @@ namespace DesktopDoctor
                     employee.Fename = fenameTextBox.Text;
                     employee.Name = nameTextBox.Text;
                     employee.Patronymic = patronimicTextBox.Text;
+                    employee.IsDeleted = false;
 
                     (MdiParent as MainForm).db.Employees.Add(employee);
                     (MdiParent as MainForm).db.SaveChanges();
@@ -129,6 +130,7 @@ namespace DesktopDoctor
                     editEmployee.Fename = fenameTextBox.Text;
                     editEmployee.Name = nameTextBox.Text;
                     editEmployee.Patronymic = patronimicTextBox.Text;
+                    editEmployee.IsDeleted = false;
 
                     editAccount.Login = loginTextBox.Text;
                     editAccount.Password = passwordTextBox.Text;
