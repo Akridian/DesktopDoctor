@@ -24,21 +24,28 @@ namespace DesktopDoctor
 
         private void ChangeMedicineButton_Click(object sender, EventArgs e)
         {
-            (MdiParent as MainForm).GoToEditMedicineForm(medicinesBindingSource.Current as Medicine);
+            Medicine medicine = medicinesBindingSource.Current as Medicine;
+            if (medicine != null)
+            {
+                (MdiParent as MainForm).GoToEditMedicineForm(medicine);
+            }
         }
 
         private void RemoveMedicineButton_Click(object sender, EventArgs e)
         {
             Medicine medicine = medicinesBindingSource.Current as Medicine;
-            if (MessageBox.Show("Удалить " + medicine.Name + " ?", Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (medicine != null)
             {
-                (MdiParent as MainForm).db.Medicines.Remove(medicine);
-                (MdiParent as MainForm).db.SaveChanges();
-                medicinesBindingSource.DataSource = (MdiParent as MainForm).db.Medicines.ToList();
-            }
-            else
-            {
-                return;
+                if (MessageBox.Show("Удалить " + medicine.Name + " ?", Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    (MdiParent as MainForm).db.Medicines.Remove(medicine);
+                    (MdiParent as MainForm).db.SaveChanges();
+                    medicinesBindingSource.DataSource = (MdiParent as MainForm).db.Medicines.ToList();
+                }
+                else
+                {
+                    return;
+                }
             }
         }
 
