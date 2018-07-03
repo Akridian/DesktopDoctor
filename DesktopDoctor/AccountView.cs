@@ -14,5 +14,6 @@ namespace DesktopDoctor
         public string Name { get; set; }
         public string Patronymic { get; set; }
         public string SecurityLevel { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

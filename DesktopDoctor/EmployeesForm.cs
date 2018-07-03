@@ -40,9 +40,13 @@ namespace DesktopDoctor
                     Fename = employees.Find(a => a.Id == account.EmployeeId).Fename,
                     Name = employees.Find(a => a.Id == account.EmployeeId).Name,
                     Patronymic = employees.Find(a => a.Id == account.EmployeeId).Patronymic,
-                    SecurityLevel = securityLevels.Find(a => a.Id == account.SecurityLevelId).Name
+                    SecurityLevel = securityLevels.Find(a => a.Id == account.SecurityLevelId).Name,
+                    IsDeleted = employees.Find(a => a.Id == account.EmployeeId).IsDeleted
                 };
-                result.Add(accountView);
+                if (!accountView.IsDeleted)
+                {
+                    result.Add(accountView);
+                }
             }
             employeesBindingSource.DataSource = result;
         }
@@ -61,14 +65,8 @@ namespace DesktopDoctor
         {
             if (employeesDataGridView.SelectedRows.Count > 0)
             {
-                int index = employeesDataGridView.SelectedRows[0].Index;
-                bool converted = Int32.TryParse(employeesDataGridView[0, index].Value.ToString(), out int id);
-
-                if (converted == false)
-                    return;
-
+                int id = (employeesBindingSource.Current as AccountView).ID;
                 Employee employee = (MdiParent as MainForm).db.Employees.Find(id);
-
                 if (employee != null)
                 {
                     (MdiParent as MainForm).GoToEditEmployeeForm(employee);
@@ -80,38 +78,37 @@ namespace DesktopDoctor
         {
             if (employeesDataGridView.SelectedRows.Count > 0)
             {
-                if (CheckRemoveLastAdmin())
+
+                int id = (employeesBindingSource.Current as AccountView).ID;
+                Employee employee = (MdiParent as MainForm).db.Employees.Find(id);
+
+                if (employee != null)
                 {
-                    int index = employeesDataGridView.SelectedRows[0].Index;
-                    bool converted = Int32.TryParse(employeesDataGridView[0, index].Value.ToString(), out int id);
-
-                    if (converted == false)
-                        return;
-
-                    Employee employee = (MdiParent as MainForm).db.Employees.Find(id);
-
-                    if (employee != null)
+                    if (MessageBox.Show("Удалить " + employee.ToString() + " ?", Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        if (MessageBox.Show("Удалить " + employee.ToString() + " ?", Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        List<Account> accounts = (MdiParent as MainForm).db.Accounts.ToList();
+                        int idAccount = accounts.Find(a => a.EmployeeId == employee.Id).Id;
+                        Account account = (MdiParent as MainForm).db.Accounts.Find(idAccount);
+
+                        if (account.SecurityLevel.Code == "admin")
                         {
-                            List<Account> accounts = (MdiParent as MainForm).db.Accounts.ToList();
-                            int idAccount = accounts.Find(a => a.EmployeeId == employee.Id).Id;
-                            Account account = (MdiParent as MainForm).db.Accounts.Find(idAccount);
-                            (MdiParent as MainForm).db.Accounts.Remove(account);
-                            (MdiParent as MainForm).db.Employees.Remove(employee);
-                            (MdiParent as MainForm).db.SaveChanges();
-                            UpdateViewEmployees();
+                            if (CheckRemoveLastAdmin())
+                            {
+                                MessageBox.Show("Нельзя удалить.\nВ системе должен быть администратор.", Text, MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                                return;
+                            }
                         }
-                        else
-                        {
-                            return;
-                        }
+                        (MdiParent as MainForm).db.Accounts.Remove(account);
+                        employee.IsDeleted = true;
+                        (MdiParent as MainForm).db.SaveChanges();
+                        UpdateViewEmployees();
+                    }
+                    else
+                    {
+                        return;
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Нельзя удалить.\nВ системе должен быть администратор.", Text, MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                }
+
             }
         }
 
@@ -122,11 +119,11 @@ namespace DesktopDoctor
 
             if(result.Count > 1)
             {
-                return true;
+                return false;
             }
             else
             {
-                return false;
+                return true;
             }
         }
     }

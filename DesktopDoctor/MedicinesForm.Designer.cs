@@ -34,12 +34,12 @@
             this.changeMedicineButton = new System.Windows.Forms.Button();
             this.removeMedicineButton = new System.Windows.Forms.Button();
             this.medicinesDataGridView = new System.Windows.Forms.DataGridView();
-            this.searchNameMedicineTextBox = new System.Windows.Forms.TextBox();
-            this.searchDescriptionMedicineTextBox = new System.Windows.Forms.TextBox();
-            this.searchButton = new System.Windows.Forms.Button();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.medicinesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.searchNameMedicineTextBox = new System.Windows.Forms.TextBox();
+            this.searchDescriptionMedicineTextBox = new System.Windows.Forms.TextBox();
+            this.searchButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.medicinesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicinesBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -100,10 +100,30 @@
             this.descriptionDataGridViewTextBoxColumn});
             this.medicinesDataGridView.DataSource = this.medicinesBindingSource;
             this.medicinesDataGridView.Location = new System.Drawing.Point(12, 81);
+            this.medicinesDataGridView.MultiSelect = false;
             this.medicinesDataGridView.Name = "medicinesDataGridView";
+            this.medicinesDataGridView.ReadOnly = true;
             this.medicinesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.medicinesDataGridView.Size = new System.Drawing.Size(776, 357);
             this.medicinesDataGridView.TabIndex = 5;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Название";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Описание";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // medicinesBindingSource
+            // 
+            this.medicinesBindingSource.DataSource = typeof(DesktopDoctor.Medicine);
             // 
             // searchNameMedicineTextBox
             // 
@@ -129,22 +149,6 @@
             this.searchButton.Text = "Поиск";
             this.searchButton.UseVisualStyleBackColor = true;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Название";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Описание";
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            // 
-            // medicinesBindingSource
-            // 
-            this.medicinesBindingSource.DataSource = typeof(DesktopDoctor.Medicine);
             // 
             // MedicinesForm
             // 

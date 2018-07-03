@@ -23,6 +23,7 @@
           <Property Name="Fename" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Patronymic" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Medicines">
           <Key>
@@ -31,6 +32,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Patients">
           <Key>
@@ -258,6 +260,7 @@
           <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Accounts" Relationship="Self.FK_Accounts_Employees" FromRole="Employees" ToRole="Accounts" />
           <NavigationProperty Name="Receptions" Relationship="Self.FK_Receptions_Employees" FromRole="Employees" ToRole="Receptions" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Medicine">
           <Key>
@@ -267,6 +270,7 @@
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ReceptionsMedicines" Relationship="Self.FK_ReceptionsMedicines_Medicines" FromRole="Medicines" ToRole="ReceptionsMedicines" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Patient">
           <Key>
@@ -499,6 +503,7 @@
           <EntitySetMapping Name="Employees">
             <EntityTypeMapping TypeName="DesktopDoctorDatabaseModel.Employee">
               <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Fename" ColumnName="Fename" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -509,6 +514,7 @@
           <EntitySetMapping Name="Medicines">
             <EntityTypeMapping TypeName="DesktopDoctorDatabaseModel.Medicine">
               <MappingFragment StoreEntitySet="Medicines">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Description" ColumnName="Description" />

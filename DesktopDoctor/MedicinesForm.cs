@@ -14,7 +14,7 @@ namespace DesktopDoctor
 
         private void MedicinesForm_Load(object sender, EventArgs e)
         {
-            medicinesBindingSource.DataSource = (MdiParent as MainForm).db.Medicines.ToList();
+            medicinesBindingSource.DataSource = ((MdiParent as MainForm).db.Medicines.Where(m => m.IsDeleted == false)).ToList();
         }
 
         private void AddMedicineButton_Click(object sender, EventArgs e)
@@ -24,47 +24,27 @@ namespace DesktopDoctor
 
         private void ChangeMedicineButton_Click(object sender, EventArgs e)
         {
-            if(medicinesDataGridView.SelectedRows.Count >0)
+            Medicine medicine = medicinesBindingSource.Current as Medicine;
+            if (medicine != null)
             {
-                int index = medicinesDataGridView.SelectedRows[0].Index;
-                bool converted = Int32.TryParse(medicinesDataGridView[0, index].Value.ToString(), out int id);
-
-                if (converted == false)
-                    return;
-
-                Medicine medicine = (MdiParent as MainForm).db.Medicines.Find(id);
-
-                if(medicine != null)
-                {
-                    (MdiParent as MainForm).GoToEditMedicineForm(medicine);
-                }
+                (MdiParent as MainForm).GoToEditMedicineForm(medicine);
             }
         }
 
         private void RemoveMedicineButton_Click(object sender, EventArgs e)
         {
-            if (medicinesDataGridView.SelectedRows.Count > 0)
+            Medicine medicine = medicinesBindingSource.Current as Medicine;
+            if (medicine != null)
             {
-                int index = medicinesDataGridView.SelectedRows[0].Index;
-                bool converted = Int32.TryParse(medicinesDataGridView[0, index].Value.ToString(), out int id);
-
-                if (converted == false)
-                    return;
-
-                Medicine medicine = (MdiParent as MainForm).db.Medicines.Find(id);
-
-                if (medicine != null)
+                if (MessageBox.Show("Удалить " + medicine.Name + " ?", Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    if (MessageBox.Show("Удалить " + medicine.Name + " ?", Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        (MdiParent as MainForm).db.Medicines.Remove(medicine);
-                        (MdiParent as MainForm).db.SaveChanges();
-                        medicinesBindingSource.DataSource = (MdiParent as MainForm).db.Medicines.ToList();
-                    }
-                    else
-                    {
-                        return;
-                    }
+                    medicine.IsDeleted = true;
+                    (MdiParent as MainForm).db.SaveChanges();
+                    medicinesBindingSource.DataSource = ((MdiParent as MainForm).db.Medicines.Where(m => m.IsDeleted == false)).ToList();
+                }
+                else
+                {
+                    return;
                 }
             }
         }
@@ -78,7 +58,7 @@ namespace DesktopDoctor
         {
             string name = searchNameMedicineTextBox.Text;
             string description = searchDescriptionMedicineTextBox.Text;
-            medicinesBindingSource.DataSource = (MdiParent as MainForm).db.Medicines.Where(m => m.Name.StartsWith(name) && m.Description.StartsWith(description)).ToList();
+            medicinesBindingSource.DataSource = (MdiParent as MainForm).db.Medicines.Where(m => m.Name.StartsWith(name) && m.Description.StartsWith(description) && m.IsDeleted == false).ToList();
         }
     }
 }
