@@ -30,14 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             this.medicineDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.medicineBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nameLabel = new System.Windows.Forms.Label();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.descriptionLabel = new System.Windows.Forms.Label();
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.medicineBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.medicineDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicineBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -64,6 +64,24 @@
             this.medicineDataGridView.TabIndex = 1;
             this.medicineDataGridView.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.MedicineDataGridView_CellMouseDoubleClick);
             // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Название";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Description";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Описание";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // medicineBindingSource
+            // 
+            this.medicineBindingSource.DataSource = typeof(DesktopDoctor.Medicine);
+            // 
             // nameLabel
             // 
             this.nameLabel.AutoSize = true;
@@ -76,6 +94,7 @@
             // nameTextBox
             // 
             this.nameTextBox.Location = new System.Drawing.Point(75, 6);
+            this.nameTextBox.MaxLength = 50;
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(272, 20);
             this.nameTextBox.TabIndex = 3;
@@ -106,28 +125,11 @@
             this.searchButton.UseVisualStyleBackColor = true;
             this.searchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Название";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Description";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Описание";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // medicineBindingSource
-            // 
-            this.medicineBindingSource.DataSource = typeof(DesktopDoctor.Medicine);
-            // 
             // SelectMedicineForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(800, 495);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.descriptionTextBox);
@@ -136,7 +138,7 @@
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.medicineDataGridView);
             this.Name = "SelectMedicineForm";
-            this.Text = "SelectMedicineForm";
+            this.Text = "Выберите медикаменты";
             ((System.ComponentModel.ISupportInitialize)(this.medicineDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicineBindingSource)).EndInit();
             this.ResumeLayout(false);

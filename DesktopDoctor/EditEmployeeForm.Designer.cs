@@ -91,6 +91,7 @@
             // 
             this.loginTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.loginTextBox.Location = new System.Drawing.Point(210, 157);
+            this.loginTextBox.MaxLength = 50;
             this.loginTextBox.Name = "loginTextBox";
             this.loginTextBox.Size = new System.Drawing.Size(141, 20);
             this.loginTextBox.TabIndex = 1;
@@ -129,6 +130,7 @@
             // 
             this.fenameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.fenameTextBox.Location = new System.Drawing.Point(471, 160);
+            this.fenameTextBox.MaxLength = 50;
             this.fenameTextBox.Name = "fenameTextBox";
             this.fenameTextBox.Size = new System.Drawing.Size(190, 20);
             this.fenameTextBox.TabIndex = 5;
@@ -137,6 +139,7 @@
             // 
             this.nameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.nameTextBox.Location = new System.Drawing.Point(471, 186);
+            this.nameTextBox.MaxLength = 50;
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(190, 20);
             this.nameTextBox.TabIndex = 6;
@@ -145,6 +148,7 @@
             // 
             this.patronimicTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.patronimicTextBox.Location = new System.Drawing.Point(471, 212);
+            this.patronimicTextBox.MaxLength = 50;
             this.patronimicTextBox.Name = "patronimicTextBox";
             this.patronimicTextBox.Size = new System.Drawing.Size(190, 20);
             this.patronimicTextBox.TabIndex = 7;
@@ -153,6 +157,7 @@
             // 
             this.passwordTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.passwordTextBox.Location = new System.Drawing.Point(210, 183);
+            this.passwordTextBox.MaxLength = 50;
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(141, 20);
             this.passwordTextBox.TabIndex = 2;
@@ -162,6 +167,7 @@
             // 
             this.confirmPasswordTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.confirmPasswordTextBox.Location = new System.Drawing.Point(210, 209);
+            this.confirmPasswordTextBox.MaxLength = 50;
             this.confirmPasswordTextBox.Name = "confirmPasswordTextBox";
             this.confirmPasswordTextBox.Size = new System.Drawing.Size(141, 20);
             this.confirmPasswordTextBox.TabIndex = 3;
@@ -211,6 +217,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
             this.Controls.Add(this.CancelButton);

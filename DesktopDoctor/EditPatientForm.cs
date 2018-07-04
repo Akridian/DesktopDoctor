@@ -49,6 +49,26 @@ namespace DesktopDoctor
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
+            if (fenameTextBox.Text.Length == 0)
+            {
+                MessageBox.Show("Укажите фамилию пациента.");
+                return;
+            }
+            if (nameTextBox.Text.Length == 0)
+            {
+                MessageBox.Show("Укажите имя пациента.");
+                return;
+            }
+            if (snilsTextBox.Text.Length == 0)
+            {
+                MessageBox.Show("Укажите СНИЛС пациента.");
+                return;
+            }
+            if (policyTextBox.Text.Length == 0)
+            {
+                MessageBox.Show("Укажите номер полиса пациента.");
+                return;
+            }
             patient.Fename = fenameTextBox.Text.ToString();
             patient.Name = nameTextBox.Text.ToString();
             patient.Patronymic = patronymicTextBox.Text.ToString();

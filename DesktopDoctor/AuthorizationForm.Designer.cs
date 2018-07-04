@@ -31,30 +31,33 @@
             this.loginTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.loginButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.loginLabel = new System.Windows.Forms.Label();
             this.passwordLabel = new System.Windows.Forms.Label();
+            this.loginPanel = new System.Windows.Forms.Panel();
+            this.loginPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // loginTextBox
             // 
-            this.loginTextBox.Location = new System.Drawing.Point(341, 172);
+            this.loginTextBox.Location = new System.Drawing.Point(20, 35);
+            this.loginTextBox.MaxLength = 50;
             this.loginTextBox.Name = "loginTextBox";
             this.loginTextBox.Size = new System.Drawing.Size(100, 20);
             this.loginTextBox.TabIndex = 2;
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(341, 244);
+            this.passwordTextBox.Location = new System.Drawing.Point(20, 95);
+            this.passwordTextBox.MaxLength = 50;
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(100, 20);
             this.passwordTextBox.TabIndex = 3;
             this.passwordTextBox.UseSystemPasswordChar = true;
+            this.passwordTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PasswordTextBox_KeyDown);
             // 
             // loginButton
             // 
-            this.loginButton.Location = new System.Drawing.Point(341, 298);
+            this.loginButton.Location = new System.Drawing.Point(20, 130);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(100, 23);
             this.loginButton.TabIndex = 4;
@@ -62,28 +65,10 @@
             this.loginButton.UseVisualStyleBackColor = true;
             this.loginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(45, 49);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Для админа: admin - admin";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(487, 49);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(129, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Для врача: vrach - vrach";
-            // 
             // loginLabel
             // 
             this.loginLabel.AutoSize = true;
-            this.loginLabel.Location = new System.Drawing.Point(341, 153);
+            this.loginLabel.Location = new System.Drawing.Point(20, 20);
             this.loginLabel.Name = "loginLabel";
             this.loginLabel.Size = new System.Drawing.Size(38, 13);
             this.loginLabel.TabIndex = 7;
@@ -92,31 +77,40 @@
             // passwordLabel
             // 
             this.passwordLabel.AutoSize = true;
-            this.passwordLabel.Location = new System.Drawing.Point(341, 225);
+            this.passwordLabel.Location = new System.Drawing.Point(20, 80);
             this.passwordLabel.Name = "passwordLabel";
             this.passwordLabel.Size = new System.Drawing.Size(45, 13);
             this.passwordLabel.TabIndex = 8;
             this.passwordLabel.Text = "Пароль";
             // 
+            // loginPanel
+            // 
+            this.loginPanel.Controls.Add(this.loginLabel);
+            this.loginPanel.Controls.Add(this.loginButton);
+            this.loginPanel.Controls.Add(this.passwordLabel);
+            this.loginPanel.Controls.Add(this.passwordTextBox);
+            this.loginPanel.Controls.Add(this.loginTextBox);
+            this.loginPanel.Location = new System.Drawing.Point(330, 140);
+            this.loginPanel.Name = "loginPanel";
+            this.loginPanel.Size = new System.Drawing.Size(140, 170);
+            this.loginPanel.TabIndex = 9;
+            // 
             // AuthorizationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
-            this.Controls.Add(this.passwordLabel);
-            this.Controls.Add(this.loginLabel);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.loginButton);
-            this.Controls.Add(this.passwordTextBox);
-            this.Controls.Add(this.loginTextBox);
+            this.Controls.Add(this.loginPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AuthorizationForm";
             this.ShowIcon = false;
             this.Text = "AuthorizationForm";
+            this.Resize += new System.EventHandler(this.AuthorizationForm_Resize);
+            this.loginPanel.ResumeLayout(false);
+            this.loginPanel.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -124,9 +118,8 @@
         private System.Windows.Forms.TextBox loginTextBox;
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Button loginButton;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label loginLabel;
         private System.Windows.Forms.Label passwordLabel;
+        private System.Windows.Forms.Panel loginPanel;
     }
 }

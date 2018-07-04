@@ -18,7 +18,7 @@ namespace DesktopDoctor
             MdiParent = mainForm;
         }
 
-        private void LoginButton_Click(object sender, EventArgs e)
+        private void Authorization()
         {
             string login = loginTextBox.Text.ToString();
             string password = passwordTextBox.Text.ToString();
@@ -38,7 +38,24 @@ namespace DesktopDoctor
             {
                 MessageBox.Show("Аккаунт не найден");
             }
-            
+        }
+
+        private void LoginButton_Click(object sender, EventArgs e)
+        {
+            Authorization();
+        }
+
+        private void AuthorizationForm_Resize(object sender, EventArgs e)
+        {
+            loginPanel.Location = new Point(Size.Width / 2 - loginPanel.Width / 2, Size.Height / 2 - loginPanel.Height / 2);
+        }
+
+        private void PasswordTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Authorization();
+            }
         }
     }
 }

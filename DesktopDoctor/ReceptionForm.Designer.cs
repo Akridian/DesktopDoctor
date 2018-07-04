@@ -45,12 +45,12 @@
             this.recommendationsTextBox = new System.Windows.Forms.TextBox();
             this.recommendationsLabel = new System.Windows.Forms.Label();
             this.medicineDataGridView = new System.Windows.Forms.DataGridView();
-            this.addMedicineButton = new System.Windows.Forms.Button();
-            this.removeMedicineButton = new System.Windows.Forms.Button();
-            this.saveRecomendationsButton = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.medicineBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.addMedicineButton = new System.Windows.Forms.Button();
+            this.removeMedicineButton = new System.Windows.Forms.Button();
+            this.saveRecomendationsButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.medicineDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicineBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -94,6 +94,7 @@
             // temperatureTextBox
             // 
             this.temperatureTextBox.Location = new System.Drawing.Point(353, 38);
+            this.temperatureTextBox.MaxLength = 50;
             this.temperatureTextBox.Name = "temperatureTextBox";
             this.temperatureTextBox.Size = new System.Drawing.Size(100, 20);
             this.temperatureTextBox.TabIndex = 4;
@@ -110,6 +111,7 @@
             // pressureTextBox
             // 
             this.pressureTextBox.Location = new System.Drawing.Point(610, 38);
+            this.pressureTextBox.MaxLength = 50;
             this.pressureTextBox.Name = "pressureTextBox";
             this.pressureTextBox.Size = new System.Drawing.Size(100, 20);
             this.pressureTextBox.TabIndex = 6;
@@ -126,6 +128,7 @@
             // diagnosisTextBox
             // 
             this.diagnosisTextBox.Location = new System.Drawing.Point(109, 68);
+            this.diagnosisTextBox.MaxLength = 50;
             this.diagnosisTextBox.Name = "diagnosisTextBox";
             this.diagnosisTextBox.Size = new System.Drawing.Size(486, 20);
             this.diagnosisTextBox.TabIndex = 8;
@@ -155,7 +158,6 @@
             // symptomsTextBox
             // 
             this.symptomsTextBox.Location = new System.Drawing.Point(109, 110);
-            this.symptomsTextBox.MaxLength = 255;
             this.symptomsTextBox.Multiline = true;
             this.symptomsTextBox.Name = "symptomsTextBox";
             this.symptomsTextBox.Size = new System.Drawing.Size(486, 56);
@@ -173,7 +175,6 @@
             // recommendationsTextBox
             // 
             this.recommendationsTextBox.Location = new System.Drawing.Point(109, 188);
-            this.recommendationsTextBox.MaxLength = 255;
             this.recommendationsTextBox.Multiline = true;
             this.recommendationsTextBox.Name = "recommendationsTextBox";
             this.recommendationsTextBox.Size = new System.Drawing.Size(486, 60);
@@ -210,6 +211,24 @@
             this.medicineDataGridView.Size = new System.Drawing.Size(776, 211);
             this.medicineDataGridView.TabIndex = 16;
             // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Название";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Description";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Описание";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // medicineBindingSource
+            // 
+            this.medicineBindingSource.DataSource = typeof(DesktopDoctor.Medicine);
+            // 
             // addMedicineButton
             // 
             this.addMedicineButton.Location = new System.Drawing.Point(19, 255);
@@ -237,32 +256,15 @@
             this.saveRecomendationsButton.Name = "saveRecomendationsButton";
             this.saveRecomendationsButton.Size = new System.Drawing.Size(179, 23);
             this.saveRecomendationsButton.TabIndex = 19;
-            this.saveRecomendationsButton.Text = "Сохранить рекомендации";
+            this.saveRecomendationsButton.Text = "Экспортировать рекомендации";
             this.saveRecomendationsButton.UseVisualStyleBackColor = true;
             this.saveRecomendationsButton.Click += new System.EventHandler(this.SaveRecomendationsButton_Click);
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Название";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Description";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Описание";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // medicineBindingSource
-            // 
-            this.medicineBindingSource.DataSource = typeof(DesktopDoctor.Medicine);
             // 
             // ReceptionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(800, 536);
             this.ControlBox = false;
             this.Controls.Add(this.saveRecomendationsButton);

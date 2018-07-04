@@ -37,17 +37,17 @@
             this.snilsLabel = new System.Windows.Forms.Label();
             this.policyLabel = new System.Windows.Forms.Label();
             this.receptionDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.goBackButton = new System.Windows.Forms.Button();
-            this.editButton = new System.Windows.Forms.Button();
-            this.startReceptionButton = new System.Windows.Forms.Button();
-            this.saveHistoryButton = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Employee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.receptionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goBackButton = new System.Windows.Forms.Button();
+            this.editButton = new System.Windows.Forms.Button();
+            this.startReceptionButton = new System.Windows.Forms.Button();
+            this.saveHistoryButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.receptionDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.receptionBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -142,6 +142,45 @@
             this.receptionDataGridView.TabIndex = 8;
             this.receptionDataGridView.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.ReceptionDataGridView_CellMouseDoubleClick);
             // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Date";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Дата";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // Employee
+            // 
+            this.Employee.DataPropertyName = "Employee";
+            this.Employee.HeaderText = "Врач";
+            this.Employee.Name = "Employee";
+            this.Employee.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Diagnosis";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Диагноз";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Temperature";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Температура";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Pressure";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Давление";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // receptionBindingSource
+            // 
+            this.receptionBindingSource.DataSource = typeof(DesktopDoctor.Reception);
+            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "Employee";
@@ -183,55 +222,17 @@
             // 
             this.saveHistoryButton.Location = new System.Drawing.Point(291, 203);
             this.saveHistoryButton.Name = "saveHistoryButton";
-            this.saveHistoryButton.Size = new System.Drawing.Size(165, 23);
+            this.saveHistoryButton.Size = new System.Drawing.Size(207, 23);
             this.saveHistoryButton.TabIndex = 12;
-            this.saveHistoryButton.Text = "Сохранить историю болезней";
+            this.saveHistoryButton.Text = "Экспортировать историю болезней";
             this.saveHistoryButton.UseVisualStyleBackColor = true;
             this.saveHistoryButton.Click += new System.EventHandler(this.SaveHistoryButton_Click);
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Date";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Дата";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // Employee
-            // 
-            this.Employee.DataPropertyName = "Employee";
-            this.Employee.HeaderText = "Врач";
-            this.Employee.Name = "Employee";
-            this.Employee.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "Diagnosis";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Диагноз";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Temperature";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Температура";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Pressure";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Давление";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // receptionBindingSource
-            // 
-            this.receptionBindingSource.DataSource = typeof(DesktopDoctor.Reception);
             // 
             // PatientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(800, 555);
             this.ControlBox = false;
             this.Controls.Add(this.saveHistoryButton);
