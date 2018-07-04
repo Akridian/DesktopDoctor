@@ -51,8 +51,10 @@ namespace DesktopDoctor
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            Save();
-            (MdiParent as MainForm).GoToPatientForm(reception.Patient);
+            if (Save())
+            {
+                (MdiParent as MainForm).GoToPatientForm(reception.Patient);
+            }
         }
 
         private void AddMedicineButton_Click(object sender, EventArgs e)
@@ -77,15 +79,29 @@ namespace DesktopDoctor
             }
         }
 
-        private void Save()
+        private bool Save()
         {
-            if (Double.TryParse(temperatureTextBox.Text.ToString(), out double temperature))
+            if (diagnosisTextBox.Text.Length == 0)
             {
-                reception.Temperature = temperature;
+                MessageBox.Show("Необходимо указать диагноз");
+                return false;
+            }
+            if (temperatureTextBox.Text.Length == 0)
+            {
+                reception.Temperature = null;
             }
             else
             {
-                reception.Temperature = null;
+                temperatureTextBox.Text = temperatureTextBox.Text.ToString().Replace('.', ',');
+                if (Double.TryParse(temperatureTextBox.Text.ToString(), out double temperature) && temperature > 30.0 && temperature < 40.0)
+                {
+                    reception.Temperature = temperature;
+                }
+                else
+                {
+                    MessageBox.Show("Температура указана некорректно.");
+                    return false;
+                }
             }
             reception.Pressure = pressureTextBox.Text.ToString();
             reception.Diagnosis = diagnosisTextBox.Text.ToString();
@@ -127,11 +143,15 @@ namespace DesktopDoctor
                     (MdiParent as MainForm).db.SaveChanges();
                 }
             }
+            return true;
         }
 
         private void SaveRecomendationsButton_Click(object sender, EventArgs e)
         {
-            Save();
+            if (!Save())
+            {
+                return;
+            }
             SaveFileDialog saveFileDialog = new SaveFileDialog
             {
                 Filter = "Word Document|*.docx",
