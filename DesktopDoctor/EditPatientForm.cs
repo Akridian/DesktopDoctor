@@ -28,6 +28,10 @@ namespace DesktopDoctor
             birthDateTimePicker.Value = patient.Birthdate;
             snilsTextBox.Text = patient.SNILS;
             policyTextBox.Text = patient.Policy;
+            if (patient.Id != 0 && !patient.Gender)
+            {
+                femaleRadioButton.Checked = true;
+            }
             this.patient = patient;
         }
 
