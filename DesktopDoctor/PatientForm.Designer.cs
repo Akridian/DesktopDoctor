@@ -37,17 +37,17 @@
             this.snilsLabel = new System.Windows.Forms.Label();
             this.policyLabel = new System.Windows.Forms.Label();
             this.receptionDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goBackButton = new System.Windows.Forms.Button();
+            this.editButton = new System.Windows.Forms.Button();
+            this.startReceptionButton = new System.Windows.Forms.Button();
+            this.saveHistoryButton = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Employee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.receptionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.goBackButton = new System.Windows.Forms.Button();
-            this.editButton = new System.Windows.Forms.Button();
-            this.startReceptionButton = new System.Windows.Forms.Button();
-            this.saveHistoryButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.receptionDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.receptionBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -119,6 +119,9 @@
             // 
             this.receptionDataGridView.AllowUserToAddRows = false;
             this.receptionDataGridView.AllowUserToDeleteRows = false;
+            this.receptionDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.receptionDataGridView.AutoGenerateColumns = false;
             this.receptionDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.receptionDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -129,16 +132,62 @@
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6});
             this.receptionDataGridView.DataSource = this.receptionBindingSource;
-            this.receptionDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.receptionDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.receptionDataGridView.Location = new System.Drawing.Point(0, 385);
+            this.receptionDataGridView.Location = new System.Drawing.Point(0, 240);
             this.receptionDataGridView.MultiSelect = false;
             this.receptionDataGridView.Name = "receptionDataGridView";
             this.receptionDataGridView.ReadOnly = true;
             this.receptionDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.receptionDataGridView.Size = new System.Drawing.Size(800, 170);
+            this.receptionDataGridView.Size = new System.Drawing.Size(800, 315);
             this.receptionDataGridView.TabIndex = 8;
             this.receptionDataGridView.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.ReceptionDataGridView_CellMouseDoubleClick);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Employee";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Employee";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // goBackButton
+            // 
+            this.goBackButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.goBackButton.Location = new System.Drawing.Point(713, 17);
+            this.goBackButton.Name = "goBackButton";
+            this.goBackButton.Size = new System.Drawing.Size(75, 23);
+            this.goBackButton.TabIndex = 9;
+            this.goBackButton.Text = "Назад";
+            this.goBackButton.UseVisualStyleBackColor = true;
+            this.goBackButton.Click += new System.EventHandler(this.GoBackButton_Click);
+            // 
+            // editButton
+            // 
+            this.editButton.Location = new System.Drawing.Point(34, 203);
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(75, 23);
+            this.editButton.TabIndex = 10;
+            this.editButton.Text = "Изменить";
+            this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Click += new System.EventHandler(this.EditButton_Click);
+            // 
+            // startReceptionButton
+            // 
+            this.startReceptionButton.Location = new System.Drawing.Point(152, 203);
+            this.startReceptionButton.Name = "startReceptionButton";
+            this.startReceptionButton.Size = new System.Drawing.Size(95, 23);
+            this.startReceptionButton.TabIndex = 11;
+            this.startReceptionButton.Text = "Начать прием";
+            this.startReceptionButton.UseVisualStyleBackColor = true;
+            this.startReceptionButton.Click += new System.EventHandler(this.StartReceptionButton_Click);
+            // 
+            // saveHistoryButton
+            // 
+            this.saveHistoryButton.Location = new System.Drawing.Point(291, 203);
+            this.saveHistoryButton.Name = "saveHistoryButton";
+            this.saveHistoryButton.Size = new System.Drawing.Size(165, 23);
+            this.saveHistoryButton.TabIndex = 12;
+            this.saveHistoryButton.Text = "Сохранить историю болезней";
+            this.saveHistoryButton.UseVisualStyleBackColor = true;
+            this.saveHistoryButton.Click += new System.EventHandler(this.SaveHistoryButton_Click);
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -178,52 +227,6 @@
             // receptionBindingSource
             // 
             this.receptionBindingSource.DataSource = typeof(DesktopDoctor.Reception);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Employee";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Employee";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // goBackButton
-            // 
-            this.goBackButton.Location = new System.Drawing.Point(655, 22);
-            this.goBackButton.Name = "goBackButton";
-            this.goBackButton.Size = new System.Drawing.Size(75, 23);
-            this.goBackButton.TabIndex = 9;
-            this.goBackButton.Text = "Назад";
-            this.goBackButton.UseVisualStyleBackColor = true;
-            this.goBackButton.Click += new System.EventHandler(this.GoBackButton_Click);
-            // 
-            // editButton
-            // 
-            this.editButton.Location = new System.Drawing.Point(34, 203);
-            this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(75, 23);
-            this.editButton.TabIndex = 10;
-            this.editButton.Text = "Изменить";
-            this.editButton.UseVisualStyleBackColor = true;
-            this.editButton.Click += new System.EventHandler(this.EditButton_Click);
-            // 
-            // startReceptionButton
-            // 
-            this.startReceptionButton.Location = new System.Drawing.Point(152, 203);
-            this.startReceptionButton.Name = "startReceptionButton";
-            this.startReceptionButton.Size = new System.Drawing.Size(95, 23);
-            this.startReceptionButton.TabIndex = 11;
-            this.startReceptionButton.Text = "Начать прием";
-            this.startReceptionButton.UseVisualStyleBackColor = true;
-            this.startReceptionButton.Click += new System.EventHandler(this.StartReceptionButton_Click);
-            // 
-            // saveHistoryButton
-            // 
-            this.saveHistoryButton.Location = new System.Drawing.Point(291, 203);
-            this.saveHistoryButton.Name = "saveHistoryButton";
-            this.saveHistoryButton.Size = new System.Drawing.Size(165, 23);
-            this.saveHistoryButton.TabIndex = 12;
-            this.saveHistoryButton.Text = "Сохранить историю болезней";
-            this.saveHistoryButton.UseVisualStyleBackColor = true;
-            this.saveHistoryButton.Click += new System.EventHandler(this.SaveHistoryButton_Click);
             // 
             // PatientForm
             // 
