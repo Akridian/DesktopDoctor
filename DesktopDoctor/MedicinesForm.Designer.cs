@@ -46,6 +46,7 @@
             // 
             // toDoctorsButton
             // 
+            this.toDoctorsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.toDoctorsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.toDoctorsButton.Location = new System.Drawing.Point(672, 12);
             this.toDoctorsButton.Name = "toDoctorsButton";
@@ -128,13 +129,13 @@
             // searchNameMedicineTextBox
             // 
             this.searchNameMedicineTextBox.Location = new System.Drawing.Point(89, 54);
+            this.searchNameMedicineTextBox.MaxLength = 50;
             this.searchNameMedicineTextBox.Name = "searchNameMedicineTextBox";
             this.searchNameMedicineTextBox.Size = new System.Drawing.Size(320, 20);
             this.searchNameMedicineTextBox.TabIndex = 6;
             // 
             // searchDescriptionMedicineTextBox
             // 
-            this.searchDescriptionMedicineTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.searchDescriptionMedicineTextBox.Location = new System.Drawing.Point(426, 54);
             this.searchDescriptionMedicineTextBox.Name = "searchDescriptionMedicineTextBox";
             this.searchDescriptionMedicineTextBox.Size = new System.Drawing.Size(362, 20);
@@ -154,6 +155,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
             this.Controls.Add(this.searchButton);

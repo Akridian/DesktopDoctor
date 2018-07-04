@@ -35,11 +35,6 @@
             this.policyTextBox = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
             this.patientDataGridView = new System.Windows.Forms.DataGridView();
-            this.addPatientButton = new System.Windows.Forms.Button();
-            this.fenameLabel = new System.Windows.Forms.Label();
-            this.nameLabel = new System.Windows.Forms.Label();
-            this.patronymicLabel = new System.Windows.Forms.Label();
-            this.policyLabel = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,6 +42,11 @@
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.addPatientButton = new System.Windows.Forms.Button();
+            this.fenameLabel = new System.Windows.Forms.Label();
+            this.nameLabel = new System.Windows.Forms.Label();
+            this.patronymicLabel = new System.Windows.Forms.Label();
+            this.policyLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.patientDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -54,6 +54,7 @@
             // fenameTextBox
             // 
             this.fenameTextBox.Location = new System.Drawing.Point(95, 25);
+            this.fenameTextBox.MaxLength = 50;
             this.fenameTextBox.Name = "fenameTextBox";
             this.fenameTextBox.Size = new System.Drawing.Size(100, 20);
             this.fenameTextBox.TabIndex = 0;
@@ -61,6 +62,7 @@
             // nameTextBox
             // 
             this.nameTextBox.Location = new System.Drawing.Point(95, 71);
+            this.nameTextBox.MaxLength = 50;
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(100, 20);
             this.nameTextBox.TabIndex = 1;
@@ -68,6 +70,7 @@
             // patronymicTextBox
             // 
             this.patronymicTextBox.Location = new System.Drawing.Point(95, 117);
+            this.patronymicTextBox.MaxLength = 50;
             this.patronymicTextBox.Name = "patronymicTextBox";
             this.patronymicTextBox.Size = new System.Drawing.Size(100, 20);
             this.patronymicTextBox.TabIndex = 2;
@@ -75,6 +78,7 @@
             // policyTextBox
             // 
             this.policyTextBox.Location = new System.Drawing.Point(95, 161);
+            this.policyTextBox.MaxLength = 50;
             this.policyTextBox.Name = "policyTextBox";
             this.policyTextBox.Size = new System.Drawing.Size(100, 20);
             this.policyTextBox.TabIndex = 3;
@@ -115,52 +119,6 @@
             this.patientDataGridView.Size = new System.Drawing.Size(800, 197);
             this.patientDataGridView.TabIndex = 6;
             this.patientDataGridView.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.PatientDataGridView_CellMouseDoubleClick);
-            // 
-            // addPatientButton
-            // 
-            this.addPatientButton.Location = new System.Drawing.Point(200, 198);
-            this.addPatientButton.Name = "addPatientButton";
-            this.addPatientButton.Size = new System.Drawing.Size(129, 23);
-            this.addPatientButton.TabIndex = 7;
-            this.addPatientButton.Text = "Добавить пациента";
-            this.addPatientButton.UseVisualStyleBackColor = true;
-            this.addPatientButton.Click += new System.EventHandler(this.AddPatientButton_Click);
-            // 
-            // fenameLabel
-            // 
-            this.fenameLabel.AutoSize = true;
-            this.fenameLabel.Location = new System.Drawing.Point(12, 28);
-            this.fenameLabel.Name = "fenameLabel";
-            this.fenameLabel.Size = new System.Drawing.Size(56, 13);
-            this.fenameLabel.TabIndex = 8;
-            this.fenameLabel.Text = "Фамилия";
-            // 
-            // nameLabel
-            // 
-            this.nameLabel.AutoSize = true;
-            this.nameLabel.Location = new System.Drawing.Point(12, 74);
-            this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(29, 13);
-            this.nameLabel.TabIndex = 9;
-            this.nameLabel.Text = "Имя";
-            // 
-            // patronymicLabel
-            // 
-            this.patronymicLabel.AutoSize = true;
-            this.patronymicLabel.Location = new System.Drawing.Point(12, 120);
-            this.patronymicLabel.Name = "patronymicLabel";
-            this.patronymicLabel.Size = new System.Drawing.Size(54, 13);
-            this.patronymicLabel.TabIndex = 10;
-            this.patronymicLabel.Text = "Отчество";
-            // 
-            // policyLabel
-            // 
-            this.policyLabel.AutoSize = true;
-            this.policyLabel.Location = new System.Drawing.Point(12, 164);
-            this.policyLabel.Name = "policyLabel";
-            this.policyLabel.Size = new System.Drawing.Size(80, 13);
-            this.policyLabel.TabIndex = 11;
-            this.policyLabel.Text = "Номер полиса";
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -208,10 +166,57 @@
             // 
             this.patientBindingSource.DataSource = typeof(DesktopDoctor.Patient);
             // 
+            // addPatientButton
+            // 
+            this.addPatientButton.Location = new System.Drawing.Point(200, 198);
+            this.addPatientButton.Name = "addPatientButton";
+            this.addPatientButton.Size = new System.Drawing.Size(129, 23);
+            this.addPatientButton.TabIndex = 7;
+            this.addPatientButton.Text = "Добавить пациента";
+            this.addPatientButton.UseVisualStyleBackColor = true;
+            this.addPatientButton.Click += new System.EventHandler(this.AddPatientButton_Click);
+            // 
+            // fenameLabel
+            // 
+            this.fenameLabel.AutoSize = true;
+            this.fenameLabel.Location = new System.Drawing.Point(12, 28);
+            this.fenameLabel.Name = "fenameLabel";
+            this.fenameLabel.Size = new System.Drawing.Size(56, 13);
+            this.fenameLabel.TabIndex = 8;
+            this.fenameLabel.Text = "Фамилия";
+            // 
+            // nameLabel
+            // 
+            this.nameLabel.AutoSize = true;
+            this.nameLabel.Location = new System.Drawing.Point(12, 74);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(29, 13);
+            this.nameLabel.TabIndex = 9;
+            this.nameLabel.Text = "Имя";
+            // 
+            // patronymicLabel
+            // 
+            this.patronymicLabel.AutoSize = true;
+            this.patronymicLabel.Location = new System.Drawing.Point(12, 120);
+            this.patronymicLabel.Name = "patronymicLabel";
+            this.patronymicLabel.Size = new System.Drawing.Size(54, 13);
+            this.patronymicLabel.TabIndex = 10;
+            this.patronymicLabel.Text = "Отчество";
+            // 
+            // policyLabel
+            // 
+            this.policyLabel.AutoSize = true;
+            this.policyLabel.Location = new System.Drawing.Point(12, 164);
+            this.policyLabel.Name = "policyLabel";
+            this.policyLabel.Size = new System.Drawing.Size(80, 13);
+            this.policyLabel.TabIndex = 11;
+            this.policyLabel.Text = "Номер полиса";
+            // 
             // PatientsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;

@@ -51,6 +51,7 @@
             // fenameTextBox
             // 
             this.fenameTextBox.Location = new System.Drawing.Point(100, 26);
+            this.fenameTextBox.MaxLength = 50;
             this.fenameTextBox.Name = "fenameTextBox";
             this.fenameTextBox.Size = new System.Drawing.Size(100, 20);
             this.fenameTextBox.TabIndex = 0;
@@ -58,6 +59,7 @@
             // nameTextBox
             // 
             this.nameTextBox.Location = new System.Drawing.Point(100, 64);
+            this.nameTextBox.MaxLength = 50;
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(100, 20);
             this.nameTextBox.TabIndex = 1;
@@ -65,6 +67,7 @@
             // patronymicTextBox
             // 
             this.patronymicTextBox.Location = new System.Drawing.Point(100, 104);
+            this.patronymicTextBox.MaxLength = 50;
             this.patronymicTextBox.Name = "patronymicTextBox";
             this.patronymicTextBox.Size = new System.Drawing.Size(100, 20);
             this.patronymicTextBox.TabIndex = 2;
@@ -123,6 +126,7 @@
             // snilsTextBox
             // 
             this.snilsTextBox.Location = new System.Drawing.Point(100, 264);
+            this.snilsTextBox.MaxLength = 50;
             this.snilsTextBox.Name = "snilsTextBox";
             this.snilsTextBox.Size = new System.Drawing.Size(100, 20);
             this.snilsTextBox.TabIndex = 6;
@@ -130,6 +134,7 @@
             // policyTextBox
             // 
             this.policyTextBox.Location = new System.Drawing.Point(100, 300);
+            this.policyTextBox.MaxLength = 50;
             this.policyTextBox.Name = "policyTextBox";
             this.policyTextBox.Size = new System.Drawing.Size(100, 20);
             this.policyTextBox.TabIndex = 7;
@@ -202,6 +207,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
             this.Controls.Add(this.policyLabel);

@@ -38,11 +38,11 @@
             // 
             // addMedicineButton
             // 
-            this.addMedicineButton.Location = new System.Drawing.Point(425, 248);
+            this.addMedicineButton.Location = new System.Drawing.Point(413, 248);
             this.addMedicineButton.Name = "addMedicineButton";
-            this.addMedicineButton.Size = new System.Drawing.Size(75, 23);
+            this.addMedicineButton.Size = new System.Drawing.Size(87, 23);
             this.addMedicineButton.TabIndex = 0;
-            this.addMedicineButton.Text = "Добавить";
+            this.addMedicineButton.Text = "Сохранить";
             this.addMedicineButton.UseVisualStyleBackColor = true;
             this.addMedicineButton.Click += new System.EventHandler(this.AddMedicineButton_Click);
             // 
@@ -58,6 +58,7 @@
             // medicineNameTextBox
             // 
             this.medicineNameTextBox.Location = new System.Drawing.Point(274, 163);
+            this.medicineNameTextBox.MaxLength = 50;
             this.medicineNameTextBox.Name = "medicineNameTextBox";
             this.medicineNameTextBox.Size = new System.Drawing.Size(310, 20);
             this.medicineNameTextBox.TabIndex = 2;
@@ -92,6 +93,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
             this.Controls.Add(this.cancelButton);

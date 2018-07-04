@@ -30,16 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             this.employeesDataGridView = new System.Windows.Forms.DataGridView();
-            this.employeesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.addNewEmployeeButton = new System.Windows.Forms.Button();
-            this.changeEmployeeButton = new System.Windows.Forms.Button();
-            this.removeEmployeeButton = new System.Windows.Forms.Button();
-            this.ComeBackButton = new System.Windows.Forms.Button();
             this.loginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fename = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Name1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Patronymic = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.securityLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.addNewEmployeeButton = new System.Windows.Forms.Button();
+            this.changeEmployeeButton = new System.Windows.Forms.Button();
+            this.removeEmployeeButton = new System.Windows.Forms.Button();
+            this.ComeBackButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.employeesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -62,12 +62,48 @@
             this.securityLevelDataGridViewTextBoxColumn});
             this.employeesDataGridView.DataSource = this.employeesBindingSource;
             this.employeesDataGridView.Location = new System.Drawing.Point(12, 57);
+            this.employeesDataGridView.MinimumSize = new System.Drawing.Size(0, 40);
             this.employeesDataGridView.MultiSelect = false;
             this.employeesDataGridView.Name = "employeesDataGridView";
             this.employeesDataGridView.ReadOnly = true;
             this.employeesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.employeesDataGridView.Size = new System.Drawing.Size(776, 366);
             this.employeesDataGridView.TabIndex = 0;
+            // 
+            // loginDataGridViewTextBoxColumn
+            // 
+            this.loginDataGridViewTextBoxColumn.DataPropertyName = "Login";
+            this.loginDataGridViewTextBoxColumn.HeaderText = "Логин";
+            this.loginDataGridViewTextBoxColumn.Name = "loginDataGridViewTextBoxColumn";
+            this.loginDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Fename
+            // 
+            this.Fename.DataPropertyName = "Fename";
+            this.Fename.HeaderText = "Фамилия";
+            this.Fename.Name = "Fename";
+            this.Fename.ReadOnly = true;
+            // 
+            // Name1
+            // 
+            this.Name1.DataPropertyName = "Name";
+            this.Name1.HeaderText = "Имя";
+            this.Name1.Name = "Name1";
+            this.Name1.ReadOnly = true;
+            // 
+            // Patronymic
+            // 
+            this.Patronymic.DataPropertyName = "Patronymic";
+            this.Patronymic.HeaderText = "Отчество";
+            this.Patronymic.Name = "Patronymic";
+            this.Patronymic.ReadOnly = true;
+            // 
+            // securityLevelDataGridViewTextBoxColumn
+            // 
+            this.securityLevelDataGridViewTextBoxColumn.DataPropertyName = "SecurityLevel";
+            this.securityLevelDataGridViewTextBoxColumn.HeaderText = "Уровень доступа";
+            this.securityLevelDataGridViewTextBoxColumn.Name = "securityLevelDataGridViewTextBoxColumn";
+            this.securityLevelDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // employeesBindingSource
             // 
@@ -105,6 +141,7 @@
             // 
             // ComeBackButton
             // 
+            this.ComeBackButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ComeBackButton.Location = new System.Drawing.Point(713, 28);
             this.ComeBackButton.Name = "ComeBackButton";
             this.ComeBackButton.Size = new System.Drawing.Size(75, 23);
@@ -113,45 +150,11 @@
             this.ComeBackButton.UseVisualStyleBackColor = true;
             this.ComeBackButton.Click += new System.EventHandler(this.ComeBackButton_Click);
             // 
-            // loginDataGridViewTextBoxColumn
-            // 
-            this.loginDataGridViewTextBoxColumn.DataPropertyName = "Login";
-            this.loginDataGridViewTextBoxColumn.HeaderText = "Логин";
-            this.loginDataGridViewTextBoxColumn.Name = "loginDataGridViewTextBoxColumn";
-            this.loginDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // Fename
-            // 
-            this.Fename.DataPropertyName = "Fename";
-            this.Fename.HeaderText = "Фамилия";
-            this.Fename.Name = "Fename";
-            this.Fename.ReadOnly = true;
-            // 
-            // Name1
-            // 
-            this.Name1.DataPropertyName = "Name";
-            this.Name1.HeaderText = "Имя";
-            this.Name1.Name = "Name1";
-            this.Name1.ReadOnly = true;
-            // 
-            // Patronymic
-            // 
-            this.Patronymic.DataPropertyName = "Patronymic";
-            this.Patronymic.HeaderText = "Отчество";
-            this.Patronymic.Name = "Patronymic";
-            this.Patronymic.ReadOnly = true;
-            // 
-            // securityLevelDataGridViewTextBoxColumn
-            // 
-            this.securityLevelDataGridViewTextBoxColumn.DataPropertyName = "SecurityLevel";
-            this.securityLevelDataGridViewTextBoxColumn.HeaderText = "Уровень доступа";
-            this.securityLevelDataGridViewTextBoxColumn.Name = "securityLevelDataGridViewTextBoxColumn";
-            this.securityLevelDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // EmployeesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(800, 442);
             this.ControlBox = false;
             this.Controls.Add(this.ComeBackButton);

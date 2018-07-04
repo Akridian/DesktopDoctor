@@ -19,14 +19,6 @@ namespace DesktopDoctor
             InitializeComponent();
             MdiParent = mainForm;
             this.medicine = medicine;
-            if(medicine.Id != 0)
-            {
-                addMedicineButton.Text = "Изменить";
-            }
-            else
-            {
-                addMedicineButton.Text = "Добавить";
-            }
         }
 
         private void CancelButton_Click(object sender, EventArgs e)

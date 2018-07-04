@@ -83,7 +83,7 @@ namespace DesktopDoctor
         {
             if (diagnosisTextBox.Text.Length == 0)
             {
-                MessageBox.Show("Необходимо указать диагноз");
+                MessageBox.Show("Необходимо указать диагноз.");
                 return false;
             }
             if (temperatureTextBox.Text.Length == 0)
