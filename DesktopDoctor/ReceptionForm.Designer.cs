@@ -45,12 +45,12 @@
             this.recommendationsTextBox = new System.Windows.Forms.TextBox();
             this.recommendationsLabel = new System.Windows.Forms.Label();
             this.medicineDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.medicineBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.addMedicineButton = new System.Windows.Forms.Button();
             this.removeMedicineButton = new System.Windows.Forms.Button();
             this.saveRecomendationsButton = new System.Windows.Forms.Button();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.medicineBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.medicineDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicineBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -132,7 +132,8 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(19, 390);
+            this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.saveButton.Location = new System.Drawing.Point(12, 501);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 9;
@@ -142,7 +143,8 @@
             // 
             // backButton
             // 
-            this.backButton.Location = new System.Drawing.Point(126, 390);
+            this.backButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.backButton.Location = new System.Drawing.Point(119, 501);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(75, 23);
             this.backButton.TabIndex = 10;
@@ -190,6 +192,9 @@
             // 
             this.medicineDataGridView.AllowUserToAddRows = false;
             this.medicineDataGridView.AllowUserToDeleteRows = false;
+            this.medicineDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.medicineDataGridView.AutoGenerateColumns = false;
             this.medicineDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.medicineDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -202,26 +207,8 @@
             this.medicineDataGridView.Name = "medicineDataGridView";
             this.medicineDataGridView.ReadOnly = true;
             this.medicineDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.medicineDataGridView.Size = new System.Drawing.Size(776, 82);
+            this.medicineDataGridView.Size = new System.Drawing.Size(776, 211);
             this.medicineDataGridView.TabIndex = 16;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Название";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Description";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Описание";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // medicineBindingSource
-            // 
-            this.medicineBindingSource.DataSource = typeof(DesktopDoctor.Medicine);
             // 
             // addMedicineButton
             // 
@@ -245,13 +232,32 @@
             // 
             // saveRecomendationsButton
             // 
-            this.saveRecomendationsButton.Location = new System.Drawing.Point(233, 390);
+            this.saveRecomendationsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.saveRecomendationsButton.Location = new System.Drawing.Point(226, 501);
             this.saveRecomendationsButton.Name = "saveRecomendationsButton";
             this.saveRecomendationsButton.Size = new System.Drawing.Size(179, 23);
             this.saveRecomendationsButton.TabIndex = 19;
             this.saveRecomendationsButton.Text = "Сохранить рекомендации";
             this.saveRecomendationsButton.UseVisualStyleBackColor = true;
             this.saveRecomendationsButton.Click += new System.EventHandler(this.SaveRecomendationsButton_Click);
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Название";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Description";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Описание";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // medicineBindingSource
+            // 
+            this.medicineBindingSource.DataSource = typeof(DesktopDoctor.Medicine);
             // 
             // ReceptionForm
             // 

@@ -35,7 +35,6 @@
             this.policyTextBox = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
             this.patientDataGridView = new System.Windows.Forms.DataGridView();
-            this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.addPatientButton = new System.Windows.Forms.Button();
             this.fenameLabel = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
@@ -47,6 +46,7 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.patientDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -93,6 +93,9 @@
             // 
             this.patientDataGridView.AllowUserToAddRows = false;
             this.patientDataGridView.AllowUserToDeleteRows = false;
+            this.patientDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.patientDataGridView.AutoGenerateColumns = false;
             this.patientDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.patientDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -104,19 +107,14 @@
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7});
             this.patientDataGridView.DataSource = this.patientBindingSource;
-            this.patientDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.patientDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.patientDataGridView.Location = new System.Drawing.Point(0, 270);
+            this.patientDataGridView.Location = new System.Drawing.Point(0, 253);
             this.patientDataGridView.Name = "patientDataGridView";
             this.patientDataGridView.ReadOnly = true;
             this.patientDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.patientDataGridView.Size = new System.Drawing.Size(800, 180);
+            this.patientDataGridView.Size = new System.Drawing.Size(800, 197);
             this.patientDataGridView.TabIndex = 6;
             this.patientDataGridView.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.PatientDataGridView_CellMouseDoubleClick);
-            // 
-            // patientBindingSource
-            // 
-            this.patientBindingSource.DataSource = typeof(DesktopDoctor.Patient);
             // 
             // addPatientButton
             // 
@@ -205,6 +203,10 @@
             this.dataGridViewTextBoxColumn7.HeaderText = "Номер полиса";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // patientBindingSource
+            // 
+            this.patientBindingSource.DataSource = typeof(DesktopDoctor.Patient);
             // 
             // PatientsForm
             // 
