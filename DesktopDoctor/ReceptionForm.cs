@@ -199,7 +199,7 @@ namespace DesktopDoctor
                                     }
                                 }
                             }));
-                            body.Append(new Paragraph(new Run(new Text(reception.Recommendations.ToString()))));
+                            body.Append(new Paragraph(new Run(new Text(reception.Recommendations.ToString().Length == 0 ? "Нет" : reception.Recommendations.ToString()))));
                             if (reception.ReceptionsMedicines.Count > 0)
                             {
                                 body.Append(new Paragraph(new Run(new Text("Медикаменты:"))
