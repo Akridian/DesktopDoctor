@@ -67,8 +67,8 @@ namespace DesktopDoctor
                 FileName = "История болезней. Пациент " + patient.ToString()
             };
             saveFileDialog.ShowDialog();
-            try
-            {
+          //  try
+         //   {
                 if (saveFileDialog.FileName != "")
                 {
                     using (FileStream fileStream = saveFileDialog.OpenFile() as FileStream)
@@ -355,7 +355,7 @@ namespace DesktopDoctor
                                         }
                                     }
                                 }));
-                                body.Append(new Paragraph(new Run(new Text(reception.Symptoms.ToString().Length == 0 ? "Нет" : reception.Symptoms.ToString()))));
+                                body.Append(new Paragraph(new Run(new Text(reception.Symptoms == null ? "Нет" : reception.Symptoms.ToString().Length == 0 ? "Нет" : reception.Symptoms.ToString()))));
                                 body.Append(new Paragraph(new Run(new Text("Рекомендации:"))
                                 {
                                     RunProperties = new RunProperties()
@@ -366,7 +366,7 @@ namespace DesktopDoctor
                                         }
                                     }
                                 }));
-                                body.Append(new Paragraph(new Run(new Text(reception.Recommendations.ToString().Length == 0 ? "Нет" : reception.Recommendations.ToString()))));
+                                body.Append(new Paragraph(new Run(new Text(reception.Recommendations == null ? "Нет" : reception.Recommendations.ToString().Length == 0 ? "Нет" : reception.Recommendations.ToString()))));
                                 if (reception.ReceptionsMedicines.Count > 0)
                                 {
                                     body.Append(new Paragraph(new Run(new Text("Медикаменты:"))
@@ -502,11 +502,11 @@ namespace DesktopDoctor
                         fileStream.Close();
                     }
                 }
-            }
+           /* }
             catch (Exception exc)
             {
                 MessageBox.Show("Ошибка создания документа " + exc.Message);
-            }
+            }*/
         }
     }
 }
